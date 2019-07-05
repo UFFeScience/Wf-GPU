@@ -33,6 +33,7 @@ class Machine(object):
         self.storage = 0.0
         self.cpu_cost = 0.0
         self.gpu_cost = 0.0
+        self.has_gpu = True
 
 
 def main():
@@ -152,7 +153,12 @@ def main():
         new_machine.cpu_cost = cpu_cost
         new_machine.cpu_slowdown = cpu_slowdown
         new_machine.gpu_cost = gpu_cost
+        has_gpu = random.randint(1, 2)
         new_machine.gpu_slowdown = gpu_slowdown
+        if has_gpu == 1:
+            new_machine.has_gpu = False
+            new_machine.gpu_cost = 0.0
+            new_machine.gpu_slowdown = 0.0
         new_machine.id = id
         new_machine.storage = storage
         new_machine.name = name
