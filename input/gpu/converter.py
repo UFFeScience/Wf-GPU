@@ -32,7 +32,6 @@ class Machine(object):
         self.bandwidth = 0
         self.storage = 0.0
         self.cpu_cost = 0.0
-        self.gpu_cost = 0.0
         self.has_gpu = True
 
 
@@ -147,7 +146,7 @@ def main():
         storage = float(split_line[3]) * 1024.0
         bandwidth = float(split_line[4])
         cpu_cost = float(split_line[5])
-        gpu_cost = float("{0:.2f}".format(random.uniform(float(cpu_cost) * 2.0, float(cpu_cost) * 10.0)))
+        gpu_cost = float("{0:.2f}".format(random.uniform(float(cpu_cost) * 8.0, float(cpu_cost) * 15.0)))
         new_machine = Machine()
         new_machine.bandwidth = bandwidth
         new_machine.cpu_cost = cpu_cost
@@ -156,8 +155,10 @@ def main():
         has_gpu = random.randint(1, 2)
         new_machine.gpu_slowdown = gpu_slowdown
         if has_gpu == 1:
+            new_machine.has_gpu = True
+            new_machine.cpu_cost = gpu_cost
+        else:
             new_machine.has_gpu = False
-            new_machine.gpu_cost = 0.0
             new_machine.gpu_slowdown = 0.0
         new_machine.id = id
         new_machine.storage = storage
@@ -203,7 +204,7 @@ def main():
             file_writer.write("{} {} 0".format(fileObj.id, fileObj.size))
         file_writer.write("\n")
 
-    for i in range(0, 5):
+    for i in range(0, 4):
         if i == 0:
             for vm in vm_dict:
                 vmObj = vm_dict[vm]

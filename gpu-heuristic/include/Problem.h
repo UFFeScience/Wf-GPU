@@ -90,13 +90,14 @@ class Machine{
 public:
 	string name;
 	int id;
-	double cpu_slowdown, gpu_slowdown, storage, gpu_cost, cpu_cost;
+	double cpu_slowdown, gpu_slowdown, storage, usage_cost;
 	vector<vector<double>> bandwidth;
 	vector<Job*> timelineJobs;
 	vector<double> timelineStartTime;
 	vector<double> timelineFinishTime;
 	double makespam = 0.0;
 	double cost = 0.0;
+	bool hasGpu;
 
 	double calculateLocalspam(){
 		if(timelineFinishTime.size() == 0){
@@ -110,11 +111,11 @@ public:
 	double calculateCost(){
 		this->cost = 0.0;
 		for(int i = 0; i < timelineJobs.size(); i++){
-			if(timelineJobs[i]->on_gpu) {
-				this->cost += (timelineJobs[i]->base_time_gpu * this->gpu_slowdown) * gpu_cost;
+			if(hasGpu) {
+				this->cost += (timelineJobs[i]->base_time_gpu * this->gpu_slowdown) * usage_cost;
 			}
 			else {
-				this->cost += (timelineJobs[i]->base_time_cpu * this->cpu_slowdown) * cpu_cost;
+				this->cost += (timelineJobs[i]->base_time_cpu * this->cpu_slowdown) * usage_cost;
 			}
 		}
 		return this->cost;
@@ -143,7 +144,8 @@ public:
 		return false;
 	}
 
-	bool pushJob(Job * job, int write_vm_id, double minSpam, bool GPU){
+	// bool pushJob(Job * job, int write_vm_id, double minSpam, bool GPU){
+	bool pushJob(Job * job, int write_vm_id, double minSpam){
 		if(write_vm_id < 0){
 			cout << "123123123123" << endl;
 			cin.get();
@@ -231,13 +233,20 @@ public:
 
 		// cout << "12" << endl;
 		double processtime;
-		if(GPU){
-			job->on_gpu = true;
+		// if(GPU){
+		// 	job->on_gpu = true;
+		// 	processtime = ceil(job->base_time_gpu * this->gpu_slowdown);
+		// }
+		// else
+		// 	processtime = ceil(job->base_time_cpu * this->cpu_slowdown);
+		// // double processtime = ceil(job->base_time * this->slowdown);
+		if(this->hasGpu && job->gpu){
 			processtime = ceil(job->base_time_gpu * this->gpu_slowdown);
-		}
-		else
+			job->on_gpu = true;
+		} else if(!this->hasGpu || !job->gpu){
 			processtime = ceil(job->base_time_cpu * this->cpu_slowdown);
-		// double processtime = ceil(job->base_time * this->slowdown);
+			job->on_gpu = false;
+		}
 		double finishTime = readtime + writetime + processtime + startTime;
 
 		// if(job->name == "ID00002"){
@@ -387,8 +396,9 @@ public:
 			newMachine->gpu_slowdown = copiedMachine->gpu_slowdown;
 			newMachine->cpu_slowdown = copiedMachine->cpu_slowdown;
 			newMachine->storage = copiedMachine->storage;
-			newMachine->cpu_cost = copiedMachine->cpu_cost;
-			newMachine->gpu_cost = copiedMachine->gpu_cost;
+			newMachine->cost = copiedMachine->cost;
+			newMachine->usage_cost = copiedMachine->usage_cost;
+			newMachine->hasGpu = copiedMachine->hasGpu;
 			newMachine->bandwidth = copiedMachine->bandwidth;
 			newMachine->timelineStartTime = copiedMachine->timelineStartTime;
 			newMachine->timelineFinishTime = copiedMachine->timelineFinishTime;
@@ -434,18 +444,19 @@ public:
 			for(unsigned int i = 0; i < jobs.size(); i++){
 				if (jobs[i]->alocated)
 					continue;
-				// cout << "CL for JOBID: " << jobs[i]->id << endl;
+				cout << "CL for JOBID: " << jobs[i]->id << endl;
 				for(unsigned int m = 0; m < vms.size(); m++){
-					// cout << "M: " << m << endl;
+					cout << "M: " << m << endl;
 					for(unsigned int d = 0; d < vms.size(); d++){
-						// cout << "D: " << d << endl;
-						for(unsigned int gpu = 0; gpu < 2; gpu++){
-							// cout << "ALOW" << endl;
-							bool useGpu = false;
-							if(gpu == 0 ){ // Use GPU
-								useGpu = true;
-							}
-							if(useGpu && !jobs[i]->gpu)	continue;			
+						cout << "D: " << d << endl;
+						// for(unsigned int gpu = 0; gpu < 2; gpu++){
+						// 	// cout << "ALOW" << endl;
+						// 	bool useGpu = false;
+						// 	if(gpu == 0 ){ // Use GPU
+						// 		useGpu = true;
+						// 	}
+							// if(vms[m]->hasGpu) useGpu = true;
+							// if(useGpu && !jobs[i]->gpu && !vms[m]->hasGpu)	continue;
 							// cout << "Getting min spam" << endl;
 							double minSpam = getJobConflictMinSpam(jobs[i]);
 							// cout << "Got min spam" << endl;
@@ -453,8 +464,9 @@ public:
 							if(minSpam < 0) break;
 							// cin.get();
 							// cout << "vmssize: " << vms.size() << endl;
-							// cout << "Pushing job.." << endl;
-							bool pushed = vms[m]->pushJob(jobs[i], d, minSpam, useGpu);
+							cout << "Pushing job.." << endl;
+							// bool pushed = vms[m]->pushJob(jobs[i], d, minSpam, useGpu);
+							bool pushed = vms[m]->pushJob(jobs[i], d, minSpam);
 							// cout << "Pushed job.." << endl;
 							if(!pushed){
 								break;
@@ -463,6 +475,7 @@ public:
 							double insertionCost = calculateFO();
 
 							// cout << "JobID: " << jobs[i]->id << " Machine: " << m << " WriteTo: " << d << " GPU: " << useGpu << " cost: " << insertionCost << endl;
+							// cout << "JobID: " << jobs[i]->id << " Machine: " << m << " WriteTo: " << d << " cost: " << insertionCost << endl;
 							// cin.get();
 
 							if(CL.size() == 0){
@@ -470,7 +483,7 @@ public:
 								jobVmDestination.push_back(m);
 								cost.push_back(insertionCost);
 								outputVmDestination.push_back(d);
-								onGpu.push_back(useGpu);
+								// onGpu.push_back(useGpu);
 							} else{
 								bool inserted = false;
 								for(unsigned int j = 0; j < cost.size(); j++){
@@ -479,7 +492,7 @@ public:
 										jobVmDestination.insert(jobVmDestination.begin() + j, m);
 										CL.insert(CL.begin() + j, jobs[i]);
 										outputVmDestination.insert(outputVmDestination.begin() + j, d);
-										onGpu.insert(onGpu.begin() + j, useGpu);
+										// onGpu.insert(onGpu.begin() + j, useGpu);
 										inserted = true;
 										break;
 									}
@@ -489,14 +502,14 @@ public:
 									jobVmDestination.push_back(m);
 									CL.push_back(jobs[i]);
 									outputVmDestination.push_back(d);
-									onGpu.push_back(useGpu);
+									// onGpu.push_back(useGpu);
 								}
 							}
-							// cout << "tested!" << endl;
+							cout << "tested!" << endl;
 							vms[m]->popJob(jobs[i]->id);
 							// cout << "Spam After Removal: " << vms[m]->calculateLocalspam() << endl;
 							// cin.get();
-						}
+						// }
 					}
 					// cin.get();
 				}
@@ -526,7 +539,8 @@ public:
 			// cout << "Chosen Movement: " << chosenMovement << endl;
 			// cin.get();
 			// cout << "CLSIZE: " << CL.size() << endl;
-			bool moveDone = doMovement(jobVmDestination[chosenMovement], outputVmDestination[chosenMovement], CL[chosenMovement], onGpu[chosenMovement]);
+			// bool moveDone = doMovement(jobVmDestination[chosenMovement], outputVmDestination[chosenMovement], CL[chosenMovement], onGpu[chosenMovement]);
+			bool moveDone = doMovement(jobVmDestination[chosenMovement], outputVmDestination[chosenMovement], CL[chosenMovement], true);
 			if(moveDone){
 				// cout << "JobID: " << CL[chosenMovement]->id << " Was Inserted!" << endl;
 				totalJobs--;
@@ -566,13 +580,14 @@ public:
 		newAlloc->job = job;
 		newAlloc->vms = vms[vm];
 		newAlloc->writeTo = output;
-		newAlloc->GPU = GPU;
+		// newAlloc->GPU = GPU;
 		alloc.push_back(newAlloc);
 		if(job->name == "t500"){
 			cout << "JOB CAGADO! OUTPUT: "<< output << endl;
 			cin.get();
 		}
-		return vms[vm]->pushJob(job, output, getJobConflictMinSpam(job), GPU);
+		// return vms[vm]->pushJob(job, output, getJobConflictMinSpam(job), GPU);
+		return vms[vm]->pushJob(job, output, getJobConflictMinSpam(job));
 	}
 
 	void preSetStaticFile(Item * file, int vm_id){
@@ -582,9 +597,11 @@ public:
 	void print(){
 		cout << "VMs:" << endl;
 		for(unsigned int i = 0; i < vms.size(); i++){
-			cout << "ID: " << vms[i]->id << " Name:" << vms[i]->name << ": " ;
+			string gpu = "False";
+			if(vms[i]->hasGpu) gpu = "True";
+			cout << "ID: " << vms[i]->id << " Name:" << vms[i]->name << " hasGpu: " << gpu << ": " ;
 			for(unsigned int j = 0; j < vms[i]->timelineJobs.size(); j++){
-				string gpu = "False";
+				gpu = "False";
 				if(vms[i]->timelineJobs[j]->on_gpu) gpu = "True";
 				cout << vms[i]->timelineJobs[j]->name  << " onGPU: " << gpu << " ( " << vms[i]->timelineStartTime[j] << "," << vms[i]->timelineFinishTime[j] << " )" << " ";
 			}
@@ -607,8 +624,8 @@ public:
 	}
 
 	double calculateFO(){
-		// cout << "Makespam: " << this->calculateMakespam() << endl;
-		// cout << "Cost: " << this->calculateCost() << endl;
+		cout << "Makespam: " << this->calculateMakespam() << endl;
+		cout << "Cost: " << this->calculateCost() << endl;
 		// cout << "FO: " << this->ponderation*(this->calculateMakespam() / this->maxTime) + (1.0 - this->ponderation)*(this->calculateCost() / this->maxCost) << endl;
 		return this->ponderation*(this->calculateMakespam() / this->maxTime) + (1.0 - this->ponderation)*(this->calculateCost() / this->maxCost);
 	}
@@ -857,9 +874,6 @@ public:
 		getline(in_file, line);
 		boost::split(tokens, line, boost::is_any_of(" "));
 		machines.push_back(tokens);
-		getline(in_file, line);
-		boost::split(tokens, line, boost::is_any_of(" "));
-		machines.push_back(tokens);
 
 		// cout << "Finished reading Vms.." << endl;
 
@@ -884,12 +898,20 @@ public:
 			newVM->cpu_slowdown = stod(machines[0][m]);
 			if(newVM->cpu_slowdown > slowest_machine_cpu) slowest_machine_cpu = newVM->cpu_slowdown;
 			newVM->gpu_slowdown = stod(machines[1][m]);
+			if(newVM->gpu_slowdown == 0.0)
+				newVM->hasGpu = false;
+			else
+				newVM->hasGpu = true;
 			if(newVM->gpu_slowdown > slowest_machine_gpu) slowest_machine_gpu = newVM->gpu_slowdown;
 			newVM->storage = stod(machines[2][m]);
-			newVM->cpu_cost = stod(machines[3][m]);
-			if(newVM->cpu_cost > more_expensive_process_cpu) more_expensive_process_cpu = newVM->cpu_cost;
-			newVM->gpu_cost = stod(machines[4][m]);
-			if(newVM->gpu_cost > more_expensive_process_gpu) more_expensive_process_gpu = newVM->gpu_cost;
+			newVM->usage_cost = stod(machines[3][m]);
+			if(newVM->hasGpu){
+				if(newVM->usage_cost > more_expensive_process_gpu)
+					more_expensive_process_gpu = newVM->usage_cost;
+			} else {
+				if(newVM->usage_cost > more_expensive_process_cpu)
+					more_expensive_process_cpu = newVM->usage_cost;
+			}
 			this->vms.push_back(newVM);
 		}
 
