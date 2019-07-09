@@ -444,11 +444,11 @@ public:
 			for(unsigned int i = 0; i < jobs.size(); i++){
 				if (jobs[i]->alocated)
 					continue;
-				cout << "CL for JOBID: " << jobs[i]->id << endl;
+				// cout << "CL for JOBID: " << jobs[i]->id << endl;
 				for(unsigned int m = 0; m < vms.size(); m++){
-					cout << "M: " << m << endl;
+					// cout << "M: " << m << endl;
 					for(unsigned int d = 0; d < vms.size(); d++){
-						cout << "D: " << d << endl;
+						// cout << "D: " << d << endl;
 						// for(unsigned int gpu = 0; gpu < 2; gpu++){
 						// 	// cout << "ALOW" << endl;
 						// 	bool useGpu = false;
@@ -464,7 +464,7 @@ public:
 							if(minSpam < 0) break;
 							// cin.get();
 							// cout << "vmssize: " << vms.size() << endl;
-							cout << "Pushing job.." << endl;
+							// cout << "Pushing job.." << endl;
 							// bool pushed = vms[m]->pushJob(jobs[i], d, minSpam, useGpu);
 							bool pushed = vms[m]->pushJob(jobs[i], d, minSpam);
 							// cout << "Pushed job.." << endl;
@@ -505,7 +505,7 @@ public:
 									// onGpu.push_back(useGpu);
 								}
 							}
-							cout << "tested!" << endl;
+							// cout << "tested!" << endl;
 							vms[m]->popJob(jobs[i]->id);
 							// cout << "Spam After Removal: " << vms[m]->calculateLocalspam() << endl;
 							// cin.get();
@@ -582,10 +582,6 @@ public:
 		newAlloc->writeTo = output;
 		// newAlloc->GPU = GPU;
 		alloc.push_back(newAlloc);
-		if(job->name == "t500"){
-			cout << "JOB CAGADO! OUTPUT: "<< output << endl;
-			cin.get();
-		}
 		// return vms[vm]->pushJob(job, output, getJobConflictMinSpam(job), GPU);
 		return vms[vm]->pushJob(job, output, getJobConflictMinSpam(job));
 	}
