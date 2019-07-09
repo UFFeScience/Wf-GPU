@@ -161,7 +161,7 @@ public:
 		for(unsigned int i = 0; i < job->input.size(); i++){ // checando se todos os arquivos de input que nao sao estaticos ja foram produzidos
 			// cout << "inputFileID: " << job->input[i]->id << " isStatic: " << job->input[i]->is_static << endl;
 			if(job->input[i]->is_static == false && job->input[i]->alocated_vm_id < 0){
-				cout << "JOB NOT AVAILABLE: FILES NOT READY" << endl; 
+				// cout << "JOB NOT AVAILABLE: FILES NOT READY" << endl; 
 				return false;
 			}
 		}
@@ -620,8 +620,8 @@ public:
 	}
 
 	double calculateFO(){
-		cout << "Makespam: " << this->calculateMakespam() << endl;
-		cout << "Cost: " << this->calculateCost() << endl;
+		// cout << "Makespam: " << this->calculateMakespam() << endl;
+		// cout << "Cost: " << this->calculateCost() << endl;
 		// cout << "FO: " << this->ponderation*(this->calculateMakespam() / this->maxTime) + (1.0 - this->ponderation)*(this->calculateCost() / this->maxCost) << endl;
 		return this->ponderation*(this->calculateMakespam() / this->maxTime) + (1.0 - this->ponderation)*(this->calculateCost() / this->maxCost);
 	}
@@ -638,7 +638,7 @@ public:
 		bool feasible = true;
 		for(unsigned int i = 0; i < files.size(); i++){  // checando se todos os arquivos estao alocados a alguma maquina
 			if(files[i]->alocated_vm_id < 0){
-				// cout << "ArquivoName: " << files[i]->name << " nao alocado!" << endl;
+				cout << "ArquivoName: " << files[i]->name << " nao alocado!" << endl;
 				feasible = false;
 			}
 		}
@@ -914,8 +914,8 @@ public:
 		this->maxTime = ceil(total_time_job_cpu * slowest_machine_cpu);
 		if(total_time_job_gpu * slowest_machine_gpu > this->maxTime) this->maxTime = total_time_job_gpu * slowest_machine_gpu;
 
-		this->maxCost = ceil(this->jobs.size() * more_expensive_process_cpu);
-		if(this->jobs.size() * more_expensive_process_gpu > this->maxCost) this->maxCost = this->jobs.size() * more_expensive_process_gpu;
+		this->maxCost = ceil(total_time_job_cpu * more_expensive_process_cpu);
+		if(total_time_job_gpu * more_expensive_process_gpu > this->maxCost) this->maxCost = total_time_job_gpu * more_expensive_process_gpu;
 
 
 		// cout << "TotalTimeCpu: " << total_time_job_cpu << " TotalTimeGpu: " << total_time_job_gpu << endl;

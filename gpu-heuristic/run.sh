@@ -18,9 +18,9 @@ function CTRLC {
 execpath="./bin/HEA"
 workflows="../input/gpu/"
 dag=".dag"
-declare -a wkf=("CyberShake_30_gpu" "CyberShake_50_gpu" "CyberShake_100_gpu" "Epigenomics_24_gpu" "Epigenomics_46_gpu" "Epigenomics_100_gpu" "Montage_25_gpu" "Montage_50_gpu" "Montage_100_gpu" "Inspiral_30_gpu" "Inspiral_50_gpu" "Inspiral_100_gpu")
+declare -a wkf=("CyberShake_30_gpu" "CyberShake_50_gpu" "CyberShake_100_gpu" "Epigenomics_24_gpu" "Epigenomics_46_gpu" "Epigenomics_100_gpu" "Montage_25_gpu" "Montage_50_gpu" "Montage_100_gpu" "Inspiral_30_gpu" "Inspiral_50_gpu" "Inspiral_100_gpu" "Sipht_30_gpu" "Sipht_60_gpu" "Sipht_100_gpu")
 trap CTRLC SIGINT
-
+echo "instance,alpha,maxtime,maxcost,makespam,cost,FO"
 ## now loop through the above array
 for (( a = 2; a <= 2; a++))
 do
@@ -28,7 +28,7 @@ do
 	do
 		for ((  i = 1 ;  i <= 1;  i++  )) 
 		do	
-			echo  -ne $file '\n' & EXEC $execpath -x 5 -a $a -s $i -w $workflows$file$dag
+			echo  -ne $file',' & EXEC $execpath -x 5 -a $a -s $i -w $workflows$file$dag
 			# EXEC $execpath -a $a -s $i -c $clusters -w $workflows$file$dag >> ./results/local_search_testing/"GRASP_new_LS.txt"
 		done			
 	done

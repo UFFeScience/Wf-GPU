@@ -570,11 +570,14 @@ int main(int argc, char **argv) {
     
     Problem * p = new Problem(name_workflow);
     p->createSolution(setting->alpha);
-    cout << "Makespam: " << p->calculateMakespam() << endl;
-    cout << "Cost: " << p->calculateCost() << endl;
-    // p->calculateFO();
-    // p->checkFeasible();
-    p->print();
+    cout << p->ponderation << ",";
+    cout << p->maxTime << ",";
+    cout << p->maxCost << ",";
+    cout << p->calculateMakespam() << ",";
+    cout << p->calculateCost() << ",";
+    cout << p->calculateFO() << endl;
+    p->checkFeasible();
+    // p->print();
 
     //delete setting struct
     delete[] setting;
