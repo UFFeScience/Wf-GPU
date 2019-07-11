@@ -112,10 +112,10 @@ public:
 		this->cost = 0.0;
 		for(int i = 0; i < timelineJobs.size(); i++){
 			if(hasGpu) {
-				this->cost += (timelineJobs[i]->base_time_gpu * this->gpu_slowdown) * usage_cost;
+				this->cost += ceil((timelineJobs[i]->base_time_gpu * this->gpu_slowdown)) * usage_cost;
 			}
 			else {
-				this->cost += (timelineJobs[i]->base_time_cpu * this->cpu_slowdown) * usage_cost;
+				this->cost += ceil((timelineJobs[i]->base_time_cpu * this->cpu_slowdown)) * usage_cost;
 			}
 		}
 		return this->cost;
@@ -171,7 +171,7 @@ public:
 		if (timelineJobs.size() == 0)
 			startTime = 0.0;
 		else
-			startTime = (timelineFinishTime[timelineFinishTime.size() - 1]);
+			startTime = (timelineFinishTime[timelineFinishTime.size() - 1]) + 1;
 
 		if(startTime < minSpam)
 			startTime = minSpam;
@@ -187,26 +187,19 @@ public:
 				continue;
 			int source;
 			if(job->input[i]->is_static){
-				bool transferNeed = true;
-				double maxBandwidth = 0.0;
-				int id;
+				double readTime = INFINITY;
 				for(int j = 0; j < job->input[i]->static_vms.size(); j++){
-					if(this->id == job->input[i]->static_vms[j])
-						transferNeed = false;
-						break;
-					if(job->input[i]->VMsBandwidth[job->input[i]->static_vms[j]] > maxBandwidth){
-						maxBandwidth = job->input[i]->VMsBandwidth[job->input[i]->static_vms[j]];
-						id = job->input[i]->static_vms[j];
+					double currentReadTime;
+					if(job->input[i]->static_vms[j] == this->id){
+						currentReadTime = 0.0;
+					} else{
+						currentReadTime = ceil(job->input[i]->size / this->bandwidth[job->input[i]->static_vms[j]][this->id]);
+					}
+					if(currentReadTime < readTime){
+						readTime = currentReadTime;
 					}
 				}
-
-				source = id;
-				double readTime;
-				if(this->bandwidth[id][this->id] == 0.0){
-					readTime = 0.0;
-				} else
-					readTime = ceil(job->input[i]->size / this->bandwidth[id][this->id]);
-				if(transferNeed) readtime += readTime;
+				readtime += readTime;
 			} else{
 				double readTime;
 				if(this->bandwidth[job->input[i]->alocated_vm_id][this->id] == 0.0){
@@ -271,12 +264,12 @@ public:
 			job->output[i]->alocated_vm_id = final_vm;
 		}
 
-		for(unsigned int i = 0; i < job->input.size(); i++){
-			if(job->input[i]->is_static){
-				if(job->input[i]->alocated_vm_id < 0)
-					job->input[i]->alocated_vm_id = this->id;
-			}
-		}
+		// for(unsigned int i = 0; i < job->input.size(); i++){
+		// 	if(job->input[i]->is_static){
+		// 		if(job->input[i]->alocated_vm_id < 0)
+		// 			job->input[i]->alocated_vm_id = this->id;
+		// 	}
+		// }
 
 		return true;
 	}
@@ -624,6 +617,7 @@ public:
 		// cout << "Cost: " << this->calculateCost() << endl;
 		// cout << "FO: " << this->ponderation*(this->calculateMakespam() / this->maxTime) + (1.0 - this->ponderation)*(this->calculateCost() / this->maxCost) << endl;
 		return this->ponderation*(this->calculateMakespam() / this->maxTime) + (1.0 - this->ponderation)*(this->calculateCost() / this->maxCost);
+		// return this->calculateMakespam();
 	}
 
 	double calculateCost(){
@@ -637,6 +631,7 @@ public:
 	bool checkFeasible(){
 		bool feasible = true;
 		for(unsigned int i = 0; i < files.size(); i++){  // checando se todos os arquivos estao alocados a alguma maquina
+			if(files[i]->is_static) continue;
 			if(files[i]->alocated_vm_id < 0){
 				cout << "ArquivoName: " << files[i]->name << " nao alocado!" << endl;
 				feasible = false;
@@ -720,6 +715,9 @@ public:
 		// 	if(spam > minSpam)
 		// 		minSpam = spam;
 		// }
+		// cout << "MinSpam: " << minSpam << endl;
+		// cin.get();
+		if (minSpam > 0) minSpam = minSpam + 1;
 		return minSpam;
 	}
 
