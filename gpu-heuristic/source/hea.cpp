@@ -577,7 +577,7 @@ int main(int argc, char **argv) {
     cout << p->calculateCost() << ",";
     cout << p->calculateFO() << endl;
     p->checkFeasible();
-    p->print();
+    // p->print();
 
     //delete setting struct
     delete[] setting;

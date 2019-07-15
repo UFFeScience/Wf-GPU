@@ -183,8 +183,10 @@ public:
 		
 		double readtime = 0.0; // calculando o tempo de leitura de todos os arquivos de input necessarios caso nao estejam alocados na Maquina
 		for(unsigned int i = 0; i < job->input.size(); i++){
-			if(job->input[i]->alocated_vm_id == this->id)
+			if(job->input[i]->alocated_vm_id == this->id){
+				readtime += 1.0;
 				continue;
+			}
 			int source;
 			if(job->input[i]->is_static){
 				double readTime = INFINITY;
@@ -222,7 +224,16 @@ public:
 				// cout << "size: " << job->input[i]->size << endl;
 				writetime += ceil(job->output[i]->size / this->bandwidth[this->id][write_vm_id]);
 			}
+		} else{
+			writetime = 1.0 * job->output.size();
 		}
+
+		// if(readtime == 0){
+		// 	readtime = 1;
+		// }
+		// if(writetime = 0){
+		// 	writetime = 1;
+		// }
 
 		// cout << "12" << endl;
 		double processtime;
@@ -910,10 +921,10 @@ public:
 		}
 
 		this->maxTime = ceil(total_time_job_cpu * slowest_machine_cpu);
-		if(total_time_job_gpu * slowest_machine_gpu > this->maxTime) this->maxTime = total_time_job_gpu * slowest_machine_gpu;
+		if(total_time_job_gpu * slowest_machine_gpu > this->maxTime) this->maxTime = ceil(total_time_job_gpu * slowest_machine_gpu);
 
 		this->maxCost = ceil(total_time_job_cpu * more_expensive_process_cpu);
-		if(total_time_job_gpu * more_expensive_process_gpu > this->maxCost) this->maxCost = total_time_job_gpu * more_expensive_process_gpu;
+		if(total_time_job_gpu * more_expensive_process_gpu > this->maxCost) this->maxCost = ceil(total_time_job_gpu * more_expensive_process_gpu);
 
 
 		// cout << "TotalTimeCpu: " << total_time_job_cpu << " TotalTimeGpu: " << total_time_job_gpu << endl;
