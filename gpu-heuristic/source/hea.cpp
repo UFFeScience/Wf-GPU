@@ -567,16 +567,35 @@ int main(int argc, char **argv) {
     setupCmd(argc, argv, name_workflow, name_cluster);
     // cout << "End setup" << endl;
     srandom(setting->seed);
-    
-    Problem * p = new Problem(name_workflow);
-    p->createSolution(setting->alpha);
-    cout << p->ponderation << ",";
-    cout << p->maxTime << ",";
-    cout << p->maxCost << ",";
-    cout << p->calculateMakespam() << ",";
-    cout << p->calculateCost() << ",";
-    cout << p->calculateFO() << endl;
-    p->checkFeasible();
+
+
+
+    double bestValue = INFINITY;
+    // Problem * bestProblem;
+    // Problem * emptyProblem = new Problem(name_workflow);
+    clock_t start = clock();
+    for(int i = 0; i < 100; i++){
+        Problem * p = new Problem(name_workflow);
+        double cost = p->createSolution(setting->alpha);
+        // cout << "NewCost: " << cost << endl;
+        if(cost < bestValue)
+            bestValue = cost;
+        // cin.get();
+        // if(cost < bestValue){
+        //     delete bestProblem;
+        //     bestProblem = p;
+        //     bestValue = cost;
+        // } else
+        // {
+        //     delete p;
+        // }
+        
+    }
+    clock_t end = clock();
+
+    double elapseSecs = double(end - begin) / CLOCKS_PER_SEC;
+
+    cout << bestValue << " " << elapseSecs << endl;
     // p->print();
 
     //delete setting struct
