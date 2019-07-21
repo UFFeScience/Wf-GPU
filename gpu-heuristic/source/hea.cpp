@@ -572,14 +572,21 @@ int main(int argc, char **argv) {
 
     double bestValue = INFINITY;
     // Problem * bestProblem;
-    // Problem * emptyProblem = new Problem(name_workflow);
+    Problem * bestSol = new Problem(name_workflow);
+    double totalTime = 0.0;
     clock_t start = clock();
     for(int i = 0; i < 100; i++){
         Problem * p = new Problem(name_workflow);
         double cost = p->createSolution(setting->alpha);
+        // cout << "Cost: " << p->calculateCost() << endl;
+        // cout << "Spam: " << p->calculateMakespam() << endl;
         // cout << "NewCost: " << cost << endl;
-        if(cost < bestValue)
+        if(cost < bestValue){
             bestValue = cost;
+            bestSol = new Problem(*p);
+        }
+
+        delete p;
         // cin.get();
         // if(cost < bestValue){
         //     delete bestProblem;
@@ -592,6 +599,11 @@ int main(int argc, char **argv) {
         
     }
     clock_t end = clock();
+
+    // bestSol->print();
+    // cin.get();
+    // cout << "**************\n" << endl;
+    // exit(1);
 
     double elapseSecs = double(end - begin) / CLOCKS_PER_SEC;
 

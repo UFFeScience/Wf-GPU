@@ -110,14 +110,17 @@ public:
 
 	double calculateCost(){
 		this->cost = 0.0;
-		for(int i = 0; i < timelineJobs.size(); i++){
-			if(hasGpu) {
-				this->cost += ceil((timelineJobs[i]->base_time_gpu * this->gpu_slowdown)) * usage_cost;
-			}
-			else {
-				this->cost += ceil((timelineJobs[i]->base_time_cpu * this->cpu_slowdown)) * usage_cost;
-			}
-		}
+		// for(int i = 0; i < timelineJobs.size(); i++){
+			// if(hasGpu) {
+				// this->cost += ceil((timelineJobs[i]->base_time_gpu * this->gpu_slowdown)) * usage_cost;
+				// cout << "Size: " << timelineFinishTime.size() << endl;
+				if(timelineFinishTime.size() > 0)
+					this->cost = (timelineFinishTime[timelineFinishTime.size() - 1]) * usage_cost;
+			// }
+			// else {
+			// 	this->cost += ceil((timelineJobs[i]->base_time_cpu * this->cpu_slowdown)) * usage_cost;
+			// }
+		// }
 		return this->cost;
 	}
 
@@ -576,6 +579,7 @@ public:
 		// 	cout << "vmName: " << vms[vm]->name << " vmTotalSize: " << vms[vm]->storage << " usage: " << vmUsage[vm] << endl; 
 		// }
 		// cin.get();
+		this->checkFeasible();
 		return calculateFO();
 	}
 
