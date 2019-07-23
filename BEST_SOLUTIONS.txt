@@ -1,5 +1,7 @@
-gpu :
-
+gpu 
+Cost: 16
+Spam: 16
+FO: 0.432037
 VMs:
 ID: 0 Name: hasGpu: True: 
 ID: 1 Name: hasGpu: False: t0 onGPU: False ( 0,2 ) t1 onGPU: False ( 3,5 ) t3 onGPU: False ( 6,10 ) t2 onGPU: False ( 11,16 ) 
@@ -11,22 +13,10 @@ file: 3 VM: 1
 file: 4 VM: 1
 **************
 
-[murilostockinger@unknown]~/Mestrado/Wf-GPU/gpu-heuristic% bash ./run.sh
-gpu :
-
-VMs:
-ID: 0 Name: hasGpu: True: 
-ID: 1 Name: hasGpu: False: t0 onGPU: False ( 0,2 ) t1 onGPU: False ( 3,5 ) t3 onGPU: False ( 6,10 ) t2 onGPU: False ( 11,16 ) 
-ID: 2 Name: hasGpu: True: 
-file: 0 VM: -1
-file: 1 VM: 1
-file: 2 VM: 1
-file: 3 VM: 1
-file: 4 VM: 1
-**************
-
-CyberShake_30_gpu :
-
+CyberShake_30_gpu 
+Cost: 141
+Spam: 1410
+FO: 1.26811
 VMs:
 ID: 0 Name: hasGpu: False: ID00013 onGPU: False ( 0,298 ) ID00016 onGPU: False ( 299,371 ) ID00017 onGPU: False ( 372,375 ) ID00024 onGPU: False ( 376,457 ) ID00014 onGPU: False ( 458,547 ) ID00026 onGPU: False ( 548,614 ) ID00015 onGPU: False ( 615,619 ) ID00022 onGPU: False ( 620,682 ) ID00018 onGPU: False ( 683,781 ) ID00020 onGPU: False ( 782,830 ) ID00028 onGPU: False ( 831,894 ) ID00023 onGPU: False ( 895,900 ) ID00019 onGPU: False ( 901,905 ) ID00021 onGPU: False ( 906,909 ) ID00029 onGPU: False ( 910,914 ) ID00025 onGPU: False ( 915,920 ) ID00002 onGPU: False ( 921,1044 ) ID00011 onGPU: False ( 1045,1106 ) ID00007 onGPU: False ( 1107,1158 ) ID00005 onGPU: False ( 1159,1228 ) ID00012 onGPU: False ( 1229,1234 ) ID00027 onGPU: False ( 1235,1239 ) ID00003 onGPU: False ( 1240,1278 ) ID00006 onGPU: False ( 1279,1283 ) ID00004 onGPU: False ( 1284,1288 ) ID00009 onGPU: False ( 1289,1368 ) ID00008 onGPU: False ( 1369,1373 ) ID00010 onGPU: False ( 1374,1378 ) ID00000 onGPU: False ( 1379,1394 ) ID00001 onGPU: False ( 1395,1410 ) 
 ID: 1 Name: hasGpu: True: 
@@ -83,10 +73,12 @@ file: 47 VM: 0
 file: 48 VM: 1
 **************
 
-CyberShake_50_gpu :
-
+CyberShake_50_gpu 
+Cost: 411.98
+Spam: 654
+FO: 0.721237
 VMs:
-ID: 0 Name: hasGpu: True: ID00025 onGPU: False ( 0,143 ) ID00002 onGPU: False ( 144,403 ) 
+ID: 0 Name: hasGpu: True: ID00025 onGPU: True ( 0,143 ) ID00002 onGPU: True ( 144,403 ) 
 ID: 1 Name: hasGpu: False: 
 ID: 2 Name: hasGpu: True: 
 ID: 3 Name: hasGpu: False: ID00034 onGPU: False ( 144,155 ) ID00046 onGPU: False ( 156,165 ) ID00028 onGPU: False ( 166,175 ) ID00044 onGPU: False ( 176,190 ) ID00029 onGPU: False ( 191,194 ) ID00030 onGPU: False ( 195,209 ) ID00032 onGPU: False ( 210,225 ) ID00036 onGPU: False ( 226,236 ) ID00048 onGPU: False ( 237,247 ) ID00033 onGPU: False ( 248,251 ) ID00049 onGPU: False ( 252,255 ) ID00031 onGPU: False ( 256,259 ) ID00045 onGPU: False ( 260,263 ) ID00037 onGPU: False ( 264,267 ) ID00026 onGPU: False ( 268,284 ) ID00038 onGPU: False ( 285,300 ) ID00039 onGPU: False ( 301,304 ) ID00027 onGPU: False ( 305,308 ) ID00047 onGPU: False ( 309,312 ) ID00035 onGPU: False ( 313,316 ) ID00042 onGPU: False ( 317,329 ) ID00040 onGPU: False ( 330,348 ) ID00041 onGPU: False ( 349,352 ) ID00043 onGPU: False ( 353,356 ) ID00003 onGPU: False ( 404,417 ) ID00021 onGPU: False ( 418,429 ) ID00004 onGPU: False ( 430,433 ) ID00022 onGPU: False ( 434,437 ) ID00005 onGPU: False ( 438,448 ) ID00007 onGPU: False ( 449,460 ) ID00017 onGPU: False ( 461,477 ) ID00011 onGPU: False ( 478,492 ) ID00012 onGPU: False ( 493,496 ) ID00023 onGPU: False ( 497,509 ) ID00019 onGPU: False ( 510,522 ) ID00006 onGPU: False ( 523,526 ) ID00009 onGPU: False ( 527,544 ) ID00024 onGPU: False ( 545,548 ) ID00018 onGPU: False ( 549,552 ) ID00015 onGPU: False ( 553,564 ) ID00010 onGPU: False ( 565,568 ) ID00016 onGPU: False ( 569,572 ) ID00013 onGPU: False ( 573,590 ) ID00014 onGPU: False ( 591,594 ) ID00020 onGPU: False ( 595,598 ) ID00001 onGPU: False ( 599,624 ) ID00008 onGPU: False ( 625,628 ) ID00000 onGPU: False ( 629,654 ) 
@@ -171,8 +163,10 @@ file: 77 VM: 3
 file: 78 VM: 1
 **************
 
-CyberShake_100_gpu :
-
+CyberShake_100_gpu 
+Cost: 873.67
+Spam: 1204
+FO: 0.978875
 VMs:
 ID: 0 Name: hasGpu: True: ID00047 onGPU: False ( 0,259 ) ID00002 onGPU: False ( 260,633 ) 
 ID: 1 Name: hasGpu: True: 
@@ -334,140 +328,146 @@ file: 152 VM: 3
 file: 153 VM: 3
 **************
 
-Epigenomics_24_gpu :
-
+Epigenomics_24_gpu 
+Cost: 2570.56
+Spam: 7375
+FO: 0.415662
 VMs:
-ID: 0 Name: hasGpu: False: ID00000 onGPU: False ( 0,164 ) ID00002 onGPU: False ( 165,203 ) ID00007 onGPU: False ( 204,233 ) ID00001 onGPU: False ( 234,248 ) ID00003 onGPU: False ( 249,284 ) ID00012 onGPU: False ( 285,307 ) ID00008 onGPU: False ( 308,329 ) ID00006 onGPU: False ( 330,341 ) ID00013 onGPU: False ( 342,357 ) ID00004 onGPU: False ( 358,376 ) ID00011 onGPU: False ( 377,392 ) ID00010 onGPU: False ( 445,463 ) ID00014 onGPU: False ( 488,506 ) ID00018 onGPU: False ( 507,4222 ) ID00017 onGPU: False ( 4223,9118 ) 
-ID: 1 Name: hasGpu: False: ID00005 onGPU: False ( 393,444 ) ID00009 onGPU: False ( 464,480 ) ID00015 onGPU: False ( 481,487 ) ID00016 onGPU: False ( 507,2988 ) ID00020 onGPU: False ( 2989,6419 ) ID00019 onGPU: False ( 6420,9512 ) ID00021 onGPU: False ( 9513,9542 ) ID00022 onGPU: False ( 9543,9550 ) ID00023 onGPU: False ( 9551,10910 ) 
+ID: 0 Name: hasGpu: False: ID00011 onGPU: False ( 336,351 ) ID00010 onGPU: False ( 352,380 ) ID00015 onGPU: False ( 381,401 ) ID00014 onGPU: False ( 402,420 ) ID00019 onGPU: False ( 421,5969 ) ID00021 onGPU: False ( 5970,6011 ) ID00022 onGPU: False ( 6012,6015 ) 
+ID: 1 Name: hasGpu: False: ID00000 onGPU: False ( 0,192 ) ID00003 onGPU: False ( 193,203 ) ID00004 onGPU: False ( 204,225 ) ID00001 onGPU: False ( 226,243 ) ID00002 onGPU: False ( 244,264 ) ID00008 onGPU: False ( 265,272 ) ID00007 onGPU: False ( 273,287 ) ID00013 onGPU: False ( 288,297 ) ID00005 onGPU: False ( 298,311 ) ID00006 onGPU: False ( 312,322 ) ID00012 onGPU: False ( 323,335 ) ID00018 onGPU: False ( 336,2505 ) ID00020 onGPU: False ( 2506,5935 ) ID00023 onGPU: False ( 6016,7375 ) 
 ID: 2 Name: hasGpu: True: 
-ID: 3 Name: hasGpu: True: 
+ID: 3 Name: hasGpu: True: ID00009 onGPU: False ( 336,339 ) ID00016 onGPU: True ( 421,819 ) ID00017 onGPU: True ( 820,1244 ) 
 file: 0 VM: -1
 file: 1 VM: -1
 file: 2 VM: -1
-file: 3 VM: 0
+file: 3 VM: 1
 file: 4 VM: 2
-file: 5 VM: 1
-file: 6 VM: 3
-file: 7 VM: 3
-file: 8 VM: 3
-file: 9 VM: 0
-file: 10 VM: 0
-file: 11 VM: 1
-file: 12 VM: 1
-file: 13 VM: 2
-file: 14 VM: 2
-file: 15 VM: 1
-file: 16 VM: 0
-file: 17 VM: 2
-file: 18 VM: 1
-file: 19 VM: 2
-file: 20 VM: 0
+file: 5 VM: 3
+file: 6 VM: 1
+file: 7 VM: 0
+file: 8 VM: 2
+file: 9 VM: 2
+file: 10 VM: 1
+file: 11 VM: 3
+file: 12 VM: 2
+file: 13 VM: 1
+file: 14 VM: 1
+file: 15 VM: 3
+file: 16 VM: 3
+file: 17 VM: 1
+file: 18 VM: 3
+file: 19 VM: 0
+file: 20 VM: 1
 file: 21 VM: 3
-file: 22 VM: 0
-file: 23 VM: 0
-file: 24 VM: 1
-file: 25 VM: 0
-file: 26 VM: 2
-file: 27 VM: 2
-file: 28 VM: 0
-file: 29 VM: 3
-file: 30 VM: 3
+file: 22 VM: 1
+file: 23 VM: 1
+file: 24 VM: 2
+file: 25 VM: 3
+file: 26 VM: 0
+file: 27 VM: 1
+file: 28 VM: 3
+file: 29 VM: 1
+file: 30 VM: 0
 file: 31 VM: 0
 file: 32 VM: 1
-file: 33 VM: 2
-file: 34 VM: 0
-file: 35 VM: 0
-file: 36 VM: 0
-file: 37 VM: 0
+file: 33 VM: 0
+file: 34 VM: 1
+file: 35 VM: 2
+file: 36 VM: 2
+file: 37 VM: 1
 **************
 
-Epigenomics_46_gpu :
-
+Epigenomics_46_gpu 
+Cost: 1177.3
+Spam: 11481
+FO: 0.150124
 VMs:
-ID: 0 Name: hasGpu: False: ID00001 onGPU: False ( 0,49 ) ID00011 onGPU: False ( 50,74 ) ID00008 onGPU: False ( 75,106 ) ID00009 onGPU: False ( 107,124 ) ID00019 onGPU: False ( 125,131 ) ID00007 onGPU: False ( 132,167 ) ID00017 onGPU: False ( 168,186 ) ID00029 onGPU: False ( 187,194 ) ID00010 onGPU: False ( 195,230 ) 
+ID: 0 Name: hasGpu: False: ID00000 onGPU: False ( 0,74 ) ID00003 onGPU: False ( 75,96 ) ID00005 onGPU: False ( 97,123 ) ID00002 onGPU: False ( 124,136 ) ID00004 onGPU: False ( 137,154 ) ID00013 onGPU: False ( 155,164 ) ID00006 onGPU: False ( 165,175 ) ID00023 onGPU: False ( 176,187 ) ID00012 onGPU: False ( 188,199 ) ID00015 onGPU: False ( 200,216 ) ID00014 onGPU: False ( 217,228 ) ID00017 onGPU: False ( 229,240 ) ID00027 onGPU: False ( 241,253 ) ID00025 onGPU: False ( 254,266 ) ID00019 onGPU: False ( 267,276 ) ID00024 onGPU: False ( 277,292 ) 
 ID: 1 Name: hasGpu: True: 
 ID: 2 Name: hasGpu: True: 
-ID: 3 Name: hasGpu: False: ID00000 onGPU: False ( 0,104 ) ID00006 onGPU: False ( 105,117 ) ID00004 onGPU: False ( 118,131 ) ID00014 onGPU: False ( 132,140 ) ID00002 onGPU: False ( 141,151 ) ID00021 onGPU: False ( 152,157 ) ID00012 onGPU: False ( 158,161 ) ID00031 onGPU: False ( 162,168 ) ID00016 onGPU: False ( 169,178 ) ID00018 onGPU: False ( 179,183 ) ID00026 onGPU: False ( 184,191 ) ID00028 onGPU: False ( 192,197 ) ID00005 onGPU: False ( 198,214 ) ID00022 onGPU: False ( 215,218 ) ID00003 onGPU: False ( 219,236 ) ID00013 onGPU: False ( 237,247 ) ID00020 onGPU: False ( 248,254 ) ID00015 onGPU: False ( 255,262 ) ID00030 onGPU: False ( 263,269 ) ID00025 onGPU: False ( 270,275 ) ID00027 onGPU: False ( 276,279 ) ID00024 onGPU: False ( 280,287 ) ID00036 onGPU: False ( 288,1406 ) ID00039 onGPU: False ( 1407,2155 ) ID00037 onGPU: False ( 2156,2976 ) ID00023 onGPU: False ( 2977,2984 ) ID00038 onGPU: False ( 2985,4011 ) ID00033 onGPU: False ( 4012,5171 ) ID00035 onGPU: False ( 5172,6373 ) ID00041 onGPU: False ( 6374,7243 ) ID00034 onGPU: False ( 7244,8260 ) ID00032 onGPU: False ( 8261,9434 ) ID00040 onGPU: False ( 9435,10883 ) ID00042 onGPU: False ( 10884,10896 ) ID00043 onGPU: False ( 10897,10910 ) ID00044 onGPU: False ( 10911,10927 ) ID00045 onGPU: False ( 10928,10931 ) ID00046 onGPU: False ( 10932,11549 ) 
+ID: 3 Name: hasGpu: False: ID00001 onGPU: False ( 0,85 ) ID00008 onGPU: False ( 86,96 ) ID00010 onGPU: False ( 97,109 ) ID00009 onGPU: False ( 110,128 ) ID00011 onGPU: False ( 129,138 ) ID00007 onGPU: False ( 139,159 ) ID00021 onGPU: False ( 160,165 ) ID00020 onGPU: False ( 166,179 ) ID00018 onGPU: False ( 180,185 ) ID00030 onGPU: False ( 186,196 ) ID00031 onGPU: False ( 197,202 ) ID00028 onGPU: False ( 203,206 ) ID00041 onGPU: False ( 207,1074 ) ID00022 onGPU: False ( 1075,1078 ) ID00037 onGPU: False ( 1079,1900 ) ID00016 onGPU: False ( 1901,1910 ) ID00026 onGPU: False ( 1911,1915 ) ID00034 onGPU: False ( 1916,2931 ) ID00029 onGPU: False ( 2932,2937 ) ID00036 onGPU: False ( 2938,4056 ) ID00039 onGPU: False ( 4057,4806 ) ID00032 onGPU: False ( 4807,5980 ) ID00033 onGPU: False ( 5981,7140 ) ID00035 onGPU: False ( 7141,8341 ) ID00038 onGPU: False ( 8342,9367 ) ID00040 onGPU: False ( 9368,10816 ) ID00042 onGPU: False ( 10817,10829 ) ID00043 onGPU: False ( 10830,10842 ) ID00044 onGPU: False ( 10843,10859 ) ID00045 onGPU: False ( 10860,10863 ) ID00046 onGPU: False ( 10864,11481 ) 
 file: 0 VM: -1
 file: 1 VM: -1
 file: 2 VM: -1
 file: 3 VM: -1
-file: 4 VM: 3
+file: 4 VM: 2
 file: 5 VM: 3
-file: 6 VM: 2
-file: 7 VM: 2
-file: 8 VM: 0
-file: 9 VM: 3
-file: 10 VM: 0
-file: 11 VM: 0
+file: 6 VM: 0
+file: 7 VM: 0
+file: 8 VM: 1
+file: 9 VM: 1
+file: 10 VM: 2
+file: 11 VM: 3
 file: 12 VM: 3
-file: 13 VM: 1
-file: 14 VM: 0
+file: 13 VM: 3
+file: 14 VM: 3
 file: 15 VM: 2
-file: 16 VM: 0
-file: 17 VM: 0
+file: 16 VM: 2
+file: 17 VM: 1
 file: 18 VM: 1
-file: 19 VM: 3
-file: 20 VM: 1
+file: 19 VM: 0
+file: 20 VM: 0
 file: 21 VM: 2
 file: 22 VM: 2
-file: 23 VM: 1
+file: 23 VM: 0
 file: 24 VM: 3
-file: 25 VM: 1
+file: 25 VM: 2
 file: 26 VM: 3
-file: 27 VM: 1
-file: 28 VM: 2
+file: 27 VM: 0
+file: 28 VM: 1
 file: 29 VM: 2
 file: 30 VM: 1
 file: 31 VM: 0
-file: 32 VM: 2
-file: 33 VM: 0
-file: 34 VM: 1
+file: 32 VM: 1
+file: 33 VM: 2
+file: 34 VM: 0
 file: 35 VM: 3
-file: 36 VM: 2
-file: 37 VM: 3
-file: 38 VM: 1
-file: 39 VM: 1
-file: 40 VM: 2
-file: 41 VM: 2
+file: 36 VM: 0
+file: 37 VM: 2
+file: 38 VM: 0
+file: 39 VM: 0
+file: 40 VM: 0
+file: 41 VM: 1
 file: 42 VM: 2
-file: 43 VM: 3
-file: 44 VM: 0
-file: 45 VM: 0
-file: 46 VM: 3
-file: 47 VM: 0
-file: 48 VM: 1
-file: 49 VM: 2
-file: 50 VM: 0
-file: 51 VM: 1
+file: 43 VM: 1
+file: 44 VM: 1
+file: 45 VM: 3
+file: 46 VM: 0
+file: 47 VM: 3
+file: 48 VM: 0
+file: 49 VM: 0
+file: 50 VM: 3
+file: 51 VM: 2
 file: 52 VM: 2
-file: 53 VM: 2
-file: 54 VM: 3
+file: 53 VM: 1
+file: 54 VM: 2
 file: 55 VM: 3
-file: 56 VM: 3
-file: 57 VM: 0
+file: 56 VM: 0
+file: 57 VM: 3
 file: 58 VM: 1
-file: 59 VM: 1
-file: 60 VM: 2
-file: 61 VM: 3
-file: 62 VM: 1
+file: 59 VM: 2
+file: 60 VM: 0
+file: 61 VM: 0
+file: 62 VM: 2
 file: 63 VM: 0
-file: 64 VM: 3
+file: 64 VM: 2
 file: 65 VM: 1
-file: 66 VM: 3
-file: 67 VM: 2
+file: 66 VM: 1
+file: 67 VM: 0
 file: 68 VM: 2
-file: 69 VM: 2
-file: 70 VM: 1
+file: 69 VM: 3
+file: 70 VM: 2
 **************
 
-Epigenomics_100_gpu :
-
+Epigenomics_100_gpu 
+Cost: 78005.2
+Spam: 78475
+FO: 0.414505
 VMs:
-ID: 0 Name: hasGpu: True: ID00038 onGPU: False ( 295,298 ) ID00060 onGPU: False ( 299,302 ) ID00037 onGPU: False ( 307,310 ) ID00032 onGPU: False ( 311,315 ) ID00049 onGPU: False ( 316,320 ) ID00061 onGPU: False ( 321,324 ) ID00062 onGPU: False ( 325,328 ) ID00067 onGPU: False ( 342,345 ) ID00068 onGPU: False ( 346,350 ) 
+ID: 0 Name: hasGpu: True: ID00038 onGPU: True ( 295,298 ) ID00060 onGPU: True ( 299,302 ) ID00037 onGPU: False ( 307,310 ) ID00032 onGPU: False ( 311,315 ) ID00049 onGPU: True ( 316,320 ) ID00061 onGPU: True ( 321,324 ) ID00062 onGPU: False ( 325,328 ) ID00067 onGPU: False ( 342,345 ) ID00068 onGPU: True ( 346,350 ) 
 ID: 1 Name: hasGpu: True: 
 ID: 2 Name: hasGpu: True: 
-ID: 3 Name: hasGpu: True: ID00000 onGPU: False ( 0,88 ) ID00002 onGPU: False ( 89,93 ) ID00010 onGPU: False ( 94,98 ) ID00006 onGPU: False ( 99,103 ) ID00016 onGPU: False ( 104,108 ) ID00024 onGPU: False ( 109,113 ) ID00023 onGPU: False ( 114,118 ) ID00020 onGPU: False ( 119,123 ) ID00030 onGPU: False ( 124,127 ) ID00012 onGPU: False ( 128,132 ) ID00026 onGPU: False ( 133,136 ) ID00036 onGPU: False ( 137,140 ) ID00050 onGPU: False ( 141,144 ) ID00008 onGPU: False ( 145,149 ) ID00007 onGPU: False ( 150,154 ) ID00001 onGPU: False ( 155,159 ) ID00034 onGPU: False ( 160,163 ) ID00017 onGPU: False ( 164,168 ) ID00022 onGPU: False ( 169,173 ) ID00003 onGPU: False ( 174,178 ) ID00040 onGPU: False ( 179,182 ) ID00041 onGPU: False ( 183,186 ) ID00065 onGPU: False ( 187,190 ) ID00025 onGPU: False ( 191,194 ) ID00058 onGPU: False ( 195,198 ) ID00021 onGPU: False ( 199,203 ) ID00046 onGPU: False ( 204,207 ) ID00005 onGPU: False ( 208,212 ) ID00018 onGPU: False ( 213,217 ) ID00045 onGPU: False ( 218,222 ) ID00027 onGPU: False ( 223,226 ) ID00029 onGPU: False ( 227,230 ) ID00053 onGPU: False ( 231,234 ) ID00031 onGPU: False ( 235,238 ) ID00064 onGPU: False ( 239,242 ) ID00047 onGPU: False ( 243,246 ) ID00054 onGPU: False ( 247,250 ) ID00014 onGPU: False ( 251,255 ) ID00004 onGPU: False ( 256,262 ) ID00028 onGPU: False ( 263,267 ) ID00013 onGPU: False ( 268,272 ) ID00019 onGPU: False ( 273,277 ) ID00070 onGPU: False ( 278,281 ) ID00043 onGPU: False ( 282,285 ) ID00011 onGPU: False ( 286,290 ) ID00048 onGPU: False ( 291,294 ) ID00052 onGPU: False ( 295,298 ) ID00072 onGPU: False ( 299,302 ) ID00051 onGPU: False ( 303,306 ) ID00044 onGPU: False ( 307,310 ) ID00071 onGPU: False ( 311,314 ) ID00056 onGPU: False ( 321,324 ) ID00042 onGPU: False ( 325,328 ) ID00035 onGPU: False ( 329,332 ) ID00066 onGPU: False ( 333,336 ) ID00015 onGPU: False ( 337,341 ) ID00055 onGPU: False ( 342,345 ) ID00080 onGPU: False ( 346,2226 ) ID00009 onGPU: False ( 2227,2233 ) ID00096 onGPU: False ( 2234,4113 ) ID00079 onGPU: False ( 4114,6581 ) ID00076 onGPU: False ( 6582,8639 ) ID00085 onGPU: False ( 8640,12602 ) ID00089 onGPU: False ( 12603,14591 ) ID00095 onGPU: False ( 14592,18868 ) ID00039 onGPU: False ( 18869,18872 ) ID00059 onGPU: False ( 18873,18876 ) ID00083 onGPU: False ( 18877,20842 ) ID00069 onGPU: False ( 20843,20847 ) ID00073 onGPU: False ( 20848,24610 ) ID00092 onGPU: False ( 24611,26729 ) ID00082 onGPU: False ( 26730,28632 ) ID00088 onGPU: False ( 28633,31845 ) ID00093 onGPU: False ( 31846,33786 ) ID00090 onGPU: False ( 33787,37741 ) ID00074 onGPU: False ( 37742,42152 ) ID00091 onGPU: False ( 42153,46744 ) ID00075 onGPU: False ( 46745,51802 ) ID00078 onGPU: False ( 51803,53939 ) ID00077 onGPU: False ( 53940,59072 ) ID00063 onGPU: False ( 59073,59076 ) ID00033 onGPU: False ( 59077,59081 ) ID00087 onGPU: False ( 59082,60893 ) ID00084 onGPU: False ( 60894,64356 ) ID00086 onGPU: False ( 64357,69300 ) ID00057 onGPU: False ( 69301,69304 ) ID00081 onGPU: False ( 69305,71084 ) ID00094 onGPU: False ( 71085,76808 ) ID00097 onGPU: False ( 76809,76837 ) ID00098 onGPU: False ( 76838,76841 ) ID00099 onGPU: False ( 76842,78475 ) 
+ID: 3 Name: hasGpu: True: ID00000 onGPU: False ( 0,88 ) ID00002 onGPU: False ( 89,93 ) ID00010 onGPU: True ( 94,98 ) ID00006 onGPU: True ( 99,103 ) ID00016 onGPU: True ( 104,108 ) ID00024 onGPU: False ( 109,113 ) ID00023 onGPU: False ( 114,118 ) ID00020 onGPU: False ( 119,123 ) ID00030 onGPU: False ( 124,127 ) ID00012 onGPU: True ( 128,132 ) ID00026 onGPU: True ( 133,136 ) ID00036 onGPU: False ( 137,140 ) ID00050 onGPU: False ( 141,144 ) ID00008 onGPU: False ( 145,149 ) ID00007 onGPU: False ( 150,154 ) ID00001 onGPU: False ( 155,159 ) ID00034 onGPU: False ( 160,163 ) ID00017 onGPU: True ( 164,168 ) ID00022 onGPU: False ( 169,173 ) ID00003 onGPU: True ( 174,178 ) ID00040 onGPU: True ( 179,182 ) ID00041 onGPU: False ( 183,186 ) ID00065 onGPU: False ( 187,190 ) ID00025 onGPU: True ( 191,194 ) ID00058 onGPU: True ( 195,198 ) ID00021 onGPU: True ( 199,203 ) ID00046 onGPU: False ( 204,207 ) ID00005 onGPU: False ( 208,212 ) ID00018 onGPU: False ( 213,217 ) ID00045 onGPU: False ( 218,222 ) ID00027 onGPU: False ( 223,226 ) ID00029 onGPU: True ( 227,230 ) ID00053 onGPU: True ( 231,234 ) ID00031 onGPU: False ( 235,238 ) ID00064 onGPU: True ( 239,242 ) ID00047 onGPU: False ( 243,246 ) ID00054 onGPU: True ( 247,250 ) ID00014 onGPU: False ( 251,255 ) ID00004 onGPU: True ( 256,262 ) ID00028 onGPU: False ( 263,267 ) ID00013 onGPU: False ( 268,272 ) ID00019 onGPU: True ( 273,277 ) ID00070 onGPU: False ( 278,281 ) ID00043 onGPU: True ( 282,285 ) ID00011 onGPU: True ( 286,290 ) ID00048 onGPU: True ( 291,294 ) ID00052 onGPU: True ( 295,298 ) ID00072 onGPU: True ( 299,302 ) ID00051 onGPU: False ( 303,306 ) ID00044 onGPU: False ( 307,310 ) ID00071 onGPU: False ( 311,314 ) ID00056 onGPU: True ( 321,324 ) ID00042 onGPU: True ( 325,328 ) ID00035 onGPU: False ( 329,332 ) ID00066 onGPU: True ( 333,336 ) ID00015 onGPU: True ( 337,341 ) ID00055 onGPU: False ( 342,345 ) ID00080 onGPU: True ( 346,2226 ) ID00009 onGPU: True ( 2227,2233 ) ID00096 onGPU: True ( 2234,4113 ) ID00079 onGPU: True ( 4114,6581 ) ID00076 onGPU: True ( 6582,8639 ) ID00085 onGPU: False ( 8640,12602 ) ID00089 onGPU: True ( 12603,14591 ) ID00095 onGPU: False ( 14592,18868 ) ID00039 onGPU: False ( 18869,18872 ) ID00059 onGPU: True ( 18873,18876 ) ID00083 onGPU: True ( 18877,20842 ) ID00069 onGPU: False ( 20843,20847 ) ID00073 onGPU: False ( 20848,24610 ) ID00092 onGPU: True ( 24611,26729 ) ID00082 onGPU: True ( 26730,28632 ) ID00088 onGPU: False ( 28633,31845 ) ID00093 onGPU: True ( 31846,33786 ) ID00090 onGPU: False ( 33787,37741 ) ID00074 onGPU: False ( 37742,42152 ) ID00091 onGPU: False ( 42153,46744 ) ID00075 onGPU: False ( 46745,51802 ) ID00078 onGPU: True ( 51803,53939 ) ID00077 onGPU: False ( 53940,59072 ) ID00063 onGPU: False ( 59073,59076 ) ID00033 onGPU: False ( 59077,59081 ) ID00087 onGPU: True ( 59082,60893 ) ID00084 onGPU: False ( 60894,64356 ) ID00086 onGPU: False ( 64357,69300 ) ID00057 onGPU: True ( 69301,69304 ) ID00081 onGPU: True ( 69305,71084 ) ID00094 onGPU: False ( 71085,76808 ) ID00097 onGPU: True ( 76809,76837 ) ID00098 onGPU: True ( 76838,76841 ) ID00099 onGPU: True ( 76842,78475 ) 
 file: 0 VM: -1
 file: 1 VM: -1
 file: 2 VM: -1
@@ -622,10 +622,12 @@ file: 150 VM: 3
 file: 151 VM: 0
 **************
 
-Montage_25_gpu :
-
+Montage_25_gpu 
+Cost: 49.8
+Spam: 498
+FO: 1.19231
 VMs:
-ID: 0 Name: hasGpu: False: ID00004 onGPU: False ( 0,24 ) ID00000 onGPU: False ( 25,48 ) ID00003 onGPU: False ( 49,72 ) ID00013 onGPU: False ( 73,95 ) ID00002 onGPU: False ( 96,119 ) ID00010 onGPU: False ( 120,141 ) ID00008 onGPU: False ( 142,165 ) ID00001 onGPU: False ( 166,190 ) ID00006 onGPU: False ( 191,214 ) ID00005 onGPU: False ( 215,238 ) ID00007 onGPU: False ( 239,262 ) ID00012 onGPU: False ( 263,286 ) ID00009 onGPU: False ( 287,310 ) ID00011 onGPU: False ( 311,334 ) ID00014 onGPU: False ( 335,340 ) ID00015 onGPU: False ( 341,346 ) ID00018 onGPU: False ( 347,369 ) ID00016 onGPU: False ( 370,391 ) ID00017 onGPU: False ( 392,414 ) ID00019 onGPU: False ( 415,437 ) ID00020 onGPU: False ( 438,460 ) ID00021 onGPU: False ( 461,475 ) ID00022 onGPU: False ( 476,484 ) ID00023 onGPU: False ( 485,494 ) ID00024 onGPU: False ( 495,498 ) 
+ID: 0 Name: hasGpu: False: ID00003 onGPU: False ( 0,23 ) ID00004 onGPU: False ( 24,48 ) ID00002 onGPU: False ( 49,72 ) ID00013 onGPU: False ( 73,95 ) ID00000 onGPU: False ( 96,119 ) ID00008 onGPU: False ( 120,143 ) ID00001 onGPU: False ( 144,168 ) ID00005 onGPU: False ( 169,192 ) ID00010 onGPU: False ( 193,214 ) ID00012 onGPU: False ( 215,238 ) ID00007 onGPU: False ( 239,262 ) ID00009 onGPU: False ( 263,286 ) ID00006 onGPU: False ( 287,310 ) ID00011 onGPU: False ( 311,334 ) ID00014 onGPU: False ( 335,340 ) ID00015 onGPU: False ( 341,346 ) ID00018 onGPU: False ( 347,369 ) ID00020 onGPU: False ( 370,392 ) ID00017 onGPU: False ( 393,415 ) ID00019 onGPU: False ( 416,438 ) ID00016 onGPU: False ( 439,460 ) ID00021 onGPU: False ( 461,475 ) ID00022 onGPU: False ( 476,484 ) ID00023 onGPU: False ( 485,494 ) ID00024 onGPU: False ( 495,498 ) 
 ID: 1 Name: hasGpu: True: 
 ID: 2 Name: hasGpu: True: 
 ID: 3 Name: hasGpu: True: 
@@ -638,39 +640,41 @@ file: 5 VM: -1
 file: 6 VM: -1
 file: 7 VM: -1
 file: 8 VM: -1
-file: 9 VM: 2
+file: 9 VM: 0
 file: 10 VM: 3
-file: 11 VM: 0
-file: 12 VM: 1
-file: 13 VM: 3
-file: 14 VM: 1
-file: 15 VM: 3
+file: 11 VM: 2
+file: 12 VM: 2
+file: 13 VM: 2
+file: 14 VM: 2
+file: 15 VM: 1
 file: 16 VM: 1
 file: 17 VM: 1
-file: 18 VM: 3
-file: 19 VM: 0
-file: 20 VM: 2
-file: 21 VM: 3
+file: 18 VM: 1
+file: 19 VM: 3
+file: 20 VM: 0
+file: 21 VM: 1
 file: 22 VM: 0
 file: 23 VM: 3
-file: 24 VM: 0
+file: 24 VM: 3
 file: 25 VM: 1
-file: 26 VM: 2
+file: 26 VM: 3
 file: 27 VM: 0
-file: 28 VM: 2
-file: 29 VM: 1
-file: 30 VM: 1
+file: 28 VM: 3
+file: 29 VM: 2
+file: 30 VM: 0
 file: 31 VM: 3
-file: 32 VM: 1
-file: 33 VM: 2
-file: 34 VM: 0
-file: 35 VM: 3
-file: 36 VM: 0
-file: 37 VM: 0
+file: 32 VM: 0
+file: 33 VM: 1
+file: 34 VM: 1
+file: 35 VM: 2
+file: 36 VM: 1
+file: 37 VM: 2
 **************
 
-Montage_50_gpu :
-
+Montage_50_gpu 
+Cost: 57.3
+Spam: 332
+FO: 0.402829
 VMs:
 ID: 0 Name: hasGpu: True: 
 ID: 1 Name: hasGpu: False: ID00005 onGPU: False ( 0,16 ) ID00003 onGPU: False ( 17,33 ) ID00029 onGPU: False ( 34,50 ) ID00007 onGPU: False ( 51,67 ) ID00035 onGPU: False ( 68,82 ) ID00002 onGPU: False ( 83,99 ) ID00018 onGPU: False ( 100,114 ) ID00032 onGPU: False ( 115,131 ) ID00034 onGPU: False ( 132,148 ) ID00019 onGPU: False ( 149,164 ) ID00033 onGPU: False ( 165,181 ) ID00036 onGPU: False ( 182,188 ) ID00037 onGPU: False ( 189,196 ) ID00045 onGPU: False ( 197,211 ) ID00041 onGPU: False ( 212,226 ) ID00043 onGPU: False ( 227,241 ) 
@@ -731,13 +735,15 @@ file: 51 VM: 0
 file: 52 VM: 3
 **************
 
-Montage_100_gpu :
-
+Montage_100_gpu 
+Cost: 293.42
+Spam: 2003
+FO: 0.952249
 VMs:
-ID: 0 Name: hasGpu: False: ID00004 onGPU: False ( 0,23 ) ID00005 onGPU: False ( 24,47 ) ID00007 onGPU: False ( 48,71 ) ID00025 onGPU: False ( 72,95 ) ID00038 onGPU: False ( 96,118 ) ID00022 onGPU: False ( 119,142 ) ID00026 onGPU: False ( 143,166 ) ID00071 onGPU: False ( 167,189 ) ID00035 onGPU: False ( 190,213 ) ID00027 onGPU: False ( 214,237 ) ID00037 onGPU: False ( 238,261 ) ID00072 onGPU: False ( 262,283 ) ID00024 onGPU: False ( 284,307 ) ID00039 onGPU: False ( 308,331 ) ID00063 onGPU: False ( 332,354 ) ID00032 onGPU: False ( 355,378 ) ID00030 onGPU: False ( 379,402 ) ID00036 onGPU: False ( 403,426 ) ID00049 onGPU: False ( 427,450 ) ID00040 onGPU: False ( 451,474 ) ID00029 onGPU: False ( 475,498 ) ID00021 onGPU: False ( 499,522 ) ID00043 onGPU: False ( 523,545 ) ID00031 onGPU: False ( 546,569 ) ID00042 onGPU: False ( 570,593 ) ID00051 onGPU: False ( 594,615 ) ID00041 onGPU: False ( 616,639 ) ID00044 onGPU: False ( 640,663 ) ID00048 onGPU: False ( 664,687 ) ID00023 onGPU: False ( 688,711 ) ID00055 onGPU: False ( 712,735 ) ID00056 onGPU: False ( 736,759 ) ID00045 onGPU: False ( 760,783 ) ID00033 onGPU: False ( 784,807 ) ID00057 onGPU: False ( 808,831 ) ID00052 onGPU: False ( 832,855 ) ID00020 onGPU: False ( 856,878 ) ID00058 onGPU: False ( 879,902 ) ID00050 onGPU: False ( 903,926 ) ID00047 onGPU: False ( 927,950 ) ID00053 onGPU: False ( 951,974 ) ID00046 onGPU: False ( 975,998 ) ID00060 onGPU: False ( 999,1022 ) ID00069 onGPU: False ( 1023,1046 ) ID00062 onGPU: False ( 1047,1070 ) ID00070 onGPU: False ( 1071,1094 ) ID00068 onGPU: False ( 1095,1118 ) ID00016 onGPU: False ( 1119,1142 ) ID00017 onGPU: False ( 1143,1166 ) ID00014 onGPU: False ( 1167,1190 ) ID00061 onGPU: False ( 1191,1214 ) ID00064 onGPU: False ( 1215,1238 ) ID00065 onGPU: False ( 1239,1262 ) ID00015 onGPU: False ( 1263,1286 ) ID00028 onGPU: False ( 1287,1310 ) ID00073 onGPU: False ( 1311,1334 ) ID00067 onGPU: False ( 1335,1358 ) ID00034 onGPU: False ( 1359,1382 ) ID00074 onGPU: False ( 1383,1406 ) ID00076 onGPU: False ( 1407,1430 ) ID00075 onGPU: False ( 1431,1454 ) ID00077 onGPU: False ( 1455,1478 ) ID00018 onGPU: False ( 1479,1502 ) ID00019 onGPU: False ( 1503,1526 ) ID00078 onGPU: False ( 1527,1538 ) ID00079 onGPU: False ( 1539,1550 ) ID00085 onGPU: False ( 1551,1573 ) ID00087 onGPU: False ( 1574,1596 ) ID00089 onGPU: False ( 1597,1619 ) ID00086 onGPU: False ( 1620,1642 ) ID00088 onGPU: False ( 1643,1665 ) ID00081 onGPU: False ( 1666,1688 ) ID00080 onGPU: False ( 1689,1711 ) ID00084 onGPU: False ( 1712,1734 ) ID00083 onGPU: False ( 1735,1757 ) ID00082 onGPU: False ( 1758,1780 ) ID00093 onGPU: False ( 1781,1803 ) ID00090 onGPU: False ( 1804,1826 ) ID00092 onGPU: False ( 1827,1849 ) ID00091 onGPU: False ( 1850,1872 ) ID00094 onGPU: False ( 1873,1895 ) ID00095 onGPU: False ( 1896,1918 ) ID00096 onGPU: False ( 1919,1964 ) ID00097 onGPU: False ( 1965,1983 ) ID00098 onGPU: False ( 1984,1998 ) ID00099 onGPU: False ( 1999,2003 ) 
+ID: 0 Name: hasGpu: False: ID00015 onGPU: False ( 0,23 ) ID00005 onGPU: False ( 24,47 ) ID00072 onGPU: False ( 48,69 ) ID00055 onGPU: False ( 70,93 ) ID00027 onGPU: False ( 94,117 ) ID00024 onGPU: False ( 118,141 ) ID00022 onGPU: False ( 142,165 ) ID00043 onGPU: False ( 166,188 ) ID00038 onGPU: False ( 189,211 ) ID00051 onGPU: False ( 212,233 ) ID00020 onGPU: False ( 234,256 ) ID00028 onGPU: False ( 257,280 ) ID00044 onGPU: False ( 281,304 ) ID00069 onGPU: False ( 305,328 ) ID00057 onGPU: False ( 329,352 ) ID00039 onGPU: False ( 353,376 ) ID00060 onGPU: False ( 377,400 ) ID00067 onGPU: False ( 401,424 ) ID00068 onGPU: False ( 425,448 ) ID00004 onGPU: False ( 449,472 ) ID00065 onGPU: False ( 473,496 ) ID00040 onGPU: False ( 497,520 ) ID00007 onGPU: False ( 521,544 ) ID00058 onGPU: False ( 545,568 ) ID00045 onGPU: False ( 569,592 ) ID00033 onGPU: False ( 593,616 ) ID00026 onGPU: False ( 617,640 ) ID00074 onGPU: False ( 641,664 ) ID00025 onGPU: False ( 665,688 ) ID00036 onGPU: False ( 689,712 ) ID00023 onGPU: False ( 713,736 ) ID00029 onGPU: False ( 737,760 ) ID00032 onGPU: False ( 761,784 ) ID00021 onGPU: False ( 785,808 ) ID00034 onGPU: False ( 809,832 ) ID00030 onGPU: False ( 833,856 ) ID00056 onGPU: False ( 857,880 ) ID00035 onGPU: False ( 881,904 ) ID00046 onGPU: False ( 905,928 ) ID00050 onGPU: False ( 929,952 ) ID00016 onGPU: False ( 953,976 ) ID00037 onGPU: False ( 977,1000 ) ID00073 onGPU: False ( 1001,1024 ) ID00047 onGPU: False ( 1025,1048 ) ID00049 onGPU: False ( 1049,1072 ) ID00075 onGPU: False ( 1073,1096 ) ID00071 onGPU: False ( 1097,1119 ) ID00052 onGPU: False ( 1120,1143 ) ID00042 onGPU: False ( 1144,1167 ) ID00031 onGPU: False ( 1168,1191 ) ID00041 onGPU: False ( 1192,1215 ) ID00014 onGPU: False ( 1216,1239 ) ID00070 onGPU: False ( 1240,1263 ) ID00017 onGPU: False ( 1264,1287 ) ID00077 onGPU: False ( 1288,1311 ) ID00053 onGPU: False ( 1312,1335 ) ID00076 onGPU: False ( 1336,1359 ) ID00061 onGPU: False ( 1360,1383 ) ID00063 onGPU: False ( 1384,1406 ) ID00064 onGPU: False ( 1407,1430 ) ID00048 onGPU: False ( 1431,1454 ) ID00018 onGPU: False ( 1455,1478 ) ID00062 onGPU: False ( 1479,1502 ) ID00019 onGPU: False ( 1503,1526 ) ID00078 onGPU: False ( 1527,1538 ) ID00079 onGPU: False ( 1539,1550 ) ID00085 onGPU: False ( 1551,1573 ) ID00082 onGPU: False ( 1574,1596 ) ID00090 onGPU: False ( 1597,1619 ) ID00086 onGPU: False ( 1620,1642 ) ID00088 onGPU: False ( 1643,1665 ) ID00089 onGPU: False ( 1666,1688 ) ID00091 onGPU: False ( 1689,1711 ) ID00093 onGPU: False ( 1712,1734 ) ID00092 onGPU: False ( 1735,1757 ) ID00083 onGPU: False ( 1758,1780 ) ID00080 onGPU: False ( 1781,1803 ) ID00084 onGPU: False ( 1804,1826 ) ID00081 onGPU: False ( 1827,1849 ) ID00095 onGPU: False ( 1850,1872 ) ID00087 onGPU: False ( 1873,1895 ) ID00094 onGPU: False ( 1896,1918 ) ID00096 onGPU: False ( 1919,1964 ) ID00097 onGPU: False ( 1965,1983 ) ID00098 onGPU: False ( 1984,1998 ) ID00099 onGPU: False ( 1999,2003 ) 
 ID: 1 Name: hasGpu: True: 
 ID: 2 Name: hasGpu: True: 
-ID: 3 Name: hasGpu: True: ID00006 onGPU: False ( 0,6 ) ID00009 onGPU: False ( 7,13 ) ID00003 onGPU: False ( 14,20 ) ID00012 onGPU: False ( 21,27 ) ID00001 onGPU: False ( 28,34 ) ID00054 onGPU: False ( 35,41 ) ID00066 onGPU: False ( 42,48 ) ID00011 onGPU: False ( 49,55 ) ID00002 onGPU: False ( 56,62 ) ID00013 onGPU: False ( 63,69 ) ID00008 onGPU: False ( 70,76 ) ID00000 onGPU: False ( 77,83 ) ID00010 onGPU: False ( 84,90 ) ID00059 onGPU: False ( 91,97 ) 
+ID: 3 Name: hasGpu: True: ID00010 onGPU: True ( 0,6 ) ID00000 onGPU: True ( 7,13 ) ID00008 onGPU: True ( 14,20 ) ID00013 onGPU: True ( 21,27 ) ID00001 onGPU: True ( 28,34 ) ID00012 onGPU: True ( 35,41 ) ID00006 onGPU: True ( 42,48 ) ID00059 onGPU: True ( 49,55 ) ID00066 onGPU: True ( 56,62 ) ID00009 onGPU: True ( 63,69 ) ID00054 onGPU: True ( 70,76 ) ID00003 onGPU: True ( 77,83 ) ID00002 onGPU: True ( 84,90 ) ID00011 onGPU: True ( 91,97 ) 
 file: 0 VM: -1
 file: 1 VM: -1
 file: 2 VM: -1
@@ -758,88 +764,90 @@ file: 16 VM: -1
 file: 17 VM: -1
 file: 18 VM: -1
 file: 19 VM: -1
-file: 20 VM: 1
+file: 20 VM: 0
 file: 21 VM: 0
 file: 22 VM: 3
-file: 23 VM: 3
-file: 24 VM: 2
-file: 25 VM: 3
-file: 26 VM: 3
-file: 27 VM: 2
+file: 23 VM: 2
+file: 24 VM: 3
+file: 25 VM: 1
+file: 26 VM: 1
+file: 27 VM: 0
 file: 28 VM: 3
-file: 29 VM: 1
+file: 29 VM: 0
 file: 30 VM: 2
 file: 31 VM: 2
-file: 32 VM: 0
-file: 33 VM: 1
+file: 32 VM: 3
+file: 33 VM: 3
 file: 34 VM: 3
-file: 35 VM: 0
+file: 35 VM: 1
 file: 36 VM: 3
-file: 37 VM: 3
-file: 38 VM: 0
-file: 39 VM: 3
-file: 40 VM: 1
+file: 37 VM: 1
+file: 38 VM: 3
+file: 39 VM: 0
+file: 40 VM: 0
 file: 41 VM: 3
 file: 42 VM: 0
 file: 43 VM: 1
-file: 44 VM: 3
+file: 44 VM: 0
 file: 45 VM: 1
-file: 46 VM: 3
-file: 47 VM: 1
-file: 48 VM: 2
-file: 49 VM: 0
-file: 50 VM: 1
+file: 46 VM: 1
+file: 47 VM: 0
+file: 48 VM: 3
+file: 49 VM: 3
+file: 50 VM: 0
 file: 51 VM: 0
-file: 52 VM: 0
-file: 53 VM: 3
-file: 54 VM: 0
+file: 52 VM: 1
+file: 53 VM: 1
+file: 54 VM: 3
 file: 55 VM: 0
-file: 56 VM: 3
+file: 56 VM: 2
 file: 57 VM: 3
 file: 58 VM: 2
 file: 59 VM: 1
 file: 60 VM: 3
 file: 61 VM: 2
-file: 62 VM: 3
-file: 63 VM: 3
-file: 64 VM: 2
-file: 65 VM: 0
-file: 66 VM: 3
+file: 62 VM: 0
+file: 63 VM: 1
+file: 64 VM: 0
+file: 65 VM: 3
+file: 66 VM: 2
 file: 67 VM: 3
-file: 68 VM: 3
-file: 69 VM: 1
-file: 70 VM: 3
+file: 68 VM: 1
+file: 69 VM: 0
+file: 70 VM: 1
 file: 71 VM: 0
-file: 72 VM: 3
-file: 73 VM: 3
+file: 72 VM: 2
+file: 73 VM: 2
 file: 74 VM: 0
 file: 75 VM: 0
-file: 76 VM: 3
+file: 76 VM: 2
 file: 77 VM: 0
-file: 78 VM: 3
+file: 78 VM: 2
 file: 79 VM: 3
-file: 80 VM: 1
-file: 81 VM: 3
-file: 82 VM: 3
-file: 83 VM: 2
-file: 84 VM: 3
-file: 85 VM: 0
+file: 80 VM: 3
+file: 81 VM: 1
+file: 82 VM: 2
+file: 83 VM: 0
+file: 84 VM: 0
+file: 85 VM: 3
 file: 86 VM: 1
-file: 87 VM: 3
-file: 88 VM: 3
+file: 87 VM: 2
+file: 88 VM: 2
 file: 89 VM: 3
-file: 90 VM: 1
-file: 91 VM: 2
-file: 92 VM: 1
+file: 90 VM: 3
+file: 91 VM: 0
+file: 92 VM: 3
 **************
 
-Inspiral_30_gpu :
-
+Inspiral_30_gpu 
+Cost: 163.3
+Spam: 1633
+FO: 0.130277
 VMs:
 ID: 0 Name: hasGpu: True: 
 ID: 1 Name: hasGpu: True: 
 ID: 2 Name: hasGpu: True: 
-ID: 3 Name: hasGpu: False: ID00004 onGPU: False ( 0,17 ) ID00006 onGPU: False ( 18,35 ) ID00001 onGPU: False ( 36,53 ) ID00005 onGPU: False ( 54,71 ) ID00000 onGPU: False ( 72,89 ) ID00002 onGPU: False ( 90,107 ) ID00003 onGPU: False ( 108,125 ) ID00013 onGPU: False ( 126,207 ) ID00008 onGPU: False ( 208,290 ) ID00012 onGPU: False ( 291,370 ) ID00010 onGPU: False ( 371,485 ) ID00011 onGPU: False ( 486,603 ) ID00009 onGPU: False ( 604,732 ) ID00007 onGPU: False ( 733,877 ) ID00014 onGPU: False ( 878,888 ) ID00021 onGPU: False ( 889,892 ) ID00017 onGPU: False ( 893,896 ) ID00019 onGPU: False ( 897,900 ) ID00018 onGPU: False ( 901,904 ) ID00016 onGPU: False ( 905,909 ) ID00015 onGPU: False ( 910,914 ) ID00026 onGPU: False ( 915,989 ) ID00020 onGPU: False ( 990,994 ) ID00028 onGPU: False ( 995,1080 ) ID00024 onGPU: False ( 1081,1176 ) ID00025 onGPU: False ( 1177,1241 ) ID00027 onGPU: False ( 1242,1354 ) ID00023 onGPU: False ( 1355,1487 ) ID00022 onGPU: False ( 1488,1623 ) ID00029 onGPU: False ( 1624,1633 ) 
+ID: 3 Name: hasGpu: False: ID00001 onGPU: False ( 0,17 ) ID00000 onGPU: False ( 18,35 ) ID00004 onGPU: False ( 36,53 ) ID00005 onGPU: False ( 54,71 ) ID00003 onGPU: False ( 72,89 ) ID00012 onGPU: False ( 90,169 ) ID00002 onGPU: False ( 170,187 ) ID00008 onGPU: False ( 188,270 ) ID00006 onGPU: False ( 271,288 ) ID00013 onGPU: False ( 289,370 ) ID00010 onGPU: False ( 371,485 ) ID00011 onGPU: False ( 486,603 ) ID00009 onGPU: False ( 604,732 ) ID00007 onGPU: False ( 733,877 ) ID00014 onGPU: False ( 878,888 ) ID00016 onGPU: False ( 889,893 ) ID00019 onGPU: False ( 894,897 ) ID00021 onGPU: False ( 898,901 ) ID00026 onGPU: False ( 902,976 ) ID00017 onGPU: False ( 977,980 ) ID00028 onGPU: False ( 981,1066 ) ID00015 onGPU: False ( 1067,1071 ) ID00023 onGPU: False ( 1072,1204 ) ID00018 onGPU: False ( 1205,1208 ) ID00024 onGPU: False ( 1209,1304 ) ID00020 onGPU: False ( 1305,1309 ) ID00027 onGPU: False ( 1310,1422 ) ID00022 onGPU: False ( 1423,1558 ) ID00025 onGPU: False ( 1559,1623 ) ID00029 onGPU: False ( 1624,1633 ) 
 file: 0 VM: -1
 file: 1 VM: -1
 file: 2 VM: -1
@@ -858,44 +866,46 @@ file: 14 VM: -1
 file: 15 VM: -1
 file: 16 VM: -1
 file: 17 VM: 2
-file: 18 VM: 2
-file: 19 VM: 3
+file: 18 VM: 3
+file: 19 VM: 0
 file: 20 VM: 1
-file: 21 VM: 2
-file: 22 VM: 2
-file: 23 VM: 1
-file: 24 VM: 0
+file: 21 VM: 1
+file: 22 VM: 0
+file: 23 VM: 0
+file: 24 VM: 1
 file: 25 VM: 1
-file: 26 VM: 2
-file: 27 VM: 3
+file: 26 VM: 3
+file: 27 VM: 2
 file: 28 VM: 3
-file: 29 VM: 1
-file: 30 VM: 3
-file: 31 VM: 1
-file: 32 VM: 3
-file: 33 VM: 1
+file: 29 VM: 2
+file: 30 VM: 2
+file: 31 VM: 3
+file: 32 VM: 2
+file: 33 VM: 3
 file: 34 VM: 2
-file: 35 VM: 3
-file: 36 VM: 2
-file: 37 VM: 1
-file: 38 VM: 0
+file: 35 VM: 1
+file: 36 VM: 3
+file: 37 VM: 3
+file: 38 VM: 3
 file: 39 VM: 3
 file: 40 VM: 2
-file: 41 VM: 3
+file: 41 VM: 1
 file: 42 VM: 0
-file: 43 VM: 3
-file: 44 VM: 3
-file: 45 VM: 3
-file: 46 VM: 2
+file: 43 VM: 2
+file: 44 VM: 0
+file: 45 VM: 2
+file: 46 VM: 3
 **************
 
-Inspiral_50_gpu :
-
+Inspiral_50_gpu 
+Cost: 339.95
+Spam: 2577
+FO: 0.0987258
 VMs:
-ID: 0 Name: hasGpu: True: ID00010 onGPU: False ( 0,5 ) ID00000 onGPU: False ( 6,12 ) 
-ID: 1 Name: hasGpu: False: ID00005 onGPU: False ( 0,27 ) ID00009 onGPU: False ( 28,56 ) ID00007 onGPU: False ( 57,84 ) ID00011 onGPU: False ( 85,113 ) ID00008 onGPU: False ( 114,142 ) ID00020 onGPU: False ( 143,540 ) ID00017 onGPU: False ( 541,1087 ) ID00027 onGPU: False ( 1137,1143 ) ID00026 onGPU: False ( 1144,1150 ) ID00038 onGPU: False ( 1151,1375 ) 
+ID: 0 Name: hasGpu: True: ID00001 onGPU: True ( 0,5 ) 
+ID: 1 Name: hasGpu: False: ID00009 onGPU: False ( 0,28 ) ID00002 onGPU: False ( 29,56 ) ID00010 onGPU: False ( 57,85 ) ID00005 onGPU: False ( 86,113 ) ID00006 onGPU: False ( 114,141 ) ID00011 onGPU: False ( 142,170 ) ID00014 onGPU: False ( 171,406 ) ID00023 onGPU: False ( 407,754 ) 
 ID: 2 Name: hasGpu: True: 
-ID: 3 Name: hasGpu: False: ID00004 onGPU: False ( 0,17 ) ID00006 onGPU: False ( 18,35 ) ID00001 onGPU: False ( 36,53 ) ID00002 onGPU: False ( 54,71 ) ID00003 onGPU: False ( 72,89 ) ID00015 onGPU: False ( 90,163 ) ID00023 onGPU: False ( 164,261 ) ID00014 onGPU: False ( 262,332 ) ID00021 onGPU: False ( 333,395 ) ID00012 onGPU: False ( 396,483 ) ID00022 onGPU: False ( 484,589 ) ID00019 onGPU: False ( 590,709 ) ID00013 onGPU: False ( 710,817 ) ID00016 onGPU: False ( 818,940 ) ID00018 onGPU: False ( 941,1082 ) ID00024 onGPU: False ( 1088,1103 ) ID00036 onGPU: False ( 1104,1107 ) ID00032 onGPU: False ( 1108,1111 ) ID00030 onGPU: False ( 1112,1115 ) ID00031 onGPU: False ( 1116,1119 ) ID00025 onGPU: False ( 1120,1123 ) ID00028 onGPU: False ( 1124,1127 ) ID00035 onGPU: False ( 1128,1132 ) ID00034 onGPU: False ( 1133,1136 ) ID00033 onGPU: False ( 1137,1141 ) ID00046 onGPU: False ( 1142,1230 ) ID00029 onGPU: False ( 1231,1235 ) ID00047 onGPU: False ( 1236,1324 ) ID00045 onGPU: False ( 1325,1415 ) ID00048 onGPU: False ( 1416,1522 ) ID00043 onGPU: False ( 1523,1629 ) ID00039 onGPU: False ( 1630,1739 ) ID00042 onGPU: False ( 1740,1873 ) ID00041 onGPU: False ( 1874,1979 ) ID00040 onGPU: False ( 1980,2116 ) ID00044 onGPU: False ( 2117,2254 ) ID00037 onGPU: False ( 2255,2401 ) ID00049 onGPU: False ( 2402,2417 ) 
+ID: 3 Name: hasGpu: False: ID00004 onGPU: False ( 0,17 ) ID00000 onGPU: False ( 18,35 ) ID00003 onGPU: False ( 36,53 ) ID00007 onGPU: False ( 54,71 ) ID00008 onGPU: False ( 72,89 ) ID00015 onGPU: False ( 90,163 ) ID00020 onGPU: False ( 164,274 ) ID00019 onGPU: False ( 275,394 ) ID00012 onGPU: False ( 395,482 ) ID00018 onGPU: False ( 483,624 ) ID00022 onGPU: False ( 625,730 ) ID00016 onGPU: False ( 731,853 ) ID00021 onGPU: False ( 854,916 ) ID00017 onGPU: False ( 917,1063 ) ID00013 onGPU: False ( 1064,1171 ) ID00024 onGPU: False ( 1172,1187 ) ID00028 onGPU: False ( 1188,1191 ) ID00030 onGPU: False ( 1192,1195 ) ID00031 onGPU: False ( 1196,1199 ) ID00035 onGPU: False ( 1200,1204 ) ID00047 onGPU: False ( 1205,1293 ) ID00032 onGPU: False ( 1294,1297 ) ID00043 onGPU: False ( 1298,1404 ) ID00034 onGPU: False ( 1405,1408 ) ID00025 onGPU: False ( 1409,1412 ) ID00042 onGPU: False ( 1413,1546 ) ID00033 onGPU: False ( 1547,1551 ) ID00046 onGPU: False ( 1552,1640 ) ID00027 onGPU: False ( 1641,1644 ) ID00029 onGPU: False ( 1645,1649 ) ID00026 onGPU: False ( 1650,1653 ) ID00041 onGPU: False ( 1654,1759 ) ID00045 onGPU: False ( 1760,1850 ) ID00038 onGPU: False ( 1851,1918 ) ID00040 onGPU: False ( 1919,2055 ) ID00044 onGPU: False ( 2056,2193 ) ID00039 onGPU: False ( 2194,2303 ) ID00036 onGPU: False ( 2304,2307 ) ID00037 onGPU: False ( 2308,2454 ) ID00048 onGPU: False ( 2455,2561 ) ID00049 onGPU: False ( 2562,2577 ) 
 file: 0 VM: -1
 file: 1 VM: -1
 file: 2 VM: -1
@@ -924,64 +934,66 @@ file: 24 VM: -1
 file: 25 VM: -1
 file: 26 VM: -1
 file: 27 VM: 1
-file: 28 VM: 2
-file: 29 VM: 3
-file: 30 VM: 1
-file: 31 VM: 1
+file: 28 VM: 3
+file: 29 VM: 0
+file: 30 VM: 2
+file: 31 VM: 3
 file: 32 VM: 3
-file: 33 VM: 0
-file: 34 VM: 2
-file: 35 VM: 1
-file: 36 VM: 1
-file: 37 VM: 2
-file: 38 VM: 2
-file: 39 VM: 2
-file: 40 VM: 3
+file: 33 VM: 2
+file: 34 VM: 1
+file: 35 VM: 2
+file: 36 VM: 3
+file: 37 VM: 1
+file: 38 VM: 1
+file: 39 VM: 1
+file: 40 VM: 2
 file: 41 VM: 2
-file: 42 VM: 0
-file: 43 VM: 2
-file: 44 VM: 3
-file: 45 VM: 3
-file: 46 VM: 3
-file: 47 VM: 2
-file: 48 VM: 3
-file: 49 VM: 3
-file: 50 VM: 1
-file: 51 VM: 1
-file: 52 VM: 3
-file: 53 VM: 0
-file: 54 VM: 1
-file: 55 VM: 2
+file: 42 VM: 1
+file: 43 VM: 3
+file: 44 VM: 2
+file: 45 VM: 2
+file: 46 VM: 2
+file: 47 VM: 3
+file: 48 VM: 1
+file: 49 VM: 1
+file: 50 VM: 2
+file: 51 VM: 0
+file: 52 VM: 0
+file: 53 VM: 2
+file: 54 VM: 0
+file: 55 VM: 0
 file: 56 VM: 3
-file: 57 VM: 1
+file: 57 VM: 3
 file: 58 VM: 2
-file: 59 VM: 2
+file: 59 VM: 0
 file: 60 VM: 0
 file: 61 VM: 1
-file: 62 VM: 1
-file: 63 VM: 0
-file: 64 VM: 3
-file: 65 VM: 1
-file: 66 VM: 0
-file: 67 VM: 2
-file: 68 VM: 1
-file: 69 VM: 1
+file: 62 VM: 2
+file: 63 VM: 2
+file: 64 VM: 1
+file: 65 VM: 2
+file: 66 VM: 1
+file: 67 VM: 1
+file: 68 VM: 3
+file: 69 VM: 3
 file: 70 VM: 1
-file: 71 VM: 1
-file: 72 VM: 3
-file: 73 VM: 0
-file: 74 VM: 1
-file: 75 VM: 3
-file: 76 VM: 3
+file: 71 VM: 0
+file: 72 VM: 0
+file: 73 VM: 3
+file: 74 VM: 3
+file: 75 VM: 2
+file: 76 VM: 2
 **************
 
-Inspiral_100_gpu :
-
+Inspiral_100_gpu 
+Cost: 544.1
+Spam: 4940
+FO: 0.125306
 VMs:
-ID: 0 Name: hasGpu: False: ID00013 onGPU: False ( 0,29 ) ID00004 onGPU: False ( 30,60 ) ID00003 onGPU: False ( 61,91 ) ID00010 onGPU: False ( 92,122 ) ID00011 onGPU: False ( 123,151 ) ID00012 onGPU: False ( 152,181 ) ID00019 onGPU: False ( 182,212 ) ID00017 onGPU: False ( 213,242 ) 
-ID: 1 Name: hasGpu: False: ID00018 onGPU: False ( 0,27 ) ID00005 onGPU: False ( 28,55 ) ID00008 onGPU: False ( 56,83 ) ID00009 onGPU: False ( 84,112 ) ID00007 onGPU: False ( 113,141 ) ID00016 onGPU: False ( 142,170 ) ID00000 onGPU: False ( 171,198 ) 
+ID: 0 Name: hasGpu: False: ID00011 onGPU: False ( 0,28 ) ID00010 onGPU: False ( 29,59 ) ID00000 onGPU: False ( 60,89 ) ID00004 onGPU: False ( 90,120 ) ID00020 onGPU: False ( 121,151 ) ID00012 onGPU: False ( 152,181 ) ID00014 onGPU: False ( 182,213 ) ID00002 onGPU: False ( 214,243 ) ID00015 onGPU: False ( 244,274 ) ID00008 onGPU: False ( 275,304 ) 
+ID: 1 Name: hasGpu: False: ID00018 onGPU: False ( 0,27 ) ID00006 onGPU: False ( 28,55 ) ID00005 onGPU: False ( 56,83 ) ID00017 onGPU: False ( 84,111 ) ID00021 onGPU: False ( 112,140 ) ID00013 onGPU: False ( 141,168 ) ID00003 onGPU: False ( 169,197 ) 
 ID: 2 Name: hasGpu: True: 
-ID: 3 Name: hasGpu: False: ID00020 onGPU: False ( 0,17 ) ID00006 onGPU: False ( 18,35 ) ID00001 onGPU: False ( 36,53 ) ID00022 onGPU: False ( 54,71 ) ID00021 onGPU: False ( 72,89 ) ID00002 onGPU: False ( 90,107 ) ID00014 onGPU: False ( 108,125 ) ID00015 onGPU: False ( 126,143 ) ID00038 onGPU: False ( 144,227 ) ID00031 onGPU: False ( 228,290 ) ID00028 onGPU: False ( 291,352 ) ID00034 onGPU: False ( 353,434 ) ID00033 onGPU: False ( 435,507 ) ID00040 onGPU: False ( 508,589 ) ID00026 onGPU: False ( 590,690 ) ID00032 onGPU: False ( 691,787 ) ID00027 onGPU: False ( 788,869 ) ID00024 onGPU: False ( 870,947 ) ID00041 onGPU: False ( 948,1049 ) ID00029 onGPU: False ( 1050,1110 ) ID00030 onGPU: False ( 1111,1218 ) ID00035 onGPU: False ( 1219,1299 ) ID00023 onGPU: False ( 1300,1405 ) ID00044 onGPU: False ( 1406,1501 ) ID00036 onGPU: False ( 1502,1621 ) ID00037 onGPU: False ( 1622,1737 ) ID00045 onGPU: False ( 1738,1852 ) ID00043 onGPU: False ( 1853,1972 ) ID00042 onGPU: False ( 1973,2093 ) ID00048 onGPU: False ( 2094,2100 ) ID00070 onGPU: False ( 2101,2104 ) ID00072 onGPU: False ( 2105,2109 ) ID00069 onGPU: False ( 2110,2114 ) ID00094 onGPU: False ( 2115,2214 ) ID00071 onGPU: False ( 2215,2218 ) ID00095 onGPU: False ( 2219,2283 ) ID00096 onGPU: False ( 2284,2394 ) ID00093 onGPU: False ( 2395,2506 ) ID00099 onGPU: False ( 2507,2513 ) ID00025 onGPU: False ( 2514,2637 ) ID00046 onGPU: False ( 2638,2652 ) ID00054 onGPU: False ( 2653,2656 ) ID00049 onGPU: False ( 2657,2660 ) ID00055 onGPU: False ( 2661,2664 ) ID00052 onGPU: False ( 2665,2668 ) ID00053 onGPU: False ( 2669,2672 ) ID00056 onGPU: False ( 2673,2677 ) ID00050 onGPU: False ( 2678,2682 ) ID00057 onGPU: False ( 2683,2686 ) ID00079 onGPU: False ( 2687,2759 ) ID00059 onGPU: False ( 2760,2764 ) ID00058 onGPU: False ( 2765,2768 ) ID00080 onGPU: False ( 2769,2838 ) ID00083 onGPU: False ( 2839,2935 ) ID00051 onGPU: False ( 2936,2940 ) ID00076 onGPU: False ( 2941,3047 ) ID00082 onGPU: False ( 3048,3134 ) ID00073 onGPU: False ( 3135,3236 ) ID00078 onGPU: False ( 3237,3348 ) ID00077 onGPU: False ( 3349,3445 ) ID00074 onGPU: False ( 3446,3573 ) ID00081 onGPU: False ( 3574,3691 ) ID00075 onGPU: False ( 3692,3825 ) ID00097 onGPU: False ( 3826,3839 ) ID00039 onGPU: False ( 3840,3983 ) ID00047 onGPU: False ( 3984,3996 ) ID00067 onGPU: False ( 3997,4000 ) ID00060 onGPU: False ( 4001,4004 ) ID00065 onGPU: False ( 4005,4008 ) ID00061 onGPU: False ( 4009,4012 ) ID00066 onGPU: False ( 4013,4016 ) ID00068 onGPU: False ( 4017,4021 ) ID00063 onGPU: False ( 4022,4026 ) ID00091 onGPU: False ( 4027,4101 ) ID00062 onGPU: False ( 4102,4105 ) ID00092 onGPU: False ( 4106,4186 ) ID00089 onGPU: False ( 4187,4285 ) ID00064 onGPU: False ( 4286,4289 ) ID00088 onGPU: False ( 4290,4367 ) ID00084 onGPU: False ( 4368,4479 ) ID00087 onGPU: False ( 4480,4581 ) ID00090 onGPU: False ( 4582,4694 ) ID00086 onGPU: False ( 4695,4827 ) ID00085 onGPU: False ( 4828,4963 ) ID00098 onGPU: False ( 4964,4976 ) 
+ID: 3 Name: hasGpu: False: ID00016 onGPU: False ( 0,17 ) ID00009 onGPU: False ( 18,35 ) ID00007 onGPU: False ( 36,53 ) ID00022 onGPU: False ( 54,71 ) ID00001 onGPU: False ( 72,89 ) ID00019 onGPU: False ( 90,107 ) ID00032 onGPU: False ( 108,204 ) ID00029 onGPU: False ( 205,265 ) ID00034 onGPU: False ( 266,347 ) ID00026 onGPU: False ( 348,448 ) ID00044 onGPU: False ( 449,544 ) ID00041 onGPU: False ( 545,646 ) ID00024 onGPU: False ( 647,724 ) ID00027 onGPU: False ( 725,806 ) ID00033 onGPU: False ( 807,879 ) ID00031 onGPU: False ( 880,942 ) ID00023 onGPU: False ( 943,1048 ) ID00030 onGPU: False ( 1049,1156 ) ID00028 onGPU: False ( 1157,1218 ) ID00040 onGPU: False ( 1219,1300 ) ID00035 onGPU: False ( 1301,1381 ) ID00045 onGPU: False ( 1382,1496 ) ID00036 onGPU: False ( 1497,1616 ) ID00037 onGPU: False ( 1617,1732 ) ID00038 onGPU: False ( 1733,1816 ) ID00042 onGPU: False ( 1817,1937 ) ID00043 onGPU: False ( 1938,2057 ) ID00048 onGPU: False ( 2058,2064 ) ID00069 onGPU: False ( 2065,2069 ) ID00093 onGPU: False ( 2070,2181 ) ID00072 onGPU: False ( 2182,2186 ) ID00025 onGPU: False ( 2187,2310 ) ID00070 onGPU: False ( 2311,2314 ) ID00094 onGPU: False ( 2315,2414 ) ID00071 onGPU: False ( 2415,2418 ) ID00095 onGPU: False ( 2419,2483 ) ID00046 onGPU: False ( 2484,2498 ) ID00059 onGPU: False ( 2499,2503 ) ID00057 onGPU: False ( 2504,2507 ) ID00056 onGPU: False ( 2508,2512 ) ID00053 onGPU: False ( 2513,2516 ) ID00050 onGPU: False ( 2517,2521 ) ID00096 onGPU: False ( 2522,2632 ) ID00058 onGPU: False ( 2633,2636 ) ID00055 onGPU: False ( 2637,2640 ) ID00054 onGPU: False ( 2641,2644 ) ID00082 onGPU: False ( 2645,2731 ) ID00079 onGPU: False ( 2732,2804 ) ID00049 onGPU: False ( 2805,2808 ) ID00081 onGPU: False ( 2809,2926 ) ID00077 onGPU: False ( 2927,3023 ) ID00078 onGPU: False ( 3024,3135 ) ID00099 onGPU: False ( 3136,3142 ) ID00074 onGPU: False ( 3143,3270 ) ID00080 onGPU: False ( 3271,3340 ) ID00073 onGPU: False ( 3341,3442 ) ID00052 onGPU: False ( 3443,3446 ) ID00083 onGPU: False ( 3447,3543 ) ID00051 onGPU: False ( 3544,3548 ) ID00039 onGPU: False ( 3549,3692 ) ID00076 onGPU: False ( 3693,3799 ) ID00075 onGPU: False ( 3800,3933 ) ID00097 onGPU: False ( 3934,3947 ) ID00047 onGPU: False ( 3948,3960 ) ID00061 onGPU: False ( 3961,3964 ) ID00060 onGPU: False ( 3965,3968 ) ID00062 onGPU: False ( 3969,3972 ) ID00068 onGPU: False ( 3973,3977 ) ID00092 onGPU: False ( 3978,4058 ) ID00066 onGPU: False ( 4059,4062 ) ID00063 onGPU: False ( 4063,4067 ) ID00067 onGPU: False ( 4068,4071 ) ID00084 onGPU: False ( 4072,4183 ) ID00065 onGPU: False ( 4184,4187 ) ID00091 onGPU: False ( 4188,4262 ) ID00086 onGPU: False ( 4263,4395 ) ID00090 onGPU: False ( 4396,4508 ) ID00089 onGPU: False ( 4509,4607 ) ID00087 onGPU: False ( 4608,4709 ) ID00064 onGPU: False ( 4710,4713 ) ID00088 onGPU: False ( 4714,4791 ) ID00085 onGPU: False ( 4792,4927 ) ID00098 onGPU: False ( 4928,4940 ) 
 file: 0 VM: -1
 file: 1 VM: -1
 file: 2 VM: -1
@@ -1033,115 +1045,117 @@ file: 47 VM: -1
 file: 48 VM: -1
 file: 49 VM: -1
 file: 50 VM: -1
-file: 51 VM: 3
-file: 52 VM: 2
-file: 53 VM: 1
-file: 54 VM: 2
-file: 55 VM: 3
-file: 56 VM: 3
-file: 57 VM: 3
+file: 51 VM: 2
+file: 52 VM: 1
+file: 53 VM: 3
+file: 54 VM: 3
+file: 55 VM: 2
+file: 56 VM: 2
+file: 57 VM: 2
 file: 58 VM: 2
-file: 59 VM: 1
-file: 60 VM: 0
-file: 61 VM: 3
-file: 62 VM: 0
+file: 59 VM: 0
+file: 60 VM: 3
+file: 61 VM: 2
+file: 62 VM: 2
 file: 63 VM: 3
-file: 64 VM: 1
-file: 65 VM: 3
-file: 66 VM: 1
-file: 67 VM: 2
+file: 64 VM: 2
+file: 65 VM: 2
+file: 66 VM: 2
+file: 67 VM: 0
 file: 68 VM: 0
-file: 69 VM: 2
-file: 70 VM: 3
-file: 71 VM: 0
+file: 69 VM: 3
+file: 70 VM: 0
+file: 71 VM: 1
 file: 72 VM: 3
-file: 73 VM: 2
+file: 73 VM: 0
 file: 74 VM: 0
-file: 75 VM: 2
-file: 76 VM: 3
-file: 77 VM: 0
-file: 78 VM: 2
-file: 79 VM: 3
+file: 75 VM: 1
+file: 76 VM: 0
+file: 77 VM: 1
+file: 78 VM: 1
+file: 79 VM: 1
 file: 80 VM: 0
-file: 81 VM: 0
+file: 81 VM: 1
 file: 82 VM: 0
-file: 83 VM: 1
-file: 84 VM: 2
-file: 85 VM: 1
+file: 83 VM: 3
+file: 84 VM: 1
+file: 85 VM: 2
 file: 86 VM: 3
-file: 87 VM: 2
-file: 88 VM: 0
-file: 89 VM: 2
-file: 90 VM: 1
+file: 87 VM: 0
+file: 88 VM: 2
+file: 89 VM: 1
+file: 90 VM: 3
 file: 91 VM: 3
-file: 92 VM: 0
-file: 93 VM: 2
-file: 94 VM: 1
+file: 92 VM: 1
+file: 93 VM: 1
+file: 94 VM: 3
 file: 95 VM: 3
-file: 96 VM: 2
-file: 97 VM: 1
+file: 96 VM: 0
+file: 97 VM: 2
 file: 98 VM: 0
-file: 99 VM: 3
+file: 99 VM: 2
 file: 100 VM: 3
 file: 101 VM: 2
-file: 102 VM: 0
+file: 102 VM: 3
 file: 103 VM: 1
-file: 104 VM: 0
+file: 104 VM: 1
 file: 105 VM: 0
-file: 106 VM: 2
-file: 107 VM: 2
-file: 108 VM: 1
-file: 109 VM: 0
-file: 110 VM: 3
-file: 111 VM: 3
+file: 106 VM: 0
+file: 107 VM: 1
+file: 108 VM: 0
+file: 109 VM: 1
+file: 110 VM: 2
+file: 111 VM: 0
 file: 112 VM: 3
 file: 113 VM: 1
-file: 114 VM: 3
+file: 114 VM: 0
 file: 115 VM: 2
-file: 116 VM: 0
-file: 117 VM: 3
+file: 116 VM: 1
+file: 117 VM: 1
 file: 118 VM: 3
 file: 119 VM: 1
-file: 120 VM: 0
-file: 121 VM: 3
-file: 122 VM: 0
-file: 123 VM: 2
-file: 124 VM: 0
-file: 125 VM: 3
-file: 126 VM: 1
+file: 120 VM: 2
+file: 121 VM: 1
+file: 122 VM: 2
+file: 123 VM: 3
+file: 124 VM: 1
+file: 125 VM: 2
+file: 126 VM: 2
 file: 127 VM: 2
-file: 128 VM: 3
+file: 128 VM: 1
 file: 129 VM: 0
-file: 130 VM: 1
-file: 131 VM: 1
-file: 132 VM: 1
-file: 133 VM: 2
-file: 134 VM: 3
-file: 135 VM: 0
-file: 136 VM: 1
-file: 137 VM: 0
-file: 138 VM: 0
+file: 130 VM: 3
+file: 131 VM: 3
+file: 132 VM: 2
+file: 133 VM: 3
+file: 134 VM: 2
+file: 135 VM: 2
+file: 136 VM: 3
+file: 137 VM: 2
+file: 138 VM: 1
 file: 139 VM: 0
-file: 140 VM: 3
+file: 140 VM: 1
 file: 141 VM: 1
-file: 142 VM: 0
-file: 143 VM: 3
-file: 144 VM: 3
-file: 145 VM: 0
-file: 146 VM: 0
+file: 142 VM: 2
+file: 143 VM: 1
+file: 144 VM: 2
+file: 145 VM: 2
+file: 146 VM: 2
 file: 147 VM: 2
-file: 148 VM: 2
-file: 149 VM: 2
-file: 150 VM: 2
+file: 148 VM: 3
+file: 149 VM: 1
+file: 150 VM: 3
 **************
 
-Sipht_30_gpu :
-
+Sipht_30_gpu 
+Cost: 331.28
+Spam: 2733
+FO: 0.21639
 VMs:
-ID: 0 Name: hasGpu: True: ID00014 onGPU: False ( 0,2 ) ID00012 onGPU: False ( 3,5 ) 
+ID: 0 Name: hasGpu: True: ID00008 onGPU: False ( 0,3 ) ID00012 onGPU: True ( 4,6 ) 
 ID: 1 Name: hasGpu: True: 
-ID: 2 Name: hasGpu: False: ID00005 onGPU: False ( 0,7 ) ID00001 onGPU: False ( 8,15 ) ID00007 onGPU: False ( 16,23 ) ID00013 onGPU: False ( 24,31 ) ID00016 onGPU: False ( 32,39 ) ID00017 onGPU: False ( 40,47 ) ID00011 onGPU: False ( 48,55 ) ID00010 onGPU: False ( 56,63 ) ID00020 onGPU: False ( 64,87 ) ID00000 onGPU: False ( 88,107 ) 
-ID: 3 Name: hasGpu: False: ID00006 onGPU: False ( 0,7 ) ID00002 onGPU: False ( 8,15 ) ID00004 onGPU: False ( 16,23 ) ID00003 onGPU: False ( 24,31 ) ID00009 onGPU: False ( 32,39 ) ID00008 onGPU: False ( 40,47 ) ID00015 onGPU: False ( 48,55 ) ID00019 onGPU: False ( 56,71 ) ID00018 onGPU: False ( 72,270 ) ID00021 onGPU: False ( 271,1597 ) ID00022 onGPU: False ( 1598,1730 ) ID00023 onGPU: False ( 1731,1737 ) ID00027 onGPU: False ( 1738,1744 ) ID00024 onGPU: False ( 1745,1755 ) ID00026 onGPU: False ( 1756,1770 ) ID00025 onGPU: False ( 1771,2919 ) ID00028 onGPU: False ( 2920,2939 ) 
+ID: 2 Name: hasGpu: False: ID00010 onGPU: False ( 0,7 ) ID00013 onGPU: False ( 8,15 ) ID00003 onGPU: False ( 16,23 ) ID00016 onGPU: False ( 24,31 ) ID00014 onGPU: False ( 32,39 ) ID00017 onGPU: False ( 40,47 ) ID00007 onGPU: False ( 48,55 ) ID00019 onGPU: False ( 56,80 ) ID00000 onGPU: False ( 81,100 ) ID00020 onGPU: False ( 101,124 ) ID00018 onGPU: False ( 125,509 ) 
+ID: 3 Name: hasGpu: False: ID00005 onGPU: False ( 0,7 ) ID00004 onGPU: False ( 8,15 ) ID00001 onGPU: False ( 16,23 ) ID00011 onGPU: False ( 24,31 ) ID00006 onGPU: False ( 32,39 ) ID00009 onGPU: False ( 40,47 ) ID00002 onGPU: False ( 48,55 ) ID00015 onGPU: False ( 56,63 ) ID00021 onGPU: False ( 64,1390 ) ID00022 onGPU: False ( 1391,1524 ) ID00024 onGPU: False ( 1525,1535 ) ID00027 onGPU: False ( 1536,1542 ) ID00023 onGPU: False ( 1543,1549 ) ID00026 onGPU: False ( 1550,1564 ) ID00025 onGPU: False ( 1565,2713 ) ID00028 onGPU: False ( 2714,2733 ) 
 file: 0 VM: -1
 file: 1 VM: -1
 file: 2 VM: -1
@@ -2037,83 +2051,85 @@ file: 891 VM: -1
 file: 892 VM: -1
 file: 893 VM: -1
 file: 894 VM: -1
-file: 895 VM: 2
+file: 895 VM: 1
 file: 896 VM: 1
-file: 897 VM: 3
-file: 898 VM: 0
-file: 899 VM: 2
-file: 900 VM: 3
-file: 901 VM: 3
+file: 897 VM: 1
+file: 898 VM: 3
+file: 899 VM: 1
+file: 900 VM: 2
+file: 901 VM: 2
 file: 902 VM: 3
-file: 903 VM: 3
+file: 903 VM: 2
 file: 904 VM: 3
-file: 905 VM: 3
-file: 906 VM: 2
+file: 905 VM: 1
+file: 906 VM: 0
 file: 907 VM: 0
-file: 908 VM: 3
-file: 909 VM: 3
-file: 910 VM: 3
-file: 911 VM: 3
+file: 908 VM: 2
+file: 909 VM: 1
+file: 910 VM: 2
+file: 911 VM: 2
 file: 912 VM: 0
-file: 913 VM: 0
-file: 914 VM: 3
-file: 915 VM: 3
+file: 913 VM: 1
+file: 914 VM: 2
+file: 915 VM: 2
 file: 916 VM: 3
-file: 917 VM: 3
-file: 918 VM: 3
-file: 919 VM: 0
-file: 920 VM: 3
+file: 917 VM: 2
+file: 918 VM: 1
+file: 919 VM: 2
+file: 920 VM: 2
 file: 921 VM: 3
 file: 922 VM: 3
-file: 923 VM: 3
-file: 924 VM: 3
+file: 923 VM: 2
+file: 924 VM: 1
 file: 925 VM: 3
-file: 926 VM: 1
+file: 926 VM: 2
 file: 927 VM: 0
-file: 928 VM: 1
-file: 929 VM: 3
-file: 930 VM: 3
+file: 928 VM: 0
+file: 929 VM: 1
+file: 930 VM: 1
 file: 931 VM: 3
 file: 932 VM: 3
-file: 933 VM: 1
+file: 933 VM: 0
 file: 934 VM: 3
-file: 935 VM: 3
-file: 936 VM: 0
-file: 937 VM: 0
-file: 938 VM: 3
-file: 939 VM: 0
-file: 940 VM: 3
+file: 935 VM: 1
+file: 936 VM: 2
+file: 937 VM: 3
+file: 938 VM: 2
+file: 939 VM: 1
+file: 940 VM: 1
 file: 941 VM: 0
-file: 942 VM: 3
-file: 943 VM: 1
-file: 944 VM: 3
-file: 945 VM: 3
-file: 946 VM: 3
-file: 947 VM: 3
-file: 948 VM: 3
-file: 949 VM: 0
+file: 942 VM: 2
+file: 943 VM: 3
+file: 944 VM: 1
+file: 945 VM: 1
+file: 946 VM: 1
+file: 947 VM: 1
+file: 948 VM: 2
+file: 949 VM: 3
 file: 950 VM: 1
-file: 951 VM: 3
+file: 951 VM: 1
 file: 952 VM: 3
-file: 953 VM: 3
-file: 954 VM: 2
-file: 955 VM: 0
+file: 953 VM: 2
+file: 954 VM: 1
+file: 955 VM: 2
 file: 956 VM: 0
-file: 957 VM: 3
-file: 958 VM: 3
-file: 959 VM: 3
-file: 960 VM: 3
-file: 961 VM: 3
-file: 962 VM: 3
+file: 957 VM: 2
+file: 958 VM: 2
+file: 959 VM: 2
+file: 960 VM: 2
+file: 961 VM: 1
+file: 962 VM: 1
 **************
 
-Sipht_60_gpu :
-
+Sipht_60_gpu 
+Cost: 799.6
+Spam: 5155
+FO: 0.20819
 VMs:
-ID: 0 Name: hasGpu: False: ID00007 onGPU: False ( 0,3 ) ID00031 onGPU: False ( 4,7 ) ID00035 onGPU: False ( 8,11 ) ID00042 onGPU: False ( 12,15 ) ID00004 onGPU: False ( 16,19 ) ID00039 onGPU: False ( 20,23 ) ID00005 onGPU: False ( 24,27 ) ID00001 onGPU: False ( 28,31 ) ID00013 onGPU: False ( 32,35 ) ID00010 onGPU: False ( 36,39 ) ID00038 onGPU: False ( 40,44 ) ID00029 onGPU: False ( 45,48 ) ID00002 onGPU: False ( 49,52 ) ID00046 onGPU: False ( 53,57 ) ID00015 onGPU: False ( 58,62 ) ID00040 onGPU: False ( 63,67 ) ID00030 onGPU: False ( 68,72 ) ID00033 onGPU: False ( 73,77 ) 
-ID: 1 Name: hasGpu: False: ID00043 onGPU: False ( 0,7 ) ID00012 onGPU: False ( 8,15 ) ID00008 onGPU: False ( 16,23 ) ID00009 onGPU: False ( 24,31 ) ID00044 onGPU: False ( 32,39 ) ID00034 onGPU: False ( 40,47 ) ID00045 onGPU: False ( 48,56 ) ID00014 onGPU: False ( 57,64 ) ID00049 onGPU: False ( 65,97 ) ID00000 onGPU: False ( 105,123 ) ID00028 onGPU: False ( 124,144 ) 
+ID: 0 Name: hasGpu: False: ID00013 onGPU: False ( 0,3 ) ID00043 onGPU: False ( 4,7 ) ID00005 onGPU: False ( 8,11 ) ID00040 onGPU: False ( 12,16 ) ID00036 onGPU: False ( 17,21 ) ID00034 onGPU: False ( 22,25 ) ID00029 onGPU: False ( 26,29 ) ID00003 onGPU: False ( 30,34 ) ID00033 onGPU: False ( 35,39 ) ID00041 onGPU: False ( 40,44 ) ID00008 onGPU: False ( 45,48 ) ID00011 onGPU: False ( 49,53 ) ID00044 onGPU: False ( 54,57 ) ID00038 onGPU: False ( 58,62 ) ID00030 onGPU: False ( 63,67 ) ID00031 onGPU: False ( 68,71 ) 
+ID: 1 Name: hasGpu: False: ID00042 onGPU: False ( 0,7 ) ID00009 onGPU: False ( 8,15 ) ID00032 onGPU: False ( 16,24 ) ID00035 onGPU: False ( 25,32 ) ID00001 onGPU: False ( 33,40 ) ID00014 onGPU: False ( 41,48 ) ID00010 onGPU: False ( 49,56 ) ID00012 onGPU: False ( 57,64 ) ID00045 onGPU: False ( 65,73 ) ID00050 onGPU: False ( 74,2521 ) ID00052 onGPU: False ( 2702,2708 ) ID00026 onGPU: False ( 2760,2770 ) 
 ID: 2 Name: hasGpu: True: 
-ID: 3 Name: hasGpu: False: ID00037 onGPU: False ( 0,7 ) ID00032 onGPU: False ( 8,15 ) ID00036 onGPU: False ( 16,23 ) ID00006 onGPU: False ( 24,31 ) ID00016 onGPU: False ( 32,39 ) ID00003 onGPU: False ( 40,47 ) ID00041 onGPU: False ( 48,55 ) ID00011 onGPU: False ( 56,63 ) ID00048 onGPU: False ( 64,74 ) ID00018 onGPU: False ( 75,88 ) ID00019 onGPU: False ( 89,104 ) ID00017 onGPU: False ( 105,356 ) ID00047 onGPU: False ( 357,712 ) ID00050 onGPU: False ( 713,1963 ) ID00020 onGPU: False ( 1964,3426 ) ID00051 onGPU: False ( 3427,3503 ) ID00021 onGPU: False ( 3504,3599 ) ID00026 onGPU: False ( 3600,3607 ) ID00056 onGPU: False ( 3608,3615 ) ID00023 onGPU: False ( 3616,3625 ) ID00022 onGPU: False ( 3626,3632 ) ID00053 onGPU: False ( 3633,3642 ) ID00052 onGPU: False ( 3643,3649 ) ID00055 onGPU: False ( 3650,3664 ) ID00025 onGPU: False ( 3665,3679 ) ID00024 onGPU: False ( 3680,4842 ) ID00054 onGPU: False ( 4843,6035 ) ID00027 onGPU: False ( 6036,6055 ) ID00057 onGPU: False ( 6056,6075 ) 
+ID: 3 Name: hasGpu: False: ID00007 onGPU: False ( 0,7 ) ID00004 onGPU: False ( 8,15 ) ID00037 onGPU: False ( 16,23 ) ID00039 onGPU: False ( 24,31 ) ID00046 onGPU: False ( 32,39 ) ID00006 onGPU: False ( 40,47 ) ID00015 onGPU: False ( 48,55 ) ID00016 onGPU: False ( 56,63 ) ID00002 onGPU: False ( 64,71 ) ID00018 onGPU: False ( 72,85 ) ID00048 onGPU: False ( 86,96 ) ID00019 onGPU: False ( 97,112 ) ID00049 onGPU: False ( 113,126 ) ID00028 onGPU: False ( 127,147 ) ID00000 onGPU: False ( 148,166 ) ID00047 onGPU: False ( 167,523 ) ID00017 onGPU: False ( 524,775 ) ID00020 onGPU: False ( 776,2238 ) ID00051 onGPU: False ( 2522,2598 ) ID00021 onGPU: False ( 2599,2694 ) ID00022 onGPU: False ( 2695,2701 ) ID00053 onGPU: False ( 2702,2711 ) ID00023 onGPU: False ( 2712,2721 ) ID00056 onGPU: False ( 2722,2729 ) ID00055 onGPU: False ( 2730,2744 ) ID00025 onGPU: False ( 2745,2759 ) ID00024 onGPU: False ( 2760,3922 ) ID00054 onGPU: False ( 3923,5115 ) ID00027 onGPU: False ( 5116,5135 ) ID00057 onGPU: False ( 5136,5155 ) 
 file: 0 VM: -1
 file: 1 VM: -1
 file: 2 VM: -1
@@ -3078,100 +3094,102 @@ file: 960 VM: -1
 file: 961 VM: -1
 file: 962 VM: -1
 file: 963 VM: -1
-file: 964 VM: 3
-file: 965 VM: 2
-file: 966 VM: 3
-file: 967 VM: 1
+file: 964 VM: 1
+file: 965 VM: 1
+file: 966 VM: 1
+file: 967 VM: 2
 file: 968 VM: 1
 file: 969 VM: 3
 file: 970 VM: 2
-file: 971 VM: 0
-file: 972 VM: 3
-file: 973 VM: 3
-file: 974 VM: 3
+file: 971 VM: 2
+file: 972 VM: 2
+file: 973 VM: 1
+file: 974 VM: 1
 file: 975 VM: 1
-file: 976 VM: 1
-file: 977 VM: 3
+file: 976 VM: 3
+file: 977 VM: 2
 file: 978 VM: 2
-file: 979 VM: 3
-file: 980 VM: 3
-file: 981 VM: 0
-file: 982 VM: 2
-file: 983 VM: 0
-file: 984 VM: 1
-file: 985 VM: 3
+file: 979 VM: 1
+file: 980 VM: 2
+file: 981 VM: 2
+file: 982 VM: 0
+file: 983 VM: 2
+file: 984 VM: 0
+file: 985 VM: 2
 file: 986 VM: 2
-file: 987 VM: 3
-file: 988 VM: 1
-file: 989 VM: 3
-file: 990 VM: 2
-file: 991 VM: 3
-file: 992 VM: 3
+file: 987 VM: 2
+file: 988 VM: 2
+file: 989 VM: 1
+file: 990 VM: 1
+file: 991 VM: 2
+file: 992 VM: 1
 file: 993 VM: 2
-file: 994 VM: 2
-file: 995 VM: 3
+file: 994 VM: 3
+file: 995 VM: 2
 file: 996 VM: 1
-file: 997 VM: 3
+file: 997 VM: 1
 file: 998 VM: 3
-file: 999 VM: 2
-file: 1000 VM: 2
-file: 1001 VM: 3
-file: 1002 VM: 0
-file: 1003 VM: 2
-file: 1004 VM: 0
-file: 1005 VM: 3
-file: 1006 VM: 3
-file: 1007 VM: 3
-file: 1008 VM: 3
-file: 1009 VM: 3
-file: 1010 VM: 2
-file: 1011 VM: 3
-file: 1012 VM: 3
-file: 1013 VM: 3
+file: 999 VM: 3
+file: 1000 VM: 1
+file: 1001 VM: 1
+file: 1002 VM: 2
+file: 1003 VM: 3
+file: 1004 VM: 2
+file: 1005 VM: 1
+file: 1006 VM: 1
+file: 1007 VM: 1
+file: 1008 VM: 1
+file: 1009 VM: 1
+file: 1010 VM: 0
+file: 1011 VM: 1
+file: 1012 VM: 1
+file: 1013 VM: 2
 file: 1014 VM: 2
-file: 1015 VM: 1
+file: 1015 VM: 3
 file: 1016 VM: 2
-file: 1017 VM: 0
-file: 1018 VM: 3
+file: 1017 VM: 2
+file: 1018 VM: 1
 file: 1019 VM: 3
 file: 1020 VM: 0
-file: 1021 VM: 2
+file: 1021 VM: 0
 file: 1022 VM: 2
-file: 1023 VM: 0
-file: 1024 VM: 3
+file: 1023 VM: 2
+file: 1024 VM: 1
 file: 1025 VM: 1
-file: 1026 VM: 3
-file: 1027 VM: 3
-file: 1028 VM: 2
-file: 1029 VM: 3
+file: 1026 VM: 1
+file: 1027 VM: 1
+file: 1028 VM: 1
+file: 1029 VM: 1
 file: 1030 VM: 2
-file: 1031 VM: 1
-file: 1032 VM: 3
-file: 1033 VM: 3
-file: 1034 VM: 3
-file: 1035 VM: 0
+file: 1031 VM: 0
+file: 1032 VM: 0
+file: 1033 VM: 1
+file: 1034 VM: 1
+file: 1035 VM: 1
 file: 1036 VM: 2
 file: 1037 VM: 1
-file: 1038 VM: 3
+file: 1038 VM: 1
 file: 1039 VM: 1
-file: 1040 VM: 1
-file: 1041 VM: 2
-file: 1042 VM: 3
+file: 1040 VM: 0
+file: 1041 VM: 0
+file: 1042 VM: 2
 file: 1043 VM: 3
 file: 1044 VM: 2
-file: 1045 VM: 3
+file: 1045 VM: 2
 file: 1046 VM: 2
-file: 1047 VM: 0
-file: 1048 VM: 3
+file: 1047 VM: 2
+file: 1048 VM: 1
 **************
 
-Sipht_100_gpu :
-
+Sipht_100_gpu 
+Cost: 1079.5
+Spam: 5930
+FO: 0.248253
 VMs:
-ID: 0 Name: hasGpu: False: ID00009 onGPU: False ( 0,3 ) ID00078 onGPU: False ( 4,7 ) ID00043 onGPU: False ( 8,11 ) ID00039 onGPU: False ( 12,15 ) ID00040 onGPU: False ( 16,19 ) ID00017 onGPU: False ( 20,23 ) ID00083 onGPU: False ( 24,27 ) ID00033 onGPU: False ( 28,31 ) ID00065 onGPU: False ( 32,35 ) ID00014 onGPU: False ( 36,39 ) ID00073 onGPU: False ( 40,43 ) ID00077 onGPU: False ( 44,47 ) ID00005 onGPU: False ( 48,51 ) ID00003 onGPU: False ( 52,55 ) ID00084 onGPU: False ( 56,59 ) ID00046 onGPU: False ( 60,63 ) ID00001 onGPU: False ( 64,67 ) ID00015 onGPU: False ( 68,71 ) ID00007 onGPU: False ( 72,75 ) ID00032 onGPU: False ( 76,80 ) ID00034 onGPU: False ( 81,84 ) ID00042 onGPU: False ( 85,89 ) ID00047 onGPU: False ( 90,94 ) ID00012 onGPU: False ( 95,99 ) ID00080 onGPU: False ( 100,103 ) ID00016 onGPU: False ( 104,108 ) ID00010 onGPU: False ( 109,113 ) ID00082 onGPU: False ( 114,118 ) 
+ID: 0 Name: hasGpu: False: ID00014 onGPU: False ( 0,3 ) ID00069 onGPU: False ( 4,7 ) ID00043 onGPU: False ( 8,11 ) ID00037 onGPU: False ( 12,16 ) ID00077 onGPU: False ( 17,20 ) ID00070 onGPU: False ( 21,25 ) ID00033 onGPU: False ( 26,29 ) ID00080 onGPU: False ( 30,33 ) ID00002 onGPU: False ( 34,38 ) ID00018 onGPU: False ( 39,42 ) ID00063 onGPU: False ( 43,47 ) ID00039 onGPU: False ( 48,51 ) ID00009 onGPU: False ( 52,55 ) ID00042 onGPU: False ( 56,60 ) ID00083 onGPU: False ( 61,64 ) ID00046 onGPU: False ( 65,68 ) ID00011 onGPU: False ( 69,72 ) ID00048 onGPU: False ( 73,77 ) ID00008 onGPU: False ( 78,81 ) ID00085 onGPU: False ( 82,85 ) ID00007 onGPU: False ( 86,89 ) ID00003 onGPU: False ( 90,93 ) ID00078 onGPU: False ( 94,97 ) ID00082 onGPU: False ( 98,102 ) ID00081 onGPU: False ( 103,106 ) ID00084 onGPU: False ( 107,110 ) ID00017 onGPU: False ( 111,114 ) ID00087 onGPU: False ( 115,154 ) ID00021 onGPU: False ( 155,217 ) ID00062 onGPU: False ( 218,243 ) 
 ID: 1 Name: hasGpu: True: 
-ID: 2 Name: hasGpu: False: ID00071 onGPU: False ( 0,7 ) ID00049 onGPU: False ( 8,15 ) ID00036 onGPU: False ( 16,23 ) ID00048 onGPU: False ( 24,31 ) ID00044 onGPU: False ( 32,39 ) ID00066 onGPU: False ( 40,47 ) ID00045 onGPU: False ( 48,55 ) ID00064 onGPU: False ( 56,63 ) ID00067 onGPU: False ( 64,71 ) ID00069 onGPU: False ( 72,79 ) ID00076 onGPU: False ( 80,87 ) ID00079 onGPU: False ( 88,95 ) ID00002 onGPU: False ( 96,103 ) ID00063 onGPU: False ( 104,111 ) ID00006 onGPU: False ( 112,119 ) ID00011 onGPU: False ( 120,127 ) ID00013 onGPU: False ( 128,135 ) ID00019 onGPU: False ( 136,143 ) ID00087 onGPU: False ( 144,159 ) ID00088 onGPU: False ( 160,187 ) ID00086 onGPU: False ( 188,739 ) ID00089 onGPU: False ( 740,2496 ) ID00055 onGPU: False ( 2497,2669 ) ID00024 onGPU: False ( 2670,2880 ) ID00090 onGPU: False ( 2881,3117 ) ID00060 onGPU: False ( 3118,3125 ) ID00091 onGPU: False ( 3126,3132 ) ID00025 onGPU: False ( 3133,3139 ) ID00056 onGPU: False ( 3140,3146 ) ID00092 onGPU: False ( 3147,3157 ) ID00057 onGPU: False ( 3158,3169 ) ID00029 onGPU: False ( 3170,3178 ) ID00026 onGPU: False ( 3179,3190 ) ID00059 onGPU: False ( 3191,3211 ) ID00094 onGPU: False ( 3212,3232 ) ID00028 onGPU: False ( 3233,3253 ) ID00093 onGPU: False ( 3254,4653 ) 
-ID: 3 Name: hasGpu: False: ID00037 onGPU: False ( 0,7 ) ID00068 onGPU: False ( 8,15 ) ID00035 onGPU: False ( 16,23 ) ID00050 onGPU: False ( 24,31 ) ID00038 onGPU: False ( 32,39 ) ID00074 onGPU: False ( 40,47 ) ID00041 onGPU: False ( 48,55 ) ID00070 onGPU: False ( 56,63 ) ID00081 onGPU: False ( 64,71 ) ID00072 onGPU: False ( 72,79 ) ID00075 onGPU: False ( 80,87 ) ID00085 onGPU: False ( 88,95 ) ID00004 onGPU: False ( 96,103 ) ID00018 onGPU: False ( 104,111 ) ID00008 onGPU: False ( 112,119 ) ID00022 onGPU: False ( 120,136 ) ID00052 onGPU: False ( 137,149 ) ID00053 onGPU: False ( 150,168 ) ID00031 onGPU: False ( 169,190 ) ID00021 onGPU: False ( 191,204 ) ID00062 onGPU: False ( 205,230 ) ID00000 onGPU: False ( 231,252 ) ID00051 onGPU: False ( 253,541 ) ID00020 onGPU: False ( 542,906 ) ID00023 onGPU: False ( 907,2186 ) ID00054 onGPU: False ( 2187,3575 ) ID00095 onGPU: False ( 3576,3582 ) ID00027 onGPU: False ( 3583,4691 ) ID00058 onGPU: False ( 4692,5885 ) ID00030 onGPU: False ( 5886,5905 ) ID00061 onGPU: False ( 5906,5925 ) ID00096 onGPU: False ( 5926,5945 ) 
+ID: 2 Name: hasGpu: False: ID00050 onGPU: False ( 0,7 ) ID00005 onGPU: False ( 8,15 ) ID00072 onGPU: False ( 16,23 ) ID00074 onGPU: False ( 24,31 ) ID00034 onGPU: False ( 32,39 ) ID00064 onGPU: False ( 40,47 ) ID00038 onGPU: False ( 48,55 ) ID00045 onGPU: False ( 56,63 ) ID00065 onGPU: False ( 64,71 ) ID00047 onGPU: False ( 72,79 ) ID00013 onGPU: False ( 80,87 ) ID00076 onGPU: False ( 88,95 ) ID00019 onGPU: False ( 96,103 ) ID00073 onGPU: False ( 104,111 ) ID00006 onGPU: False ( 112,119 ) ID00035 onGPU: False ( 120,127 ) ID00004 onGPU: False ( 128,135 ) ID00010 onGPU: False ( 136,143 ) ID00031 onGPU: False ( 144,165 ) ID00088 onGPU: False ( 166,193 ) ID00086 onGPU: False ( 194,745 ) ID00089 onGPU: False ( 746,2502 ) ID00024 onGPU: False ( 2503,2713 ) ID00090 onGPU: False ( 2714,2950 ) ID00055 onGPU: False ( 2951,3123 ) ID00091 onGPU: False ( 3124,3130 ) ID00060 onGPU: False ( 3131,3138 ) ID00057 onGPU: False ( 3139,3150 ) ID00056 onGPU: False ( 3151,3157 ) ID00092 onGPU: False ( 3158,3168 ) ID00026 onGPU: False ( 3169,3180 ) ID00094 onGPU: False ( 3181,3201 ) ID00059 onGPU: False ( 3202,3222 ) ID00093 onGPU: False ( 3223,4622 ) 
+ID: 3 Name: hasGpu: False: ID00041 onGPU: False ( 0,7 ) ID00067 onGPU: False ( 8,15 ) ID00036 onGPU: False ( 16,23 ) ID00016 onGPU: False ( 24,31 ) ID00040 onGPU: False ( 32,39 ) ID00079 onGPU: False ( 40,47 ) ID00066 onGPU: False ( 48,55 ) ID00068 onGPU: False ( 56,63 ) ID00075 onGPU: False ( 64,71 ) ID00032 onGPU: False ( 72,79 ) ID00071 onGPU: False ( 80,87 ) ID00001 onGPU: False ( 88,95 ) ID00044 onGPU: False ( 96,103 ) ID00012 onGPU: False ( 104,111 ) ID00049 onGPU: False ( 112,119 ) ID00015 onGPU: False ( 120,127 ) ID00052 onGPU: False ( 128,140 ) ID00022 onGPU: False ( 141,157 ) ID00000 onGPU: False ( 166,187 ) ID00053 onGPU: False ( 188,206 ) ID00020 onGPU: False ( 207,571 ) ID00051 onGPU: False ( 572,860 ) ID00023 onGPU: False ( 861,2141 ) ID00054 onGPU: False ( 2142,3530 ) ID00025 onGPU: False ( 3531,3537 ) ID00029 onGPU: False ( 3538,3545 ) ID00028 onGPU: False ( 3546,3560 ) ID00095 onGPU: False ( 3561,3567 ) ID00027 onGPU: False ( 3568,4676 ) ID00058 onGPU: False ( 4677,5870 ) ID00030 onGPU: False ( 5871,5890 ) ID00096 onGPU: False ( 5891,5910 ) ID00061 onGPU: False ( 5911,5930 ) 
 file: 0 VM: -1
 file: 1 VM: -1
 file: 2 VM: -1
@@ -4181,117 +4199,117 @@ file: 1005 VM: -1
 file: 1006 VM: -1
 file: 1007 VM: -1
 file: 1008 VM: -1
-file: 1009 VM: 2
-file: 1010 VM: 3
+file: 1009 VM: 0
+file: 1010 VM: 0
 file: 1011 VM: 3
 file: 1012 VM: 3
-file: 1013 VM: 2
-file: 1014 VM: 0
-file: 1015 VM: 3
-file: 1016 VM: 3
-file: 1017 VM: 3
-file: 1018 VM: 1
+file: 1013 VM: 0
+file: 1014 VM: 3
+file: 1015 VM: 1
+file: 1016 VM: 1
+file: 1017 VM: 1
+file: 1018 VM: 2
 file: 1019 VM: 0
-file: 1020 VM: 3
+file: 1020 VM: 1
 file: 1021 VM: 3
 file: 1022 VM: 3
-file: 1023 VM: 3
-file: 1024 VM: 0
-file: 1025 VM: 1
-file: 1026 VM: 1
+file: 1023 VM: 2
+file: 1024 VM: 2
+file: 1025 VM: 0
+file: 1026 VM: 2
 file: 1027 VM: 3
-file: 1028 VM: 2
-file: 1029 VM: 2
+file: 1028 VM: 3
+file: 1029 VM: 1
 file: 1030 VM: 0
-file: 1031 VM: 3
+file: 1031 VM: 1
 file: 1032 VM: 0
-file: 1033 VM: 1
-file: 1034 VM: 2
-file: 1035 VM: 1
-file: 1036 VM: 3
-file: 1037 VM: 2
-file: 1038 VM: 1
-file: 1039 VM: 1
-file: 1040 VM: 3
-file: 1041 VM: 3
-file: 1042 VM: 3
+file: 1033 VM: 2
+file: 1034 VM: 3
+file: 1035 VM: 2
+file: 1036 VM: 0
+file: 1037 VM: 1
+file: 1038 VM: 2
+file: 1039 VM: 0
+file: 1040 VM: 2
+file: 1041 VM: 1
+file: 1042 VM: 1
 file: 1043 VM: 3
-file: 1044 VM: 3
-file: 1045 VM: 3
+file: 1044 VM: 0
+file: 1045 VM: 1
 file: 1046 VM: 3
-file: 1047 VM: 0
-file: 1048 VM: 2
+file: 1047 VM: 3
+file: 1048 VM: 0
 file: 1049 VM: 2
-file: 1050 VM: 3
+file: 1050 VM: 1
 file: 1051 VM: 3
 file: 1052 VM: 0
-file: 1053 VM: 1
+file: 1053 VM: 2
 file: 1054 VM: 3
-file: 1055 VM: 3
-file: 1056 VM: 2
-file: 1057 VM: 2
-file: 1058 VM: 2
+file: 1055 VM: 1
+file: 1056 VM: 1
+file: 1057 VM: 3
+file: 1058 VM: 3
 file: 1059 VM: 3
-file: 1060 VM: 3
-file: 1061 VM: 2
+file: 1060 VM: 2
+file: 1061 VM: 0
 file: 1062 VM: 1
-file: 1063 VM: 2
-file: 1064 VM: 1
-file: 1065 VM: 0
+file: 1063 VM: 0
+file: 1064 VM: 0
+file: 1065 VM: 1
 file: 1066 VM: 3
 file: 1067 VM: 3
-file: 1068 VM: 1
+file: 1068 VM: 0
 file: 1069 VM: 3
 file: 1070 VM: 3
-file: 1071 VM: 1
+file: 1071 VM: 0
 file: 1072 VM: 3
 file: 1073 VM: 3
 file: 1074 VM: 1
-file: 1075 VM: 3
-file: 1076 VM: 3
-file: 1077 VM: 0
+file: 1075 VM: 2
+file: 1076 VM: 1
+file: 1077 VM: 2
 file: 1078 VM: 3
 file: 1079 VM: 1
-file: 1080 VM: 1
-file: 1081 VM: 1
-file: 1082 VM: 2
+file: 1080 VM: 2
+file: 1081 VM: 2
+file: 1082 VM: 3
 file: 1083 VM: 3
-file: 1084 VM: 2
-file: 1085 VM: 2
+file: 1084 VM: 3
+file: 1085 VM: 1
 file: 1086 VM: 0
 file: 1087 VM: 2
-file: 1088 VM: 1
-file: 1089 VM: 1
-file: 1090 VM: 0
+file: 1088 VM: 2
+file: 1089 VM: 2
+file: 1090 VM: 1
 file: 1091 VM: 3
 file: 1092 VM: 3
 file: 1093 VM: 3
 file: 1094 VM: 3
-file: 1095 VM: 0
-file: 1096 VM: 1
-file: 1097 VM: 0
+file: 1095 VM: 2
+file: 1096 VM: 2
+file: 1097 VM: 3
 file: 1098 VM: 3
 file: 1099 VM: 3
-file: 1100 VM: 2
-file: 1101 VM: 2
+file: 1100 VM: 1
+file: 1101 VM: 1
 file: 1102 VM: 2
 file: 1103 VM: 3
 file: 1104 VM: 3
-file: 1105 VM: 0
-file: 1106 VM: 1
-file: 1107 VM: 3
-file: 1108 VM: 2
+file: 1105 VM: 1
+file: 1106 VM: 2
+file: 1107 VM: 1
+file: 1108 VM: 0
 file: 1109 VM: 3
 file: 1110 VM: 0
-file: 1111 VM: 1
-file: 1112 VM: 3
-file: 1113 VM: 3
-file: 1114 VM: 1
-file: 1115 VM: 0
-file: 1116 VM: 3
-file: 1117 VM: 2
+file: 1111 VM: 2
+file: 1112 VM: 1
+file: 1113 VM: 1
+file: 1114 VM: 2
+file: 1115 VM: 1
+file: 1116 VM: 1
+file: 1117 VM: 1
 file: 1118 VM: 0
 file: 1119 VM: 3
-file: 1120 VM: 2
+file: 1120 VM: 1
 **************
 

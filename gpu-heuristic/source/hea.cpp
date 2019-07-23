@@ -583,10 +583,10 @@ int main(int argc, char **argv) {
         // cout << "NewCost: " << cost << endl;
         if(cost < bestValue){
             bestValue = cost;
-            bestSol = new Problem(*p);
+            bestSol = p;
         }
 
-        delete p;
+        // delete p;
         // cin.get();
         // if(cost < bestValue){
         //     delete bestProblem;
@@ -599,11 +599,13 @@ int main(int argc, char **argv) {
         
     }
     clock_t end = clock();
-
-    // bestSol->print();
+    cout << "Cost: " << bestSol->calculateCost() << endl;
+    cout << "Spam: " << bestSol->calculateMakespam() << endl;
+    cout << "FO: " << bestSol->calculateFO() << endl;
+    bestSol->print();
     // cin.get();
-    // cout << "**************\n" << endl;
-    // exit(1);
+    cout << "**************\n" << endl;
+    exit(1);
 
     double elapseSecs = double(end - begin) / CLOCKS_PER_SEC;
 
