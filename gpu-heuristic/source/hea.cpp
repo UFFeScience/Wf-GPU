@@ -599,17 +599,18 @@ int main(int argc, char **argv) {
         
     }
     clock_t end = clock();
-    cout << "Cost: " << bestSol->calculateCost() << endl;
-    cout << "Spam: " << bestSol->calculateMakespam() << endl;
-    cout << "FO: " << bestSol->calculateFO() << endl;
-    bestSol->print();
+    // cout << "Cost: " << bestSol->calculateCost() << endl;
+    // cout << "Spam: " << bestSol->calculateMakespam() << endl;
+    // cout << "FO: " << bestSol->calculateFO() << endl;
+    // bestSol->print();
     // cin.get();
-    cout << "**************\n" << endl;
-    exit(1);
+    // cout << "**************\n" << endl;
+    // exit(1);
 
     double elapseSecs = double(end - begin) / CLOCKS_PER_SEC;
+    cout << bestSol->ponderation << "," << bestSol->maxTime << "," << bestSol->maxCost << "," << bestSol->calculateMakespam() << "," << bestSol->calculateCost() << "," << bestSol->calculateFO() << endl;
+    // cout << bestValue << " " << elapseSecs << endl;
 
-    cout << bestValue << " " << elapseSecs << endl;
     // p->print();
 
     //delete setting struct

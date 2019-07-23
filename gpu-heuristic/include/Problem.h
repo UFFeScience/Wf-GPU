@@ -110,16 +110,18 @@ public:
 
 	double calculateCost(){
 		this->cost = 0.0;
-		// for(int i = 0; i < timelineJobs.size(); i++){
+		for(int i = 0; i < timelineJobs.size(); i++){
 			// if(hasGpu) {
 				// this->cost += ceil((timelineJobs[i]->base_time_gpu * this->gpu_slowdown)) * usage_cost;
 				// cout << "Size: " << timelineFinishTime.size() << endl;
-				if(timelineFinishTime.size() > 0)
-					this->cost = (timelineFinishTime[timelineFinishTime.size() - 1]) * usage_cost;
+				if(timelineFinishTime.size() == 0)
+					break;
+				this->cost += (timelineFinishTime[i] - timelineStartTime[i] + 1) * usage_cost;
 			// }
 			// else {
 			// 	this->cost += ceil((timelineJobs[i]->base_time_cpu * this->cpu_slowdown)) * usage_cost;
 			// }
+		}
 		// }
 		return this->cost;
 	}
@@ -822,7 +824,7 @@ public:
 			this->files.push_back(newItem);
 		}
 
-		// cout << "Finished reading files.." << endl;
+		cout << "Finished reading files.." << endl;
 		// cin.get();
 
 		double total_time_job_cpu = 0.0;
@@ -867,7 +869,7 @@ public:
 			this->jobs.push_back(newJob);
 		}
 
-		// cout << "Finished reading jobs.." << endl;
+		cout << "Finished reading jobs.." << endl;
 
 		vector<vector<string>> machines;
 		getline(in_file, line);
@@ -931,18 +933,18 @@ public:
 		if(total_time_job_gpu * more_expensive_process_gpu > this->maxCost) this->maxCost = ceil(total_time_job_gpu * more_expensive_process_gpu);
 
 
-		// cout << "TotalTimeCpu: " << total_time_job_cpu << " TotalTimeGpu: " << total_time_job_gpu << endl;
-		// cout << "SlowMachineCpu: " << slowest_machine_cpu << " SlowMachineGpu: " << slowest_machine_gpu << endl;
-		// cout << "ExpensiveCpu: " << more_expensive_process_cpu << " ExpensiveGpu: " << more_expensive_process_gpu << endl;
-		// cout << "MaxTime: " << this->maxTime << " MaxCost: " << this->maxCost << endl;
-		// cin.get();
+		cout << "TotalTimeCpu: " << total_time_job_cpu << " TotalTimeGpu: " << total_time_job_gpu << endl;
+		cout << "SlowMachineCpu: " << slowest_machine_cpu << " SlowMachineGpu: " << slowest_machine_gpu << endl;
+		cout << "ExpensiveCpu: " << more_expensive_process_cpu << " ExpensiveGpu: " << more_expensive_process_gpu << endl;
+		cout << "MaxTime: " << this->maxTime << " MaxCost: " << this->maxCost << endl;
+		// // cin.get();
 
 
 		
 		vector<vector<string>> transfer;
 		for(int i = 0; i < vms; i++){
 			getline(in_file, line);
-			// cout << "NewLine: " << line << endl;
+			cout << "NewLine: " << line << endl;
 			boost::split(tokens, line, boost::is_any_of(" "));
 			transfer.push_back(tokens);
 		}
@@ -952,11 +954,12 @@ public:
 				vector<double> double_line;
 				for(int t2 = 0; t2 < vms; t2++){
 					double_line.push_back(stod(transfer[t][t2]));
-					// cout << stod(transfer[t][t2]) << " " ;
+					cout << stod(transfer[t][t2]) << " " ;
 				}
-				// cout << endl;
+				cout << endl;
 				this->vms[i]->bandwidth.push_back(double_line);
 			}
+			cout << "***" << endl;
 		}
 
 		// for(int t = 0; t < vms; t++){
@@ -971,7 +974,7 @@ public:
 		// cin.get();
 
 		// esquerda antes da direita
-		// cout << "jobs size: " << this->jobs.size() << endl;
+		cout << "jobs size: " << this->jobs.size() << endl;
 		for(int i = 0; i < this->jobs.size(); i++){
 			// cout << "i: " << i << endl;
 			vector<int> line(this->jobs.size(), 0);
@@ -1001,7 +1004,7 @@ public:
 					}
 					if(stop) break;
 				}
-				// cout << "JOBID: " << jobID << endl;
+				cout << "JOBID: " << jobID << endl;
 				line[jobID] = 1;		
 			}
 			conflicts.push_back(line);
@@ -1015,8 +1018,8 @@ public:
 		// 	cout << endl;
 		// }
 		// cin.get();
-		// cout << "Finished Reading!" << endl;
-		// cin.get();
+		cout << "Finished Reading!" << endl;
+		cin.get();
 	}
 
 	~Problem() { 
