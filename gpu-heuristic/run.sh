@@ -18,14 +18,14 @@ function CTRLC {
 execpath="./bin/HEA"
 workflows="../input/gpu/"
 dag=".dag"
-# declare -a wkf=("3_toy_15_A" "3_toy_15_B" "3_toy_15_C" "5_toy_15_A" "5_toy_15_B" "5_toy_15_C" "3_toy_10_A" "3_toy_10_B" "3_toy_10_C" "5_toy_10_A" "5_toy_10_B" "5_toy_10_C" "3_toy_5_A" "3_toy_5_B" "3_toy_5_C" "5_toy_5_A" "5_toy_5_B" "5_toy_5_C" "gpu" "CyberShake_30_gpu" "CyberShake_50_gpu" "CyberShake_100_gpu" "Epigenomics_24_gpu" "Epigenomics_46_gpu" "Epigenomics_100_gpu" "Montage_25_gpu" "Montage_50_gpu" "Montage_100_gpu" "Inspiral_30_gpu" "Inspiral_50_gpu" "Inspiral_100_gpu" "Sipht_30_gpu" "Sipht_60_gpu" "Sipht_100_gpu")
-# declare -a wkf=("5_toy_15_A" "5_toy_15_B" "5_toy_15_C" "3_toy_10_A" "3_toy_10_B" "3_toy_10_C" "5_toy_10_A" "5_toy_10_B" "5_toy_10_C" "3_toy_5_A" "3_toy_5_B" "3_toy_5_C" "5_toy_5_A" "5_toy_5_B" "5_toy_5_C")
-declare -a wkf=("3_toy_5_B")
+declare -a wkf=("3_toy_15_A" "3_toy_15_B" "3_toy_15_C" "5_toy_15_A" "5_toy_15_B" "5_toy_15_C" "3_toy_10_A" "3_toy_10_B" "3_toy_10_C" "5_toy_10_A" "5_toy_10_B" "5_toy_10_C" "3_toy_5_A" "3_toy_5_C" "5_toy_5_A" "5_toy_5_B" "5_toy_5_C" "gpu" "CyberShake_30_gpu" "CyberShake_50_gpu" "CyberShake_100_gpu" "Epigenomics_24_gpu" "Epigenomics_46_gpu" "Epigenomics_100_gpu" "Montage_25_gpu" "Montage_50_gpu" "Montage_100_gpu" "Inspiral_30_gpu" "Inspiral_50_gpu" "Inspiral_100_gpu" "Sipht_30_gpu" "Sipht_60_gpu" "Sipht_100_gpu")
+# declare -a wkf=("5_toy_15_A" "5_toy_15_B" "5_toy_15_C" "3_toy_10_A" "3_toy_10_B" "3_toy_10_C" "5_toy_10_A" "5_toy_10_B" "5_toy_10_C" "3_toy_5_A" "3_toy_5_C" "5_toy_5_A" "5_toy_5_B" "5_toy_5_C")
+# declare -a wkf=("3_toy_15_B")
 # declare -a wkf=("gpu")
 trap CTRLC SIGINT
-# echo "instance,alpha,maxtime,maxcost,makespam,cost,FO" >> ../results/second_run.txt
+echo "instance,alpha,maxtime,maxcost,makespam,cost,FO" >> ../results/second_run.csv
 ## now loop through the above array
-for (( a = 2; a <= 2; a++))
+for (( a = 0; a <= 0; a++))
 do
 	for file in "${wkf[@]}"
 	do
@@ -62,9 +62,9 @@ do
 		# echo $i
 		for ((  i =  10;  i <= 10;  i++  )) 
 		do
-			echo  -ne $file '' & EXEC $execpath -x 5 -a $a -s $i -w $workflows$file$dag	
+			# echo  -ne $file '' & EXEC $execpath -x 5 -a $a -s $i -w $workflows$file$dag	
 			# echo  -ne $file '\n' >> ../BEST_SOLUTIONS.txt & EXEC $execpath -x 5 -a $a -s $i -w $workflows$file$dag >> ../BEST_SOLUTIONS.txt
-			# echo  -ne $file ',' >> ../results/final_exec.txt & EXEC $execpath -x 5 -a $a -s $i -w $workflows$file$dag >> ../results/second_run.txt
+			echo  -ne $file ',' >> ../results/second_run.csv & EXEC $execpath -x 5 -a $a -s $i -w $workflows$file$dag >> ../results/second_run.csv
 			# EXEC $execpath -a $a -s $i -c $clusters -w $workflows$file$dag >> ./results/local_search_testing/"GRASP_new_LS.txt"
 		done			
 	done

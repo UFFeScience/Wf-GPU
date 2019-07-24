@@ -608,7 +608,7 @@ int main(int argc, char **argv) {
     // exit(1);
 
     double elapseSecs = double(end - begin) / CLOCKS_PER_SEC;
-    cout << bestSol->ponderation << "," << bestSol->maxTime << "," << bestSol->maxCost << "," << bestSol->calculateMakespam() << "," << bestSol->calculateCost() << "," << bestSol->calculateFO() << endl;
+    cout << bestSol->ponderation << "," << bestSol->calculateMakespam() * 2 << "," << bestSol->calculateCost() * 2 << "," << bestSol->calculateMakespam() << "," << bestSol->calculateCost() << "," << bestSol->calculateFO() << endl;
     // cout << bestValue << " " << elapseSecs << endl;
 
     // p->print();
