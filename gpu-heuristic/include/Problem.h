@@ -353,6 +353,8 @@ public:
 		this->notParallelable = p.notParallelable;
 		this->name_map = p.name_map;
 		this->name_map_code = p.name_map_code;
+		this->maxCost = p.maxCost;
+		this->maxTime = p.maxTime;
 
 		for(unsigned int i = 0; i < p.files.size(); i++){			
 				Item * copiedItem = p.files[i];
@@ -772,11 +774,14 @@ public:
 		return NULL;
 	}
 
-	Problem(string file){
+	Problem(string file, int maxTime, double maxCost){
 		// cout << "Starting to read instance..." << endl;
 
 		ifstream in_file(file);
 		string line;
+
+		this->maxTime = maxTime;
+		this->maxCost = maxCost;
 
 		getline(in_file, line);
 		vector<string> tokens;
@@ -934,9 +939,9 @@ public:
 			total_outputs += this->jobs[j]->output.size();
 		}
 
-		this->maxTime = maxTimeCPU + total_inputs + total_outputs;
+		// this->maxTime = maxTimeCPU + total_inputs + total_outputs;
 
-		this->maxCost = this->maxTime * more_expensive_process_gpu;
+		// this->maxCost = this->maxTime * more_expensive_process_gpu;
 
 
 		// cout << "TotalTimeCpu: " << total_time_job_cpu << " TotalTimeGpu: " << total_time_job_gpu << endl;

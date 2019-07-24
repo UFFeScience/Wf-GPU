@@ -16,21 +16,26 @@ def main():
             instance_name = lines[current_line].split(" ")[0]
             value_sum = 0.0
             value_best = 999999.0
+            spam_best = 999999
+            cost_best = 999999
             time_sum = 0.0
             for seed in range(seed_number):
                 value = float(lines[current_line + seed].split(" ")[1])
                 if value < value_best:
                     value_best = value
+                    spam_best = float(lines[current_line + seed].split(" ")[2])
+                    cost_best = float(lines[current_line + seed].split(" ")[3])
                 value_sum += value
-                time_sum += float(lines[current_line + seed].split(" ")[2])
-            new_line = "{},{},{},{}\n".format(instance_name, value_best, value_sum / seed_number, time_sum / seed_number)
+                time_sum += float(lines[current_line + seed].split(" ")[4])
+            new_line = "{},{},{},{},{},{}\n".format(instance_name, value_best, spam_best, cost_best, value_sum / seed_number,
+                                              time_sum / seed_number)
             new_lines.append(new_line)
             current_line += seed_number
 
         file_reader.close()
 
         file_reader = open("{}_table.csv".format(sys.argv[file_name]), "w")
-        file_reader.write("instance,best,avg,time\n")
+        file_reader.write("instance,best,spam,cost,avg,time\n")
         for nl in new_lines:
             file_reader.write(nl)
         file_reader.close()

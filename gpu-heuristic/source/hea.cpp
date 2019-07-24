@@ -24,6 +24,9 @@ struct Settings_struct {
 
     int seed;      // Random Seed
 
+    int maxTime;
+    double maxCost;
+
     double delta = 0.0; // acceptance criteria for Elite-Set (based on distance)
     double lambda;  // read and write constant
 
@@ -537,6 +540,10 @@ void setupCmd(int argc, char **argv, string &name_workflow, string &name_cluster
         cmd.add(arg4);
         ValueArg<string> arg5("x", "perturbation", "Value of perturbation", true, "file", "string");
         cmd.add(arg5);
+        ValueArg<string> arg6("c", "MaxCost", "Value of MaxCost", true, "file", "double");
+        cmd.add(arg6);
+        ValueArg<string> arg7("t", "MaxTime", "Value of MaxTime", true, "file", "int");
+        cmd.add(arg7);
         SwitchArg verbose_arg("v", "verbose", "Output info", cmd, false);
 
         // Parse the args.
@@ -549,6 +556,8 @@ void setupCmd(int argc, char **argv, string &name_workflow, string &name_cluster
         setting->alpha = stoi(arg4.getValue()) / 10.0;
         setting->mutation_probability = stoi(arg5.getValue()) / 100.0;
         setting->verbose = verbose_arg.getValue();
+        setting->maxCost = stod(arg6.getValue());
+        setting->maxTime = stoi(arg7.getValue());
 
     } catch (ArgException &e) {  // catch any exceptions
         cerr << "error: " << e.error() << " for arg " << e.argId() << endl;
@@ -572,18 +581,21 @@ int main(int argc, char **argv) {
 
     double bestValue = INFINITY;
     // Problem * bestProblem;
-    Problem * bestSol = new Problem(name_workflow);
+    Problem * bestSol = new Problem(name_workflow, setting->maxTime, setting->maxCost);
     double totalTime = 0.0;
     clock_t start = clock();
     for(int i = 0; i < 100; i++){
-        Problem * p = new Problem(name_workflow);
+        Problem * p = new Problem(name_workflow, setting->maxTime, setting->maxCost);
         double cost = p->createSolution(setting->alpha);
         // cout << "Cost: " << p->calculateCost() << endl;
         // cout << "Spam: " << p->calculateMakespam() << endl;
         // cout << "NewCost: " << cost << endl;
         if(cost < bestValue){
+            delete bestSol;
             bestValue = cost;
             bestSol = p;
+        } else{
+            delete p;
         }
 
         // delete p;
@@ -608,8 +620,8 @@ int main(int argc, char **argv) {
     // exit(1);
 
     double elapseSecs = double(end - begin) / CLOCKS_PER_SEC;
-    cout << bestSol->ponderation << "," << bestSol->calculateMakespam() * 2 << "," << bestSol->calculateCost() * 2 << "," << bestSol->calculateMakespam() << "," << bestSol->calculateCost() << "," << bestSol->calculateFO() << endl;
-    // cout << bestValue << " " << elapseSecs << endl;
+    // cout << bestSol->ponderation << "," << bestSol->calculateMakespam() * 2 << "," << bestSol->calculateCost() * 2 << "," << bestSol->calculateMakespam() << "," << bestSol->calculateCost() << "," << bestSol->calculateFO() << endl;
+    cout << bestSol->calculateFO() << " " << bestSol->calculateMakespam() << " " << bestSol->calculateCost() << " " << elapseSecs << endl;
 
     // p->print();
 
