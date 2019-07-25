@@ -584,7 +584,7 @@ int main(int argc, char **argv) {
     Problem * bestSol = new Problem(name_workflow, setting->maxTime, setting->maxCost);
     double totalTime = 0.0;
     clock_t start = clock();
-    for(int i = 0; i < 100; i++){
+    for(int i = 0; i < 1; i++){
         Problem * p = new Problem(name_workflow, setting->maxTime, setting->maxCost);
         double cost = p->createSolution(setting->alpha);
         // cout << "Cost: " << p->calculateCost() << endl;

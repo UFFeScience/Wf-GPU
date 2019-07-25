@@ -198,7 +198,7 @@ public:
 				for(int j = 0; j < job->input[i]->static_vms.size(); j++){
 					double currentReadTime;
 					if(job->input[i]->static_vms[j] == this->id){
-						currentReadTime = 0.0;
+						currentReadTime = 1.0;
 					} else{
 						currentReadTime = ceil(job->input[i]->size / this->bandwidth[job->input[i]->static_vms[j]][this->id]);
 					}
@@ -256,7 +256,10 @@ public:
 			processtime = ceil(job->base_time_cpu * this->cpu_slowdown);
 			job->on_gpu = false;
 		}
-		double finishTime = readtime + writetime + processtime + startTime;
+
+		// cout << "Readtime: " << readtime << " Writetime: " << writetime << " ProcessTime: " << processtime << " JobID: " << job->id << endl;
+
+		double finishTime = readtime + writetime + processtime + startTime - 1;
 
 		// if(job->name == "ID00002"){
 			// cout << "ProcessMachineID: " <<this->id << " ProcessMAchineName: " << this->name << " writeID: " << write_vm_id << " minSpam: " << minSpam << endl;
@@ -595,7 +598,9 @@ public:
 		// newAlloc->GPU = GPU;
 		alloc.push_back(newAlloc);
 		// return vms[vm]->pushJob(job, output, getJobConflictMinSpam(job), GPU);
-		return vms[vm]->pushJob(job, output, getJobConflictMinSpam(job));
+		bool pushed = vms[vm]->pushJob(job, output, getJobConflictMinSpam(job));
+		// cin.get();
+		return pushed;
 	}
 
 	void preSetStaticFile(Item * file, int vm_id){
@@ -628,7 +633,7 @@ public:
 			// cout << "VM: " << vms[i]->id << "Localspam: " << localspam << endl;
 			if (localspam > makespam) makespam = localspam;
 		}
-		return makespam;
+		return makespam + 1.0;
 	}
 
 	double calculateFO(){

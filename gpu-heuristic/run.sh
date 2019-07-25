@@ -23,6 +23,8 @@ declare -a maxcosts=(154	54	136	88	46	56	168	198	440	268	300	450	120	80	120	108	
 declare -a maxtimes=(36	52	54	38	44	54	46	16	42	82	22	68	10	6	10	16	14	32	2820	2332	4604	6788	21252	106878	340	816	1018	2456	3006	6140	5888	8774	15160 )
 # declare -a wkf=("5_toy_15_A" "5_toy_15_B" "5_toy_15_C" "3_toy_10_A" "3_toy_10_B" "3_toy_10_C" "5_toy_10_A" "5_toy_10_B" "5_toy_10_C" "3_toy_5_A" "3_toy_5_C" "5_toy_5_A" "5_toy_5_B" "5_toy_5_C")
 # declare -a wkf=("3_toy_15_B")
+# declare -a maxcosts=(34)
+# declare -a maxtimes=(14)
 # declare -a wkf=("gpu")
 trap CTRLC SIGINT
 # echo "instance,alpha,maxtime,maxcost,makespam,cost,FO" >> ../results/second_run.csv
