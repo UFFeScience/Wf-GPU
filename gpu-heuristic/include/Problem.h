@@ -265,23 +265,23 @@ public:
 		timelineFinishTime.push_back(finishTime);
 		timelineJobs.push_back(job);
 
-		cout << "eita" << endl;
+		// cout << "eita" << endl;
 		job->alocated = true;
 		job->alocated_vm_id = this->id;
-		cout << "job->output.size() " << job->output.size() << endl;
+		// cout << "job->output.size() " << job->output.size() << endl;
 		for(unsigned int i = 0; i < job->output.size(); i++){
-			cout << "i: " << i << endl;
+			// cout << "i: " << i << endl;
 			if(job->output[i] == NULL) cin.get();
 			if(job->output[i]->is_static) continue;
 			int final_vm = this->id;
 			if(write_vm_id != -1)
 				final_vm = write_vm_id;
-			cout << "FinalWriteVM: " << final_vm << endl;
+			// cout << "FinalWriteVM: " << final_vm << endl;
 			if(final_vm < 0) {cin.get();}
 			job->output[i]->alocated_vm_id = final_vm;
 		}
 
-		cout << "eita2" << endl;
+		// cout << "eita2" << endl;
 		// for(unsigned int i = 0; i < job->input.size(); i++){
 		// 	if(job->input[i]->is_static){
 		// 		if(job->input[i]->alocated_vm_id < 0)
@@ -442,10 +442,10 @@ public:
 	}
 
 	double createSolution(double alpha){
-		cout << "Create Solution..." << endl;
+		// cout << "Create Solution..." << endl;
 		int totalJobs = jobs.size();
 		while(totalJobs > 0){
-			cout << "TotalJobs: " << totalJobs << endl;
+			// cout << "TotalJobs: " << totalJobs << endl;
 			vector<Job*> CL;
 			vector<int> jobVmDestination;
 			vector<int> outputVmDestination;
@@ -457,11 +457,11 @@ public:
 			for(unsigned int i = 0; i < jobs.size(); i++){
 				if (jobs[i]->alocated)
 					continue;
-				cout << "CL for JOBID: " << jobs[i]->id << endl;
+				// cout << "CL for JOBID: " << jobs[i]->name << endl;
 				for(unsigned int m = 0; m < vms.size(); m++){
-					cout << "M: " << m << endl;
+					// cout << "M: " << m << endl;
 					for(unsigned int d = 0; d < vms.size(); d++){
-						cout << "D: " << d << endl;
+						// cout << "D: " << d << endl;
 						// for(unsigned int gpu = 0; gpu < 2; gpu++){
 						// 	// cout << "ALOW" << endl;
 						// 	bool useGpu = false;
@@ -470,17 +470,17 @@ public:
 						// 	}
 							// if(vms[m]->hasGpu) useGpu = true;
 							// if(useGpu && !jobs[i]->gpu && !vms[m]->hasGpu)	continue;
-							cout << "Getting min spam" << endl;
+							// cout << "Getting min spam" << endl;
 							double minSpam = getJobConflictMinSpam(jobs[i]);
-							cout << "Got min spam" << endl;
+							// cout << "Got min spam" << endl;
 							// cout << "MinSpam: " << minSpam << endl;
 							if(minSpam < 0) break;
 							// cin.get();
 							// cout << "vmssize: " << vms.size() << endl;
-							cout << "Pushing job.." << endl;
+							// cout << "Pushing job.." << endl;
 							// bool pushed = vms[m]->pushJob(jobs[i], d, minSpam, useGpu);
 							bool pushed = vms[m]->pushJob(jobs[i], d, minSpam);
-							cout << "Pushed job.." << endl;
+							// cout << "Pushed job.." << endl;
 							if(!pushed){
 								break;
 							}
@@ -488,7 +488,7 @@ public:
 							double insertionCost = calculateFO();
 
 							// cout << "JobID: " << jobs[i]->id << " Machine: " << m << " WriteTo: " << d << " GPU: " << useGpu << " cost: " << insertionCost << endl;
-							cout << "JobID: " << jobs[i]->id << " Machine: " << m << " WriteTo: " << d << " cost: " << insertionCost << endl;
+							// cout << "JobID: " << jobs[i]->id << " Machine: " << m << " WriteTo: " << d << " cost: " << insertionCost << endl;
 							// cin.get();
 
 							if(CL.size() == 0){
@@ -518,9 +518,9 @@ public:
 									// onGpu.push_back(useGpu);
 								}
 							}
-							cout << "tested!" << endl;
+							// cout << "tested!" << endl;
 							vms[m]->popJob(jobs[i]->id);
-							cout << "Spam After Removal: " << vms[m]->calculateLocalspam() << endl;
+							// cout << "Spam After Removal: " << vms[m]->calculateLocalspam() << endl;
 							// cin.get();
 						// }
 					}
@@ -843,7 +843,7 @@ public:
 			// cout << "Stored line: " << line << endl;
 			boost::split(tokens, line, boost::is_any_of(" "));
 			string job_name = tokens[0];
-
+			// cout << "JobNAme: " << job_name << endl;
 			double cpu_time = stod(tokens[1]);
 			total_time_job_cpu += cpu_time;
 			double gpu_time = stod(tokens[2]);
@@ -862,6 +862,7 @@ public:
 			for(int i = 0; i < n_output; i++){
 				int id = stoi(tokens[4+n_input+1+i]);
 				Item * item = this->files[id];
+				// cout << "Output item: " << item->id << endl;
 				output.push_back(item);
 			}
 			// cout << "ALOW" << endl;
@@ -879,6 +880,7 @@ public:
 		}
 
 		// cout << "Finished reading jobs.." << endl;
+		// cin.get();
 
 		vector<vector<string>> machines;
 		getline(in_file, line);
@@ -943,9 +945,9 @@ public:
 			total_outputs += this->jobs[j]->output.size();
 		}
 
-		this->maxTime = maxTimeCPU + total_inputs + total_outputs;
+		// this->maxTime = maxTimeCPU + total_inputs + total_outputs;
 
-		this->maxCost = this->maxTime * more_expensive_process_gpu;
+		// this->maxCost = this->maxTime * more_expensive_process_gpu;
 
 
 		// cout << "TotalTimeCpu: " << total_time_job_cpu << " TotalTimeGpu: " << total_time_job_gpu << endl;

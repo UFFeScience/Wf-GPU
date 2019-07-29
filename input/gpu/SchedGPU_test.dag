@@ -1,0 +1,993 @@
+155 514 3
+t500 35 0 1 0 1 0 % atividade: dataselection
+t501 34 0 1 1 1 1 % atividade: dataselection
+t502 32 0 1 2 1 2 % atividade: dataselection
+t503 31 0 1 3 1 3 % atividade: dataselection
+t504 31 0 1 4 1 4 % atividade: dataselection
+t505 28 0 1 10 1 10 % atividade: dataselection
+t506 28 0 1 5 1 5 % atividade: dataselection
+t507 26 0 1 6 1 6 % atividade: dataselection
+t508 23 0 1 7 1 7 % atividade: dataselection
+t509 26 0 1 14 1 14 % atividade: dataselection
+t510 28 0 1 13 1 13 % atividade: dataselection
+t511 26 0 1 15 1 15 % atividade: dataselection
+t512 23 0 1 18 1 18 % atividade: dataselection
+t513 23 0 1 17 1 17 % atividade: dataselection
+t514 19 0 1 21 1 21 % atividade: dataselection
+t515 22 0 1 16 1 16 % atividade: dataselection
+t516 17 0 1 20 1 20 % atividade: dataselection
+t517 15 0 1 24 1 24 % atividade: dataselection
+t518 17 0 1 19 1 19 % atividade: dataselection
+t519 14 0 1 23 1 23 % atividade: dataselection
+t520 13 0 1 27 1 27 % atividade: dataselection
+t521 13 0 1 22 1 22 % atividade: dataselection
+t522 12 0 1 26 1 26 % atividade: dataselection
+t523 12 0 1 8 1 8 % atividade: dataselection
+t524 13 0 1 9 1 9 % atividade: dataselection
+t525 12 0 1 29 1 29 % atividade: dataselection
+t526 14 0 1 11 1 11 % atividade: dataselection
+t527 11 0 1 25 1 25 % atividade: dataselection
+t528 13 0 1 12 1 12 % atividade: dataselection
+t529 13 0 1 30 1 30 % atividade: dataselection
+t530 11 0 1 28 1 28 % atividade: dataselection
+t531 130 84.5 1 0 2 48 47 % atividade: mafft
+t532 166 107.9 1 1 2 78 77 % atividade: mafft
+t533 128 83.2 1 2 2 38 37 % atividade: mafft
+t534 119 77.35000000000001 1 3 2 34 33 % atividade: mafft
+t535 123 79.95 1 4 2 44 43 % atividade: mafft
+t536 133 86.45 1 5 2 50 49 % atividade: mafft
+t537 142 92.3 1 6 2 62 61 % atividade: mafft
+t538 120 78.0 1 7 2 36 35 % atividade: mafft
+t539 124 80.60000000000001 1 8 2 42 41 % atividade: mafft
+t540 138 89.7 1 9 2 58 57 % atividade: mafft
+t541 106 68.9 1 10 2 32 31 % atividade: mafft
+t542 125 81.25 1 11 2 56 55 % atividade: mafft
+t543 130 84.5 1 12 2 74 73 % atividade: mafft
+t544 109 70.85000000000001 1 13 2 40 39 % atividade: mafft
+t545 286 185.9 1 30 2 90 89 % atividade: mafft
+t546 110 71.5 1 14 2 52 51 % atividade: mafft
+t547 107 69.55 1 15 2 46 45 % atividade: mafft
+t548 114 74.10000000000001 1 16 2 66 65 % atividade: mafft
+t549 120 78.0 1 17 2 82 81 % atividade: mafft
+t550 102 66.3 1 18 2 54 53 % atividade: mafft
+t551 130 84.5 1 19 2 80 79 % atividade: mafft
+t552 108 70.2 1 20 2 60 59 % atividade: mafft
+t553 102 66.3 1 21 2 64 63 % atividade: mafft
+t554 114 74.10000000000001 1 22 2 72 71 % atividade: mafft
+t555 202 131.3 1 23 2 88 87 % atividade: mafft
+t556 102 66.3 1 24 2 70 69 % atividade: mafft
+t557 401 260.65000000000003 1 25 2 92 91 % atividade: mafft
+t558 108 70.2 1 26 2 68 67 % atividade: mafft
+t559 87 56.550000000000004 1 27 2 76 75 % atividade: mafft
+t560 134 87.10000000000001 1 28 2 84 83 % atividade: mafft
+t561 149 96.85000000000001 1 29 2 86 85 % atividade: mafft
+t562 118 0 2 92 91 1 106 % atividade: readseq
+t563 97 0 2 92 91 1 94 % atividade: readseq
+t564 94 0 2 92 91 1 95 % atividade: readseq
+t565 95 0 2 92 91 1 93 % atividade: readseq
+t566 108 0 2 92 91 1 96 % atividade: readseq
+t567 107 0 2 92 91 1 97 % atividade: readseq
+t568 111 0 2 92 91 1 105 % atividade: readseq
+t569 113 0 2 92 91 1 103 % atividade: readseq
+t570 119 0 2 92 91 1 109 % atividade: readseq
+t571 112 0 2 92 91 1 104 % atividade: readseq
+t572 108 0 2 92 91 1 101 % atividade: readseq
+t573 103 0 2 92 91 1 99 % atividade: readseq
+t574 113 0 2 92 91 1 110 % atividade: readseq
+t575 98 0 2 92 91 1 100 % atividade: readseq
+t576 99 0 2 92 91 1 102 % atividade: readseq
+t577 106 0 2 92 91 1 113 % atividade: readseq
+t578 103 0 2 92 91 1 108 % atividade: readseq
+t579 103 0 2 92 91 1 112 % atividade: readseq
+t580 96 0 2 92 91 1 98 % atividade: readseq
+t581 100 0 2 92 91 1 111 % atividade: readseq
+t582 96 0 2 92 91 1 115 % atividade: readseq
+t583 115 0 2 92 91 1 118 % atividade: readseq
+t584 103 0 2 92 91 1 114 % atividade: readseq
+t585 105 0 2 92 91 1 117 % atividade: readseq
+t586 93 0 2 92 91 1 107 % atividade: readseq
+t587 101 0 2 92 91 1 116 % atividade: readseq
+t588 89 0 2 92 91 1 120 % atividade: readseq
+t589 105 0 2 92 91 1 121 % atividade: readseq
+t590 104 0 2 92 91 1 119 % atividade: readseq
+t591 94 0 2 92 91 1 122 % atividade: readseq
+t592 102 0 2 92 91 1 123 % atividade: readseq
+t593 5329 0 1 109 1 306 % atividade: modelgenerator
+t594 5221 0 1 109 1 180 % atividade: modelgenerator
+t595 9689 0 1 109 1 125 % atividade: modelgenerator
+t596 2559 0 1 109 1 300 % atividade: modelgenerator
+t597 7645 0 1 109 1 150 % atividade: modelgenerator
+t598 9059 0 1 109 1 252 % atividade: modelgenerator
+t599 9035 0 1 109 1 138 % atividade: modelgenerator
+t600 4557 0 1 109 1 168 % atividade: modelgenerator
+t601 10287 0 1 109 1 204 % atividade: modelgenerator
+t602 9261 0 1 109 1 240 % atividade: modelgenerator
+t603 7 0 1 109 1 246 % atividade: modelgenerator
+t604 8899 0 1 109 1 234 % atividade: modelgenerator
+t605 1440 0 1 109 1 282 % atividade: modelgenerator
+t606 3007 0 1 109 1 186 % atividade: modelgenerator
+t607 10640 0 1 109 1 276 % atividade: modelgenerator
+t608 2794 0 1 109 1 222 % atividade: modelgenerator
+t609 7102 0 1 109 1 144 % atividade: modelgenerator
+t610 1780 0 1 109 1 156 % atividade: modelgenerator
+t611 10238 0 1 109 1 216 % atividade: modelgenerator
+t612 4860 0 1 109 1 228 % atividade: modelgenerator
+t613 3589 0 1 109 1 264 % atividade: modelgenerator
+t614 11346 0 1 109 1 132 % atividade: modelgenerator
+t615 6596 0 1 109 1 162 % atividade: modelgenerator
+t616 8430 0 1 109 1 270 % atividade: modelgenerator
+t617 5414 0 1 109 1 192 % atividade: modelgenerator
+t618 4246 0 1 109 1 288 % atividade: modelgenerator
+t619 2164 0 1 109 1 210 % atividade: modelgenerator
+t620 8674 0 1 109 1 174 % atividade: modelgenerator
+t621 8343 0 1 109 1 198 % atividade: modelgenerator
+t622 1216 0 1 109 1 258 % atividade: modelgenerator
+t623 4878 0 1 109 1 294 % atividade: modelgenerator
+t655 5348 0 1 306 5 327 328 329 330 331 % atividade: raxml1
+t656 9765 0 1 180 5 320 321 322 323 324 % atividade: raxml1
+t657 3994 0 1 125 5 313 314 315 316 317 % atividade: raxml1
+t658 9049 0 1 300 5 386 387 388 389 390 % atividade: raxml1
+t659 5828 0 1 150 5 352 353 354 355 356 % atividade: raxml1
+t660 4513 0 1 252 5 359 360 361 362 363 % atividade: raxml1
+t661 9956 0 1 138 5 333 334 335 336 337 % atividade: raxml1
+t662 5679 0 1 168 5 346 347 348 349 350 % atividade: raxml1
+t663 6830 0 1 204 5 339 340 341 342 343 % atividade: raxml1
+t664 10620 0 1 240 5 366 367 368 369 370 % atividade: raxml1
+t665 3041 0 1 246 5 439 440 441 442 443 % atividade: raxml1
+t666 9393 0 1 234 5 400 401 402 403 404 % atividade: raxml1
+t667 5889 0 1 282 5 459 460 461 462 463 % atividade: raxml1
+t668 4498 0 1 186 5 427 428 429 430 431 % atividade: raxml1
+t669 3845 0 1 276 5 484 485 486 487 488 % atividade: raxml1
+t670 10894 0 1 222 5 393 394 395 396 397 % atividade: raxml1
+t671 5227 0 1 144 5 379 380 381 382 383 % atividade: raxml1
+t672 5924 0 1 156 5 406 407 408 409 410 % atividade: raxml1
+t673 2292 0 1 216 5 433 434 435 436 437 % atividade: raxml1
+t674 30 0 1 228 5 420 421 422 423 424 % atividade: raxml1
+t675 5396 0 1 264 5 477 478 479 480 481 % atividade: raxml1
+t676 6371 0 1 132 5 373 374 375 376 377 % atividade: raxml1
+t677 5114 0 1 162 5 413 414 415 416 417 % atividade: raxml1
+t678 5624 0 1 270 5 446 447 448 449 450 % atividade: raxml1
+t679 11424 0 1 192 5 452 453 454 455 456 % atividade: raxml1
+t680 923 0 1 288 5 503 504 505 506 507 % atividade: raxml1
+t681 3215 0 1 210 5 490 491 492 493 494 % atividade: raxml1
+t682 5072 0 1 174 5 471 472 473 474 475 % atividade: raxml1
+t683 10100 0 1 198 5 465 466 467 468 469 % atividade: raxml1
+t684 11480 0 1 258 5 496 497 498 499 500 % atividade: raxml1
+t685 5952 0 1 294 5 509 510 511 512 513 % atividade: raxml1
+0 23493 1 1 1
+1 22401 1 1 1
+2 19046 1 1 1
+3 8274 1 1 1
+4 15860 1 1 1
+5 10176 1 1 1
+6 11686 1 1 1
+7 4238 1 1 1
+8 5967 1 1 1
+9 9104 1 1 1
+10 8629 1 1 1
+11 8541 1 1 1
+12 12009 1 1 1
+13 9467 1 1 1
+14 8218 1 1 1
+15 8623 1 1 1
+16 7476 1 1 1
+17 10489 1 1 1
+18 7692 1 1 1
+19 9245 1 1 1
+20 6281 1 1 1
+21 9103 1 1 1
+22 5701 1 1 1
+23 14228 1 1 1
+24 7896 1 1 1
+25 28687 1 1 1
+26 8854 1 1 1
+27 4849 1 1 1
+28 10415 1 1 1
+29 10647 1 1 1
+30 21538 1 1 1
+31 8358 0
+32 62031 0
+33 8105 0
+34 12031 0
+35 4104 0
+36 10711 0
+37 18767 0
+38 17076 0
+39 9113 0
+40 17411 0
+41 5775 0
+42 20754 0
+43 15650 0
+44 18691 0
+45 8342 0
+46 12726 0
+47 23377 0
+48 15807 0
+49 9890 0
+50 21955 0
+51 7968 0
+52 12521 0
+53 7409 0
+54 9981 0
+55 8315 0
+56 20291 0
+57 8904 0
+58 12131 0
+59 6045 0
+60 12045 0
+61 11395 0
+62 25817 0
+63 8840 0
+64 14265 0
+65 7195 0
+66 12731 0
+67 8564 0
+68 11459 0
+69 7651 0
+70 30442 0
+71 5479 0
+72 12571 0
+73 11668 0
+74 50275 0
+75 4681 0
+76 13991 0
+77 22297 0
+78 23919 0
+79 8965 0
+80 42002 0
+81 10159 0
+82 15944 0
+83 10181 0
+84 26559 0
+85 10398 0
+86 30906 0
+87 13938 0
+88 55516 0
+89 21297 0
+90 40471 0
+91 28190 0
+92 69894 0
+93 22595 0
+94 16057 0
+95 14422 0
+96 23869 0
+97 28026 0
+98 15338 0
+99 13461 0
+100 16223 0
+101 16643 0
+102 16130 0
+103 17162 0
+104 29587 0
+105 25269 0
+106 83163 0
+107 56533 0
+108 19402 0
+109 21120 0
+110 27354 0
+111 41024 0
+112 17461 0
+113 34583 0
+114 18647 0
+115 16853 0
+116 21270 0
+117 32071 0
+118 67110 0
+119 74331 0
+120 35554 0
+121 41480 0
+122 54235 0
+123 93510 0
+125 5 0
+132 3 0
+138 3 0
+144 5 0
+150 5 0
+156 3 0
+162 5 0
+168 5 0
+174 5 0
+180 5 0
+186 5 0
+192 3 0
+198 3 0
+204 5 0
+210 5 0
+216 5 0
+222 3 0
+228 5 0
+234 5 0
+240 5 0
+246 5 0
+252 5 0
+258 5 0
+264 5 0
+270 5 0
+276 5 0
+282 5 0
+288 5 0
+294 5 0
+300 5 0
+306 5 0
+313 943 0
+314 2588 0
+315 181 0
+316 88 0
+317 943 0
+320 1963 0
+321 2592 0
+322 306 0
+323 188 0
+324 1963 0
+327 3340 0
+328 2784 0
+329 211 0
+330 323 0
+331 3340 0
+333 943 0
+334 2251 0
+335 219 0
+336 88 0
+337 943 0
+339 2014 0
+340 2252 0
+341 209 0
+342 193 0
+343 2014 0
+346 1708 0
+347 2655 0
+348 211 0
+349 163 0
+350 1708 0
+352 1300 0
+353 2252 0
+354 259 0
+355 123 0
+356 1300 0
+359 2677 0
+360 2782 0
+361 306 0
+362 258 0
+363 2677 0
+366 2218 0
+367 2721 0
+368 235 0
+369 213 0
+370 2218 0
+373 1198 0
+374 2591 0
+375 232 0
+376 113 0
+377 1198 0
+379 1147 0
+380 2258 0
+381 220 0
+382 108 0
+383 1147 0
+386 3340 0
+387 2721 0
+388 307 0
+389 323 0
+390 3340 0
+393 1912 0
+394 2590 0
+395 235 0
+396 183 0
+397 1912 0
+400 2320 0
+401 2723 0
+402 282 0
+403 223 0
+404 2320 0
+406 1351 0
+407 2255 0
+408 245 0
+409 128 0
+410 1351 0
+413 1810 0
+414 2721 0
+415 257 0
+416 173 0
+417 1810 0
+420 2422 0
+421 2661 0
+422 282 0
+423 233 0
+424 2422 0
+427 1963 0
+428 2599 0
+429 270 0
+430 188 0
+431 1963 0
+433 1810 0
+434 2259 0
+435 245 0
+436 173 0
+437 1810 0
+439 1861 0
+440 2259 0
+441 296 0
+442 178 0
+443 1861 0
+446 2626 0
+447 2599 0
+448 220 0
+449 253 0
+450 2626 0
+452 1147 0
+453 2255 0
+454 220 0
+455 108 0
+456 1147 0
+459 2473 0
+460 2600 0
+461 271 0
+462 238 0
+463 2473 0
+465 1300 0
+466 2255 0
+467 221 0
+468 123 0
+469 1300 0
+471 1147 0
+472 2259 0
+473 221 0
+474 108 0
+475 1147 0
+477 1810 0
+478 2259 0
+479 246 0
+480 173 0
+481 1810 0
+484 2116 0
+485 2598 0
+486 222 0
+487 203 0
+488 2116 0
+490 1198 0
+491 2261 0
+492 222 0
+493 113 0
+494 1198 0
+496 1096 0
+497 2261 0
+498 222 0
+499 103 0
+500 1096 0
+503 2575 0
+504 6370 0
+505 297 0
+506 248 0
+507 2575 0
+509 1300 0
+510 2263 0
+511 250 0
+512 123 0
+513 1300 0
+0.2 0.05 0.3 % SlowDown cpu de cada máquina
+0.1 0.025 0.15 % SlowDown gpu de cada máquina
+1000 1000 1000
+30 100 25
+0 15 10
+15 0 5
+10 5 0
+
+
+
+*****************
+
+
+COG0012 -> 0
+COG0016 -> 1
+COG0048 -> 2
+COG0049 -> 3
+COG0052 -> 4
+COG0081 -> 5
+COG0087 -> 6
+COG0091 -> 7
+COG0200 -> 8
+COG0201 -> 9
+COG0080 -> 10
+COG0256 -> 11
+COG0522 -> 12
+COG0093 -> 13
+COG0092 -> 14
+COG0094 -> 15
+COG0099 -> 16
+COG0097 -> 17
+COG0096 -> 18
+COG0103 -> 19
+COG0100 -> 20
+COG0098 -> 21
+COG0186 -> 22
+COG0172 -> 23
+COG0102 -> 24
+COG0495 -> 25
+COG0197 -> 26
+COG0184 -> 27
+COG0533 -> 28
+COG0202 -> 29
+COG0525 -> 30
+COG0080.fastaNumbered -> 31
+COG0080.mafft -> 32
+COG0049.fastaNumbered -> 33
+COG0049.mafft -> 34
+COG0091.fastaNumbered -> 35
+COG0091.mafft -> 36
+COG0048.fastaNumbered -> 37
+COG0048.mafft -> 38
+COG0093.fastaNumbered -> 39
+COG0093.mafft -> 40
+COG0200.fastaNumbered -> 41
+COG0200.mafft -> 42
+COG0052.fastaNumbered -> 43
+COG0052.mafft -> 44
+COG0094.fastaNumbered -> 45
+COG0094.mafft -> 46
+COG0012.fastaNumbered -> 47
+COG0012.mafft -> 48
+COG0081.fastaNumbered -> 49
+COG0081.mafft -> 50
+COG0092.fastaNumbered -> 51
+COG0092.mafft -> 52
+COG0096.fastaNumbered -> 53
+COG0096.mafft -> 54
+COG0256.fastaNumbered -> 55
+COG0256.mafft -> 56
+COG0201.fastaNumbered -> 57
+COG0201.mafft -> 58
+COG0100.fastaNumbered -> 59
+COG0100.mafft -> 60
+COG0087.fastaNumbered -> 61
+COG0087.mafft -> 62
+COG0098.fastaNumbered -> 63
+COG0098.mafft -> 64
+COG0099.fastaNumbered -> 65
+COG0099.mafft -> 66
+COG0197.fastaNumbered -> 67
+COG0197.mafft -> 68
+COG0102.fastaNumbered -> 69
+COG0102.mafft -> 70
+COG0186.fastaNumbered -> 71
+COG0186.mafft -> 72
+COG0522.fastaNumbered -> 73
+COG0522.mafft -> 74
+COG0184.fastaNumbered -> 75
+COG0184.mafft -> 76
+COG0016.fastaNumbered -> 77
+COG0016.mafft -> 78
+COG0103.fastaNumbered -> 79
+COG0103.mafft -> 80
+COG0097.fastaNumbered -> 81
+COG0097.mafft -> 82
+COG0533.fastaNumbered -> 83
+COG0533.mafft -> 84
+COG0202.fastaNumbered -> 85
+COG0202.mafft -> 86
+COG0172.fastaNumbered -> 87
+COG0172.mafft -> 88
+COG0525.fastaNumbered -> 89
+COG0525.mafft -> 90
+COG0495.fastaNumbered -> 91
+COG0495.mafft -> 92
+COG0048.phylip -> 93
+COG0049.phylip -> 94
+COG0091.phylip -> 95
+COG0093.phylip -> 96
+COG0200.phylip -> 97
+COG0197.phylip -> 98
+COG0096.phylip -> 99
+COG0201.phylip -> 100
+COG0092.phylip -> 101
+COG0100.phylip -> 102
+COG0094.phylip -> 103
+COG0081.phylip -> 104
+COG0052.phylip -> 105
+COG0080.phylip -> 106
+COG0103.phylip -> 107
+COG0098.phylip -> 108
+COG0012.phylip -> 109
+COG0256.phylip -> 110
+COG0102.phylip -> 111
+COG0099.phylip -> 112
+COG0087.phylip -> 113
+COG0184.phylip -> 114
+COG0186.phylip -> 115
+COG0097.phylip -> 116
+COG0016.phylip -> 117
+COG0522.phylip -> 118
+COG0172.phylip -> 119
+COG0533.phylip -> 120
+COG0202.phylip -> 121
+COG0525.phylip -> 122
+COG0495.phylip -> 123
+COG0091.mg -> 124
+COG0091.mg.modelFromMG.txt -> 125
+COG0091.phylip_phyml.sh -> 126
+COG0091.phylip_phymlBoot.sh -> 127
+COG0091.phylip_puzzleBoot.sh -> 128
+COG0091.phylip_treePuzzle.sh -> 129
+modelgenerator0.out -> 130
+COG0184.mg -> 131
+COG0184.mg.modelFromMG.txt -> 132
+COG0184.phylip_phyml.sh -> 133
+COG0184.phylip_phymlBoot.sh -> 134
+COG0184.phylip_puzzleBoot.sh -> 135
+COG0184.phylip_treePuzzle.sh -> 136
+COG0201.mg -> 137
+COG0201.mg.modelFromMG.txt -> 138
+COG0201.phylip_phyml.sh -> 139
+COG0201.phylip_phymlBoot.sh -> 140
+COG0201.phylip_puzzleBoot.sh -> 141
+COG0201.phylip_treePuzzle.sh -> 142
+COG0012.mg -> 143
+COG0012.mg.modelFromMG.txt -> 144
+COG0012.phylip_phyml.sh -> 145
+COG0012.phylip_phymlBoot.sh -> 146
+COG0012.phylip_puzzleBoot.sh -> 147
+COG0012.phylip_treePuzzle.sh -> 148
+COG0200.mg -> 149
+COG0200.mg.modelFromMG.txt -> 150
+COG0200.phylip_phyml.sh -> 151
+COG0200.phylip_phymlBoot.sh -> 152
+COG0200.phylip_puzzleBoot.sh -> 153
+COG0200.phylip_treePuzzle.sh -> 154
+COG0256.mg -> 155
+COG0256.mg.modelFromMG.txt -> 156
+COG0256.phylip_phyml.sh -> 157
+COG0256.phylip_phymlBoot.sh -> 158
+COG0256.phylip_puzzleBoot.sh -> 159
+COG0256.phylip_treePuzzle.sh -> 160
+COG0186.mg -> 161
+COG0186.mg.modelFromMG.txt -> 162
+COG0186.phylip_phyml.sh -> 163
+COG0186.phylip_phymlBoot.sh -> 164
+COG0186.phylip_puzzleBoot.sh -> 165
+COG0186.phylip_treePuzzle.sh -> 166
+COG0092.mg -> 167
+COG0092.mg.modelFromMG.txt -> 168
+COG0092.phylip_phyml.sh -> 169
+COG0092.phylip_phymlBoot.sh -> 170
+COG0092.phylip_puzzleBoot.sh -> 171
+COG0092.phylip_treePuzzle.sh -> 172
+COG0533.mg -> 173
+COG0533.mg.modelFromMG.txt -> 174
+COG0533.phylip_phyml.sh -> 175
+COG0533.phylip_phymlBoot.sh -> 176
+COG0533.phylip_puzzleBoot.sh -> 177
+COG0533.phylip_treePuzzle.sh -> 178
+COG0049.mg -> 179
+COG0049.mg.modelFromMG.txt -> 180
+COG0049.phylip_phyml.sh -> 181
+COG0049.phylip_phymlBoot.sh -> 182
+COG0049.phylip_puzzleBoot.sh -> 183
+COG0049.phylip_treePuzzle.sh -> 184
+COG0080.mg -> 185
+COG0080.mg.modelFromMG.txt -> 186
+COG0080.phylip_phyml.sh -> 187
+COG0080.phylip_phymlBoot.sh -> 188
+COG0080.phylip_puzzleBoot.sh -> 189
+COG0080.phylip_treePuzzle.sh -> 190
+COG0016.mg -> 191
+COG0016.mg.modelFromMG.txt -> 192
+COG0016.phylip_phyml.sh -> 193
+COG0016.phylip_phymlBoot.sh -> 194
+COG0016.phylip_puzzleBoot.sh -> 195
+COG0016.phylip_treePuzzle.sh -> 196
+COG0202.mg -> 197
+COG0202.mg.modelFromMG.txt -> 198
+COG0202.phylip_phyml.sh -> 199
+COG0202.phylip_phymlBoot.sh -> 200
+COG0202.phylip_puzzleBoot.sh -> 201
+COG0202.phylip_treePuzzle.sh -> 202
+COG0100.mg -> 203
+COG0100.mg.modelFromMG.txt -> 204
+COG0100.phylip_phyml.sh -> 205
+COG0100.phylip_phymlBoot.sh -> 206
+COG0100.phylip_puzzleBoot.sh -> 207
+COG0100.phylip_treePuzzle.sh -> 208
+COG0172.mg -> 209
+COG0172.mg.modelFromMG.txt -> 210
+COG0172.phylip_phyml.sh -> 211
+COG0172.phylip_phymlBoot.sh -> 212
+COG0172.phylip_puzzleBoot.sh -> 213
+COG0172.phylip_treePuzzle.sh -> 214
+COG0102.mg -> 215
+COG0102.mg.modelFromMG.txt -> 216
+COG0102.phylip_phyml.sh -> 217
+COG0102.phylip_phymlBoot.sh -> 218
+COG0102.phylip_puzzleBoot.sh -> 219
+COG0102.phylip_treePuzzle.sh -> 220
+COG0098.mg -> 221
+COG0098.mg.modelFromMG.txt -> 222
+COG0098.phylip_phyml.sh -> 223
+COG0098.phylip_phymlBoot.sh -> 224
+COG0098.phylip_puzzleBoot.sh -> 225
+COG0098.phylip_treePuzzle.sh -> 226
+COG0099.mg -> 227
+COG0099.mg.modelFromMG.txt -> 228
+COG0099.phylip_phyml.sh -> 229
+COG0099.phylip_phymlBoot.sh -> 230
+COG0099.phylip_puzzleBoot.sh -> 231
+COG0099.phylip_treePuzzle.sh -> 232
+COG0197.mg -> 233
+COG0197.mg.modelFromMG.txt -> 234
+COG0197.phylip_phyml.sh -> 235
+COG0197.phylip_phymlBoot.sh -> 236
+COG0197.phylip_puzzleBoot.sh -> 237
+COG0197.phylip_treePuzzle.sh -> 238
+COG0094.mg -> 239
+COG0094.mg.modelFromMG.txt -> 240
+COG0094.phylip_phyml.sh -> 241
+COG0094.phylip_phymlBoot.sh -> 242
+COG0094.phylip_puzzleBoot.sh -> 243
+COG0094.phylip_treePuzzle.sh -> 244
+COG0081.mg -> 245
+COG0081.mg.modelFromMG.txt -> 246
+COG0081.phylip_phyml.sh -> 247
+COG0081.phylip_phymlBoot.sh -> 248
+COG0081.phylip_puzzleBoot.sh -> 249
+COG0081.phylip_treePuzzle.sh -> 250
+COG0096.mg -> 251
+COG0096.mg.modelFromMG.txt -> 252
+COG0096.phylip_phyml.sh -> 253
+COG0096.phylip_phymlBoot.sh -> 254
+COG0096.phylip_puzzleBoot.sh -> 255
+COG0096.phylip_treePuzzle.sh -> 256
+COG0525.mg -> 257
+COG0525.mg.modelFromMG.txt -> 258
+COG0525.phylip_phyml.sh -> 259
+COG0525.phylip_phymlBoot.sh -> 260
+COG0525.phylip_puzzleBoot.sh -> 261
+COG0525.phylip_treePuzzle.sh -> 262
+COG0087.mg -> 263
+COG0087.mg.modelFromMG.txt -> 264
+COG0087.phylip_phyml.sh -> 265
+COG0087.phylip_phymlBoot.sh -> 266
+COG0087.phylip_puzzleBoot.sh -> 267
+COG0087.phylip_treePuzzle.sh -> 268
+COG0097.mg -> 269
+COG0097.mg.modelFromMG.txt -> 270
+COG0097.phylip_phyml.sh -> 271
+COG0097.phylip_phymlBoot.sh -> 272
+COG0097.phylip_puzzleBoot.sh -> 273
+COG0097.phylip_treePuzzle.sh -> 274
+COG0103.mg -> 275
+COG0103.mg.modelFromMG.txt -> 276
+COG0103.phylip_phyml.sh -> 277
+COG0103.phylip_phymlBoot.sh -> 278
+COG0103.phylip_puzzleBoot.sh -> 279
+COG0103.phylip_treePuzzle.sh -> 280
+COG0052.mg -> 281
+COG0052.mg.modelFromMG.txt -> 282
+COG0052.phylip_phyml.sh -> 283
+COG0052.phylip_phymlBoot.sh -> 284
+COG0052.phylip_puzzleBoot.sh -> 285
+COG0052.phylip_treePuzzle.sh -> 286
+COG0522.mg -> 287
+COG0522.mg.modelFromMG.txt -> 288
+COG0522.phylip_phyml.sh -> 289
+COG0522.phylip_phymlBoot.sh -> 290
+COG0522.phylip_puzzleBoot.sh -> 291
+COG0522.phylip_treePuzzle.sh -> 292
+COG0495.mg -> 293
+COG0495.mg.modelFromMG.txt -> 294
+COG0495.phylip_phyml.sh -> 295
+COG0495.phylip_phymlBoot.sh -> 296
+COG0495.phylip_puzzleBoot.sh -> 297
+COG0495.phylip_treePuzzle.sh -> 298
+COG0093.mg -> 299
+COG0093.mg.modelFromMG.txt -> 300
+COG0093.phylip_phyml.sh -> 301
+COG0093.phylip_phymlBoot.sh -> 302
+COG0093.phylip_puzzleBoot.sh -> 303
+COG0093.phylip_treePuzzle.sh -> 304
+COG0048.mg -> 305
+COG0048.mg.modelFromMG.txt -> 306
+COG0048.phylip_phyml.sh -> 307
+COG0048.phylip_phymlBoot.sh -> 308
+COG0048.phylip_puzzleBoot.sh -> 309
+COG0048.phylip_treePuzzle.sh -> 310
+COG0091.phylip.modelMGBateRaxml.txt -> 311
+COG0091.phylip.reduced -> 312
+RAxML_bestTree.COG0091.phylip_raxml_tree1.singleTree -> 313
+RAxML_info.COG0091.phylip_raxml_tree1.singleTree -> 314
+RAxML_log.COG0091.phylip_raxml_tree1.singleTree -> 315
+RAxML_parsimonyTree.COG0091.phylip_raxml_tree1.singleTree -> 316
+RAxML_result.COG0091.phylip_raxml_tree1.singleTree -> 317
+COG0049.phylip.modelMGBateRaxml.txt -> 318
+COG0049.phylip.reduced -> 319
+RAxML_bestTree.COG0049.phylip_raxml_tree1.singleTree -> 320
+RAxML_info.COG0049.phylip_raxml_tree1.singleTree -> 321
+RAxML_log.COG0049.phylip_raxml_tree1.singleTree -> 322
+RAxML_parsimonyTree.COG0049.phylip_raxml_tree1.singleTree -> 323
+RAxML_result.COG0049.phylip_raxml_tree1.singleTree -> 324
+COG0048.phylip.modelMGBateRaxml.txt -> 325
+COG0048.phylip.reduced -> 326
+RAxML_bestTree.COG0048.phylip_raxml_tree1.singleTree -> 327
+RAxML_info.COG0048.phylip_raxml_tree1.singleTree -> 328
+RAxML_log.COG0048.phylip_raxml_tree1.singleTree -> 329
+RAxML_parsimonyTree.COG0048.phylip_raxml_tree1.singleTree -> 330
+RAxML_result.COG0048.phylip_raxml_tree1.singleTree -> 331
+COG0201.phylip.modelMGBateRaxml.txt -> 332
+RAxML_bestTree.COG0201.phylip_raxml_tree1.singleTree -> 333
+RAxML_info.COG0201.phylip_raxml_tree1.singleTree -> 334
+RAxML_log.COG0201.phylip_raxml_tree1.singleTree -> 335
+RAxML_parsimonyTree.COG0201.phylip_raxml_tree1.singleTree -> 336
+RAxML_result.COG0201.phylip_raxml_tree1.singleTree -> 337
+COG0100.phylip.modelMGBateRaxml.txt -> 338
+RAxML_bestTree.COG0100.phylip_raxml_tree1.singleTree -> 339
+RAxML_info.COG0100.phylip_raxml_tree1.singleTree -> 340
+RAxML_log.COG0100.phylip_raxml_tree1.singleTree -> 341
+RAxML_parsimonyTree.COG0100.phylip_raxml_tree1.singleTree -> 342
+RAxML_result.COG0100.phylip_raxml_tree1.singleTree -> 343
+COG0092.phylip.modelMGBateRaxml.txt -> 344
+COG0092.phylip.reduced -> 345
+RAxML_bestTree.COG0092.phylip_raxml_tree1.singleTree -> 346
+RAxML_info.COG0092.phylip_raxml_tree1.singleTree -> 347
+RAxML_log.COG0092.phylip_raxml_tree1.singleTree -> 348
+RAxML_parsimonyTree.COG0092.phylip_raxml_tree1.singleTree -> 349
+RAxML_result.COG0092.phylip_raxml_tree1.singleTree -> 350
+COG0200.phylip.modelMGBateRaxml.txt -> 351
+RAxML_bestTree.COG0200.phylip_raxml_tree1.singleTree -> 352
+RAxML_info.COG0200.phylip_raxml_tree1.singleTree -> 353
+RAxML_log.COG0200.phylip_raxml_tree1.singleTree -> 354
+RAxML_parsimonyTree.COG0200.phylip_raxml_tree1.singleTree -> 355
+RAxML_result.COG0200.phylip_raxml_tree1.singleTree -> 356
+COG0096.phylip.modelMGBateRaxml.txt -> 357
+COG0096.phylip.reduced -> 358
+RAxML_bestTree.COG0096.phylip_raxml_tree1.singleTree -> 359
+RAxML_info.COG0096.phylip_raxml_tree1.singleTree -> 360
+RAxML_log.COG0096.phylip_raxml_tree1.singleTree -> 361
+RAxML_parsimonyTree.COG0096.phylip_raxml_tree1.singleTree -> 362
+RAxML_result.COG0096.phylip_raxml_tree1.singleTree -> 363
+COG0094.phylip.modelMGBateRaxml.txt -> 364
+COG0094.phylip.reduced -> 365
+RAxML_bestTree.COG0094.phylip_raxml_tree1.singleTree -> 366
+RAxML_info.COG0094.phylip_raxml_tree1.singleTree -> 367
+RAxML_log.COG0094.phylip_raxml_tree1.singleTree -> 368
+RAxML_parsimonyTree.COG0094.phylip_raxml_tree1.singleTree -> 369
+RAxML_result.COG0094.phylip_raxml_tree1.singleTree -> 370
+COG0184.phylip.modelMGBateRaxml.txt -> 371
+COG0184.phylip.reduced -> 372
+RAxML_bestTree.COG0184.phylip_raxml_tree1.singleTree -> 373
+RAxML_info.COG0184.phylip_raxml_tree1.singleTree -> 374
+RAxML_log.COG0184.phylip_raxml_tree1.singleTree -> 375
+RAxML_parsimonyTree.COG0184.phylip_raxml_tree1.singleTree -> 376
+RAxML_result.COG0184.phylip_raxml_tree1.singleTree -> 377
+COG0012.phylip.modelMGBateRaxml.txt -> 378
+RAxML_bestTree.COG0012.phylip_raxml_tree1.singleTree -> 379
+RAxML_info.COG0012.phylip_raxml_tree1.singleTree -> 380
+RAxML_log.COG0012.phylip_raxml_tree1.singleTree -> 381
+RAxML_parsimonyTree.COG0012.phylip_raxml_tree1.singleTree -> 382
+RAxML_result.COG0012.phylip_raxml_tree1.singleTree -> 383
+COG0093.phylip.modelMGBateRaxml.txt -> 384
+COG0093.phylip.reduced -> 385
+RAxML_bestTree.COG0093.phylip_raxml_tree1.singleTree -> 386
+RAxML_info.COG0093.phylip_raxml_tree1.singleTree -> 387
+RAxML_log.COG0093.phylip_raxml_tree1.singleTree -> 388
+RAxML_parsimonyTree.COG0093.phylip_raxml_tree1.singleTree -> 389
+RAxML_result.COG0093.phylip_raxml_tree1.singleTree -> 390
+COG0098.phylip.modelMGBateRaxml.txt -> 391
+COG0098.phylip.reduced -> 392
+RAxML_bestTree.COG0098.phylip_raxml_tree1.singleTree -> 393
+RAxML_info.COG0098.phylip_raxml_tree1.singleTree -> 394
+RAxML_log.COG0098.phylip_raxml_tree1.singleTree -> 395
+RAxML_parsimonyTree.COG0098.phylip_raxml_tree1.singleTree -> 396
+RAxML_result.COG0098.phylip_raxml_tree1.singleTree -> 397
+COG0197.phylip.modelMGBateRaxml.txt -> 398
+COG0197.phylip.reduced -> 399
+RAxML_bestTree.COG0197.phylip_raxml_tree1.singleTree -> 400
+RAxML_info.COG0197.phylip_raxml_tree1.singleTree -> 401
+RAxML_log.COG0197.phylip_raxml_tree1.singleTree -> 402
+RAxML_parsimonyTree.COG0197.phylip_raxml_tree1.singleTree -> 403
+RAxML_result.COG0197.phylip_raxml_tree1.singleTree -> 404
+COG0256.phylip.modelMGBateRaxml.txt -> 405
+RAxML_bestTree.COG0256.phylip_raxml_tree1.singleTree -> 406
+RAxML_info.COG0256.phylip_raxml_tree1.singleTree -> 407
+RAxML_log.COG0256.phylip_raxml_tree1.singleTree -> 408
+RAxML_parsimonyTree.COG0256.phylip_raxml_tree1.singleTree -> 409
+RAxML_result.COG0256.phylip_raxml_tree1.singleTree -> 410
+COG0186.phylip.modelMGBateRaxml.txt -> 411
+COG0186.phylip.reduced -> 412
+RAxML_bestTree.COG0186.phylip_raxml_tree1.singleTree -> 413
+RAxML_info.COG0186.phylip_raxml_tree1.singleTree -> 414
+RAxML_log.COG0186.phylip_raxml_tree1.singleTree -> 415
+RAxML_parsimonyTree.COG0186.phylip_raxml_tree1.singleTree -> 416
+RAxML_result.COG0186.phylip_raxml_tree1.singleTree -> 417
+COG0099.phylip.modelMGBateRaxml.txt -> 418
+COG0099.phylip.reduced -> 419
+RAxML_bestTree.COG0099.phylip_raxml_tree1.singleTree -> 420
+RAxML_info.COG0099.phylip_raxml_tree1.singleTree -> 421
+RAxML_log.COG0099.phylip_raxml_tree1.singleTree -> 422
+RAxML_parsimonyTree.COG0099.phylip_raxml_tree1.singleTree -> 423
+RAxML_result.COG0099.phylip_raxml_tree1.singleTree -> 424
+COG0080.phylip.modelMGBateRaxml.txt -> 425
+COG0080.phylip.reduced -> 426
+RAxML_bestTree.COG0080.phylip_raxml_tree1.singleTree -> 427
+RAxML_info.COG0080.phylip_raxml_tree1.singleTree -> 428
+RAxML_log.COG0080.phylip_raxml_tree1.singleTree -> 429
+RAxML_parsimonyTree.COG0080.phylip_raxml_tree1.singleTree -> 430
+RAxML_result.COG0080.phylip_raxml_tree1.singleTree -> 431
+COG0102.phylip.modelMGBateRaxml.txt -> 432
+RAxML_bestTree.COG0102.phylip_raxml_tree1.singleTree -> 433
+RAxML_info.COG0102.phylip_raxml_tree1.singleTree -> 434
+RAxML_log.COG0102.phylip_raxml_tree1.singleTree -> 435
+RAxML_parsimonyTree.COG0102.phylip_raxml_tree1.singleTree -> 436
+RAxML_result.COG0102.phylip_raxml_tree1.singleTree -> 437
+COG0081.phylip.modelMGBateRaxml.txt -> 438
+RAxML_bestTree.COG0081.phylip_raxml_tree1.singleTree -> 439
+RAxML_info.COG0081.phylip_raxml_tree1.singleTree -> 440
+RAxML_log.COG0081.phylip_raxml_tree1.singleTree -> 441
+RAxML_parsimonyTree.COG0081.phylip_raxml_tree1.singleTree -> 442
+RAxML_result.COG0081.phylip_raxml_tree1.singleTree -> 443
+COG0097.phylip.modelMGBateRaxml.txt -> 444
+COG0097.phylip.reduced -> 445
+RAxML_bestTree.COG0097.phylip_raxml_tree1.singleTree -> 446
+RAxML_info.COG0097.phylip_raxml_tree1.singleTree -> 447
+RAxML_log.COG0097.phylip_raxml_tree1.singleTree -> 448
+RAxML_parsimonyTree.COG0097.phylip_raxml_tree1.singleTree -> 449
+RAxML_result.COG0097.phylip_raxml_tree1.singleTree -> 450
+COG0016.phylip.modelMGBateRaxml.txt -> 451
+RAxML_bestTree.COG0016.phylip_raxml_tree1.singleTree -> 452
+RAxML_info.COG0016.phylip_raxml_tree1.singleTree -> 453
+RAxML_log.COG0016.phylip_raxml_tree1.singleTree -> 454
+RAxML_parsimonyTree.COG0016.phylip_raxml_tree1.singleTree -> 455
+RAxML_result.COG0016.phylip_raxml_tree1.singleTree -> 456
+COG0052.phylip.modelMGBateRaxml.txt -> 457
+COG0052.phylip.reduced -> 458
+RAxML_bestTree.COG0052.phylip_raxml_tree1.singleTree -> 459
+RAxML_info.COG0052.phylip_raxml_tree1.singleTree -> 460
+RAxML_log.COG0052.phylip_raxml_tree1.singleTree -> 461
+RAxML_parsimonyTree.COG0052.phylip_raxml_tree1.singleTree -> 462
+RAxML_result.COG0052.phylip_raxml_tree1.singleTree -> 463
+COG0202.phylip.modelMGBateRaxml.txt -> 464
+RAxML_bestTree.COG0202.phylip_raxml_tree1.singleTree -> 465
+RAxML_info.COG0202.phylip_raxml_tree1.singleTree -> 466
+RAxML_log.COG0202.phylip_raxml_tree1.singleTree -> 467
+RAxML_parsimonyTree.COG0202.phylip_raxml_tree1.singleTree -> 468
+RAxML_result.COG0202.phylip_raxml_tree1.singleTree -> 469
+COG0533.phylip.modelMGBateRaxml.txt -> 470
+RAxML_bestTree.COG0533.phylip_raxml_tree1.singleTree -> 471
+RAxML_info.COG0533.phylip_raxml_tree1.singleTree -> 472
+RAxML_log.COG0533.phylip_raxml_tree1.singleTree -> 473
+RAxML_parsimonyTree.COG0533.phylip_raxml_tree1.singleTree -> 474
+RAxML_result.COG0533.phylip_raxml_tree1.singleTree -> 475
+COG0087.phylip.modelMGBateRaxml.txt -> 476
+RAxML_bestTree.COG0087.phylip_raxml_tree1.singleTree -> 477
+RAxML_info.COG0087.phylip_raxml_tree1.singleTree -> 478
+RAxML_log.COG0087.phylip_raxml_tree1.singleTree -> 479
+RAxML_parsimonyTree.COG0087.phylip_raxml_tree1.singleTree -> 480
+RAxML_result.COG0087.phylip_raxml_tree1.singleTree -> 481
+COG0103.phylip.modelMGBateRaxml.txt -> 482
+COG0103.phylip.reduced -> 483
+RAxML_bestTree.COG0103.phylip_raxml_tree1.singleTree -> 484
+RAxML_info.COG0103.phylip_raxml_tree1.singleTree -> 485
+RAxML_log.COG0103.phylip_raxml_tree1.singleTree -> 486
+RAxML_parsimonyTree.COG0103.phylip_raxml_tree1.singleTree -> 487
+RAxML_result.COG0103.phylip_raxml_tree1.singleTree -> 488
+COG0172.phylip.modelMGBateRaxml.txt -> 489
+RAxML_bestTree.COG0172.phylip_raxml_tree1.singleTree -> 490
+RAxML_info.COG0172.phylip_raxml_tree1.singleTree -> 491
+RAxML_log.COG0172.phylip_raxml_tree1.singleTree -> 492
+RAxML_parsimonyTree.COG0172.phylip_raxml_tree1.singleTree -> 493
+RAxML_result.COG0172.phylip_raxml_tree1.singleTree -> 494
+COG0525.phylip.modelMGBateRaxml.txt -> 495
+RAxML_bestTree.COG0525.phylip_raxml_tree1.singleTree -> 496
+RAxML_info.COG0525.phylip_raxml_tree1.singleTree -> 497
+RAxML_log.COG0525.phylip_raxml_tree1.singleTree -> 498
+RAxML_parsimonyTree.COG0525.phylip_raxml_tree1.singleTree -> 499
+RAxML_result.COG0525.phylip_raxml_tree1.singleTree -> 500
+COG0522.phylip.modelMGBateRaxml.txt -> 501
+COG0522.phylip.reduced -> 502
+RAxML_bestTree.COG0522.phylip_raxml_tree1.singleTree -> 503
+RAxML_info.COG0522.phylip_raxml_tree1.singleTree -> 504
+RAxML_log.COG0522.phylip_raxml_tree1.singleTree -> 505
+RAxML_parsimonyTree.COG0522.phylip_raxml_tree1.singleTree -> 506
+RAxML_result.COG0522.phylip_raxml_tree1.singleTree -> 507
+COG0495.phylip.modelMGBateRaxml.txt -> 508
+RAxML_bestTree.COG0495.phylip_raxml_tree1.singleTree -> 509
+RAxML_info.COG0495.phylip_raxml_tree1.singleTree -> 510
+RAxML_log.COG0495.phylip_raxml_tree1.singleTree -> 511
+RAxML_parsimonyTree.COG0495.phylip_raxml_tree1.singleTree -> 512
+RAxML_result.COG0495.phylip_raxml_tree1.singleTree -> 513

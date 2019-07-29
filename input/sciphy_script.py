@@ -3,7 +3,11 @@ from macpath import join
 
 def main():
     file_path = "D:\\mestrado\\Wf-GPU\\input\\gpu\\SchedGPU.txt"
-    write_path = "D:\\mestrado\\Wf-GPU\\input\\gpu\\SchedGPU.dag"
+    write_path = "D:\\mestrado\\Wf-GPU\\input\\gpu\\SchedGPU_test.dag"
+
+    file_path = "/home/murilostockinger/Mestrado/Wf-GPU/input/gpu/SchedGPU.txt"
+    write_path = "/home/murilostockinger/Mestrado/Wf-GPU/input/gpu/SchedGPU_test.dag"
+
     file_manager = open(file_path, "r")
 
     lines = file_manager.readlines()
@@ -41,7 +45,6 @@ def main():
             else:
                 new_line += " {}".format(item)
         file_manager.write(new_line.lstrip())
-        # lines[i] = new_line.lstrip()
 
     used_dict = {}
 
@@ -60,7 +63,14 @@ def main():
     for i in range(1041, len(lines)):
         file_manager.write(lines[i])
 
+
+    file_manager.write("\n\n\n*****************\n\n\n")
+
+    for key in files_dict:
+        file_manager.write("{} -> {}\n".format(key, files_dict[key]))
+
     file_manager.close()
+
 
 
 

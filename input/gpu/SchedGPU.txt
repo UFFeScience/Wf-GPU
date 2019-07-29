@@ -1042,6 +1042,7 @@ RAxML_result.COG0495.phylip_raxml_tree1.singleTree 1300 0
 0.2 0.05 0.3 % SlowDown cpu de cada máquina
 0.1 0.025 0.15 % SlowDown gpu de cada máquina
 1000 1000 1000
+30 100 25
 0 15 10
 15 0 5
 10 5 0
