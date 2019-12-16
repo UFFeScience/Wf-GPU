@@ -1,4 +1,4 @@
-# Install script for directory: /home/murilostockinger/Mestrado/hea-mestrado
+# Install script for directory: /mnt/d/mestrado/Wf-GPU/gpu-heuristic
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/murilostockinger/Mestrado/hea-mestrado/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/mnt/d/mestrado/Wf-GPU/gpu-heuristic/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

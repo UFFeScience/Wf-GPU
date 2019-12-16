@@ -1,5 +1,5 @@
 #ifndef MILS_H
-#define MILS_h
+#define MILS_H
 
 
 #include <string>
@@ -13,235 +13,259 @@ using namespace std;
 
 class Mils{
 
-    public:
-        double alpha;
-        double perturbationPercentage;
-        Problem * blankProblem;
-        vector<LocalSearch *> localSearch;
-        //virtual ~Chromosome();
-        virtual ~Mils() {
-            // TODO Auto-generated destructor stub
-        }
-        
-        Mils(Problem * problem, double alpha, double perturbationPercentage){
-            this->blankProblem = problem;
-            this->alpha = alpha;
-            this->perturbationPercentage = perturbationPercentage;
-        }
+public:
+	double alpha;
+	double perturbationPercentage;
+	Problem * blankProblem;
+	double max_time = double(INT_MAX);
+	double maxIter, maxILS;
+	bool useTime;
+	vector<LocalSearch *> localSearch;
+	//virtual ~Chromosome();
+	virtual ~Mils() {
+		// TODO Auto-generated destructor stub
+	}
 
-        Problem * startLocalSearch(Problem * p){
-            bool improvement = true;
-            while(improvement){
-                // cout << "LOOP START" << endl;
-                improvement = false;
-                bool lsImprovement = false;
-                for(int i = 0; i < p->alloc.size(); i++){ // RELOCATE LOOP START
-                    for (int j = 0; j < p->alloc.size(); j++){
-                        if(i == j) continue;
-                        Problem * backup = new Problem(*p);
-                        // bool done = p->realocate(i, j);
-                        // delete backup;
-                        bool done = false;
-                        if(done){
-                            
-                            if(!p->checkFeasible()){
-                                cout << "booom Relocate" << endl;
-                                cin.get();
-                            }
-                            double solValue = p->calculateMakespam();
-                            // cout << "A Move was Done! i: " << i << " j: " << j << endl;
-                            // cout << "oldValue: " << backup->calculateMakespam() << " newValue: " << solValue << endl;
-                            // cin.get();
-                            if(solValue >= backup->calculateMakespam()){
-                                delete p;
-                                p = backup;
-                            } else{
-                                // cout << "RELOCATE IMPROV! Cost: " << p->calculateMakespam()  << endl;
-                                // cin.get();
-                                delete backup;
-                                lsImprovement = true;
-                                break;
-                            }                                
-                        } else{
-                            delete backup;
-                        }
-                    }
-                    if(lsImprovement){
-                        break;
-                    }
-                } // RELOCATE LOOP END
+	Mils(Problem * problem, double alpha, double perturbationPercentage){
+		this->blankProblem = problem;
+		this->alpha = alpha;
+		this->perturbationPercentage = perturbationPercentage;
+	}
 
-                if(lsImprovement){
-                    // cout << "MELHOROU COM A BL1" << endl;
-                    // cin.get();
-                    improvement = true;
-                    continue;
-                } 
-                lsImprovement = false;
-                // cout << "EXAUSTED RELOCATE! p->cost was: " << p->calculateMakespam() << endl;
-                for(int i = 0; i < p->alloc.size(); i++){ // SWAP MACHINE LOOP START
-                    Problem * backup = new Problem(*p);
-                    // lsImprovement = p->swapMachine(i);
-                    if(!p->checkFeasible()){
-                        cout << "booom Swap MAchine" << endl;
-                        cin.get();
-                    }
-                    if(lsImprovement){
-                        // cout << "SWAP IMPROV! Cost: " << p->calculateMakespam()  << endl;
-                        // cin.get();
-                        delete backup;
-                        break;
-                    } else{
-                        delete p;
-                        p = backup;
-                    }
-                } // END SWAP MACHINE LOOP
+	Problem * startLocalSearch(Problem * p, clock_t begin){
+		// cout << "Started Local Search" << endl;
 
-                if(lsImprovement){
-                    // cout << "MELHOROU COM A BL2" << endl;
-                    // cin.get();
-                    improvement = true;
-                    continue;
-                }
-                lsImprovement = false;
-                // cout << "EXAUSTED SWAP MACHINE! p->cost was: " << p->calculateMakespam() << endl;
-                for(int i = 0; i < p->alloc.size(); i++){ // SWAP MACHINE LOOP START
-                    for (int j = 0; j < p->alloc.size(); j++){
-                        Problem * backup = new Problem(*p);
-                        // lsImprovement = p->swapMachineWrite(i);
-                        if(!p->checkFeasible()){
-                            cout << "booom Swap Write" << endl;
-                            cin.get();
-                        }
-                        if(lsImprovement){
-                            delete backup;
-                            break;
-                        } else{
-                            delete p;
-                            p = backup;
-                        }
-                    }
-                } // END SWAP MACHINE LOOP
-                // cout << "EXAUSTED SWAP Write!" << endl;
-                if(lsImprovement){
-                    // cout << "MELHOROU COM A BL3" << endl;
-                    // cin.get();
-                    improvement = true;
-                    continue;
-                }
-                lsImprovement = false;
-            }  
-            // cout << "LOOP FINISHED" << endl;
-            // cin.get();
-            return p;
-        }
+		bool improvement = true;
+		while(improvement){
+			if(double(clock() - begin) / CLOCKS_PER_SEC >= max_time && useTime){
+				// cout << iter << " " << ils << " ";
+				// cout << grasp_best << " " << ils_best << " ";
+				return p;
+			}
+			// cout << "LOOP START Cost: " << p->calculateMakespam() << " Elapsed Time: " << double(clock() - begin) / CLOCKS_PER_SEC << endl;
+			// p->print();
+			// cin.get();
+			improvement = false;
+			bool lsImprovement = false;
+			double moveCost = 0.0;
+			// cout << "FileAlloc" << endl;
+			moveCost = p->test_swapFileAllocation();
+			// cout << "ExitFileAlloc" << endl;
+			if(moveCost >= 0){
+				lsImprovement = true;
+				// cout << "MEELHOROU COM A NOVA BL!: " << moveCost << endl;
+				// p->print();
+				// cin.get();
+			}
+			if(!p->checkFeasible()){
+				cout << "booom Swap File Allocation" << endl;
+				p->print();
+				cin.get();
+			}
+			if(lsImprovement){
+				improvement = true;
+				continue;
+			}
+			// cout << "Realloc" << endl;
+			// p->print();
+			// moveCost = p->test_reallocate();
+			// // p->print();
+			// if(moveCost >= 0){
+			// 	lsImprovement = true;
+			// 	// cout << "MEELHOROU COM A NOVA BL!: " << moveCost << endl;
+			// 	// p->print();
+			// 	// cin.get();
+			// }
+			// if(!p->checkFeasible()){
+			// 	cout << "booom Relocate!" << endl;
+			// 	p->print();
+			// 	cin.get();
+			// }
+			// if(lsImprovement){
+			// 	improvement = true;
+			// 	continue;
+			// }
+		
+			// // cout << "machinePair" << endl;
+			// // p->print();
+			moveCost = p->test_swapMachinePair();
+			// p->print();
+			if(moveCost >= 0){
+				lsImprovement = true;
+			}
+			if(!p->checkFeasible()){
+				cout << "booom Swap Machine Pair" << endl;
+				p->print();
+				p->printAlloc();
+				cin.get();
+			}
+			if(lsImprovement){
+				improvement = true;
+				continue;
+			}
 
-        Problem * startPerturbation(Problem * p, double perturbationPercentage, int * machine, int * write){
-            int totalPerturbations = p->alloc.size() * perturbationPercentage;
-            for(int i = 0; i < totalPerturbations; i++){
-                int pChooser = rand() % 2;
-                int pos = rand() % p->alloc.size();
-                if(pChooser == 0){
-                    // p->perturbateMachine(pos);
-                    *machine = *machine + 1;
-                } else if(pChooser == 1){
-                    // p->perturbateWriteTo(pos);
-                    *write = *write + 1;
-                }
-            }
+			// // cout << "machine" << endl;
+			// // p->print();
+			// moveCost = p->test_swapMachine();
+			// // p->print();
+			// if(moveCost > 0){
+			// 	lsImprovement = true;
+			// }
 
-            if(!p->checkFeasible()){
-                cout << "booom Start Perturbation" << endl;
-                cin.get();
-            }
-            return p;
-        }
+			// if(!p->checkFeasible()){
+			// 	cout << "booom Swap MAchine" << endl;
+			// 	p->print();
+			// 	cin.get();
+			// }
 
-        Problem * start(clock_t begin, double max_time){
-            // cout << "Begin: " << begin << " max_time: " << max_time << endl;
-            Problem * p = new Problem(*this->blankProblem);           
-            double bestSolValue = 9999999999.0;
-            Problem * bestSolution = new Problem(*this->blankProblem);
-            string bestSolOrigin = "";
-            int machine = 0;
-            int write = 0;
-            int grasp_best = -1;
-            int ils_best = -1;
-            // bestSolution->createSolution(this->alpha);
-            bool run = true;
-            int iter = -1;
-            while(run){
-                iter++;
-            // for(int iter = 0; iter < 10; iter++){
-                if(double(clock() - begin) / CLOCKS_PER_SEC >= max_time){ 
-                    cout << grasp_best << " " << ils_best << " ";
-                    return bestSolution;
-                }
-                // if(iter % 10 == 0){
-                //     cout << "Iter: " << iter << endl;
-                // }
-                p = new Problem(*this->blankProblem);
-                p->createSolution(this->alpha);
-                // p->printAlloc();
-                if(!p->checkFeasible()){
-                    cout << "booom create Sol" << endl;
-                    cin.get();
-                }
-                p = startLocalSearch(p);
-                if (p->calculateMakespam() < bestSolValue){
-                    delete bestSolution;
-                    bestSolution = new Problem(*p);
-                    bestSolValue = p->calculateMakespam();
-                    bestSolOrigin = "LocalSearch1";
-                }
-                
-                // cout << "Starting ILS" << endl;
-                // cin.get();
-                double lastPvalue = p->calculateMakespam();
-                for(int mov = 0; mov < 10; mov++){
-                    if(double(clock() - begin) / CLOCKS_PER_SEC >= max_time) { 
-                        cout << grasp_best << " " << ils_best << " ";
-                        return bestSolution;
-                    }
-                    // if(mov % 10 == 0){
-                    //     cout << "Mov: " << mov << endl;
-                    // }
-                    Problem * backupP = new Problem(*p);
-                    p = startPerturbation(p, this->perturbationPercentage, &machine, &write);    
-                    p = startLocalSearch(p);
-                    if(p->calculateMakespam() < lastPvalue){
-                        lastPvalue = p->calculateMakespam();
-                        delete backupP;
-                        backupP = new Problem(*p);
-                        if (p->calculateMakespam() < bestSolValue){
-                            grasp_best = iter;
-                            ils_best = mov;
-                            // cout << "BestSol value after localsearch: " << p->calculateMakespam() << endl;
-                            delete bestSolution;
-                            bestSolution = new Problem(*p);
-                            bestSolValue = p->calculateMakespam();
-                            bestSolOrigin = "perturbation";
-                        }
-                    } else{
-                        delete p;
-                        p = backupP;
-                    }
-                }
-                if(!p->checkFeasible()){
-                    cout << "booom create ILS" << endl;
-                    cin.get();
-                }
+			// if(lsImprovement){
+			// 	improvement = true;
+			// 	continue;
+			// }
+		}
+		// cout << "LOOP FINISHED" << endl;
+		// cin.get();
+		return p;
+	}
 
-                
-                delete p;
-                // cout << "ITERATION: " << iter << " CURRENT BEST SOL VALUE: " << bestSolValue << endl;
-                // cin.get();
-            }
-            // exit(1);
-            // cin.get();
-            cout << grasp_best << " " << ils_best << " ";
-            return bestSolution;
-        }
+	Problem * startPerturbation(Problem * p, double perturbationPercentage, int * machine, int * write){
+		// cout << "Started perturbation!" << endl;
+		// p->print();
+		int totalPerturbations = p->alloc.size() * perturbationPercentage;
+		for(int i = 0; i < totalPerturbations; i++){
+			int pChooser = rand() % 2;
+			// int pChooser = 2;
+			int pos = rand() % p->alloc.size();
+			if(pChooser == 0){
+				p->perturbateMachine(pos);
+				*machine = *machine + 1;
+			} else if(pChooser == 1){
+				p->perturbateWriteTo(pos);
+				*write = *write + 1;
+			}
+		}
+
+		if(!p->checkFeasible()){
+			cout << "booom Start Perturbation" << endl;
+			p->print();
+			cin.get();
+		}
+		// cout << "Exited perturbation" << endl;
+		// p->print();
+		return p;
+	}
+
+	Problem * start(){
+		// cout << "max_time: " << max_time << endl;
+		Problem * p = new Problem(*this->blankProblem);
+		double bestSolValue = 9999999999.0;
+		Problem * bestSolution = new Problem(*this->blankProblem);
+		string bestSolOrigin = "";
+		int machine = 0;
+		int write = 0;
+		int grasp_best = -1;
+		int ils_best = -1;
+		bool run = true;
+		int iter = -1;
+		clock_t begin = clock();
+		for(int iter = 0; iter < maxIter; iter++){
+			if(double(clock() - begin) / CLOCKS_PER_SEC >= max_time && useTime){
+				cout << iter << " 0 ";
+				// cout << grasp_best << " " << ils_best << " ";
+				return bestSolution;
+			}
+			// if(iter % 10 == 0){
+			// cout << "Iter: " << iter << endl;
+			// }
+			p = new Problem(*this->blankProblem);
+			p->createSolution(this->alpha);
+			// return p;
+			// cout << "Solution created!" << endl;
+			// cout << p->calculateFO() << " " << p->calculateMakespam() << " " << p->calculateCost() << endl;
+			// p->print();
+			// cin.get();
+
+			// p->printAlloc();
+			if(!p->checkFeasible()){
+				cout << "booom create Sol" << endl;
+				cin.get();
+			}
+			// cout << "Starting first LS!" << endl;
+			p = startLocalSearch(p, begin);
+			// cout << "Finished first LS!" << endl;
+			if (p->calculateMakespam() < bestSolValue){
+				delete bestSolution;
+				bestSolution = new Problem(*p);
+				bestSolValue = p->calculateMakespam();
+				bestSolOrigin = "LocalSearch1";
+			}
+
+			if(double(clock() - begin) / CLOCKS_PER_SEC >= max_time && useTime){
+				cout << iter << "0 ";
+				// cout << grasp_best << " " << ils_best << " ";
+				return bestSolution;
+			}
+
+			// cout << "After First LocalSearch!" << endl;
+			// cout << p->calculateFO() << " " << p->calculateMakespam() << " " << p->calculateCost() << endl;
+
+			// cout << "Starting ILS" << endl;
+			// cin.get();
+			double lastPvalue = p->calculateMakespam();
+			for(int mov = 0; mov < 130; mov++){
+				break;
+				if(double(clock() - begin) / CLOCKS_PER_SEC >= max_time && useTime) {
+					cout << iter << " " << mov << " ";
+					// cout << grasp_best << " " << ils_best << " ";
+					return bestSolution;
+				}
+				// if(mov % 10 == 0){
+				// cout << "Mov: " << mov << endl;
+				// }
+				Problem * backupP = new Problem(*p);
+				p = startPerturbation(p, this->perturbationPercentage, &machine, &write);
+				p = startLocalSearch(p, begin);
+
+				if(p->calculateMakespam() < lastPvalue){
+					lastPvalue = p->calculateMakespam();
+					delete backupP;
+					backupP = new Problem(*p);
+					if (p->calculateMakespam() < bestSolValue){
+						grasp_best = iter;
+						ils_best = mov;
+						// cout << "BestSol value after localsearch: " << p->calculateMakespam() << endl;
+						delete bestSolution;
+						bestSolution = new Problem(*p);
+						bestSolValue = p->calculateMakespam();
+						bestSolOrigin = "perturbation";
+					}
+				} else{
+					delete p;
+					p = backupP;
+				}
+				if(double(clock() - begin) / CLOCKS_PER_SEC >= max_time && useTime){
+					// cout << grasp_best << " " << ils_best << " ";
+					cout << iter << " " << mov << " ";
+					return bestSolution;
+				}
+			}
+			if(!p->checkFeasible()){
+				cout << "booom create ILS" << endl;
+				cin.get();
+			}
+
+
+			delete p;
+			// cout << "ITERATION: " << iter << " CURRENT BEST SOL VALUE: " << bestSolValue << endl;
+			// cin.get();
+		}
+		cout << iter << " " << maxILS << " ";
+		// exit(1);
+		// cin.get();
+		// cout << grasp_best << " " << ils_best << " ";
+		// p->print();
+		return bestSolution;
+	}
 };
 
 #endif
