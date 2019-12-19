@@ -68,26 +68,26 @@ public:
 			}
 			// cout << "Realloc" << endl;
 			// p->print();
-			// moveCost = p->test_reallocate();
-			// // p->print();
-			// if(moveCost >= 0){
-			// 	lsImprovement = true;
-			// 	// cout << "MEELHOROU COM A NOVA BL!: " << moveCost << endl;
-			// 	// p->print();
-			// 	// cin.get();
-			// }
-			// if(!p->checkFeasible()){
-			// 	cout << "booom Relocate!" << endl;
-			// 	p->print();
-			// 	cin.get();
-			// }
-			// if(lsImprovement){
-			// 	improvement = true;
-			// 	continue;
-			// }
+			moveCost = p->test_reallocate();
+			// p->print();
+			if(moveCost >= 0){
+				lsImprovement = true;
+				// cout << "MEELHOROU COM A NOVA BL!: " << moveCost << endl;
+				// p->print();
+				// cin.get();
+			}
+			if(!p->checkFeasible()){
+				cout << "booom Relocate!" << endl;
+				p->print();
+				cin.get();
+			}
+			if(lsImprovement){
+				improvement = true;
+				continue;
+			}
 		
-			// // cout << "machinePair" << endl;
-			// // p->print();
+			// cout << "machinePair" << endl;
+			// p->print();
 			moveCost = p->test_swapMachinePair();
 			// p->print();
 			if(moveCost >= 0){
@@ -105,23 +105,23 @@ public:
 			}
 
 			// // cout << "machine" << endl;
-			// // p->print();
-			// moveCost = p->test_swapMachine();
-			// // p->print();
-			// if(moveCost > 0){
-			// 	lsImprovement = true;
-			// }
+			// p->print();
+			moveCost = p->test_swapMachine();
+			// p->print();
+			if(moveCost > 0){
+				lsImprovement = true;
+			}
 
-			// if(!p->checkFeasible()){
-			// 	cout << "booom Swap MAchine" << endl;
-			// 	p->print();
-			// 	cin.get();
-			// }
+			if(!p->checkFeasible()){
+				cout << "booom Swap MAchine" << endl;
+				p->print();
+				cin.get();
+			}
 
-			// if(lsImprovement){
-			// 	improvement = true;
-			// 	continue;
-			// }
+			if(lsImprovement){
+				improvement = true;
+				continue;
+			}
 		}
 		// cout << "LOOP FINISHED" << endl;
 		// cin.get();
