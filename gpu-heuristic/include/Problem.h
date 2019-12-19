@@ -1029,14 +1029,14 @@ public:
 			conflicts.push_back(line);
 		}
 
-		// cout << "Conflicts: " << endl;
-		// for(int i = 0; i < this->jobs.size(); i++){
-		// 	for(int j = 0; j < this->jobs.size(); j++){
-		// 		cout << conflicts[i][j] << " ";
-		// 	}
-		// 	cout << endl;
-		// }
-		// cin.get();
+		cout << "Conflicts: " << endl;
+		for(int i = 0; i < this->jobs.size(); i++){
+			for(int j = 0; j < this->jobs.size(); j++){
+				cout << conflicts[i][j] << " ";
+			}
+			cout << endl;
+		}
+		cin.get();
 		// cout << "Finished Reading!" << endl;
 		// cin.get();
 	}
