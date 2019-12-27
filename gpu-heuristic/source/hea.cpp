@@ -581,35 +581,13 @@ int main(int argc, char **argv) {
 
     double bestValue = INFINITY;
     // Problem * bestProblem;
-    Problem * bestSol = new Problem(name_workflow, setting->maxTime, setting->maxCost);
+    Problem * emptyProblem = new Problem(name_workflow, setting->maxTime, setting->maxCost);
+    // cout << "Alpha: " << setting->alpha << endl;
+    // cout << name_workflow << " ";
+    Mils * g = new Mils(emptyProblem, setting->alpha, setting->mutation_probability);
     double totalTime = 0.0;
     clock_t start = clock();
-    for(int i = 0; i < 1; i++){
-        Problem * p = new Problem(name_workflow, setting->maxTime, setting->maxCost);
-        double cost = p->createSolution(setting->alpha);
-        // cout << "Cost: " << p->calculateCost() << endl;
-        // cout << "Spam: " << p->calculateMakespam() << endl;
-        // cout << "NewCost: " << cost << endl;
-        if(cost < bestValue){
-            delete bestSol;
-            bestValue = cost;
-            bestSol = p;
-        } else{
-            delete p;
-        }
-
-        // delete p;
-        // cin.get();
-        // if(cost < bestValue){
-        //     delete bestProblem;
-        //     bestProblem = p;
-        //     bestValue = cost;
-        // } else
-        // {
-        //     delete p;
-        // }
-        
-    }
+    Problem * bestSol = g->start();
     clock_t end = clock();
     // cout << "Cost: " << bestSol->calculateCost() << endl;
     // cout << "Spam: " << bestSol->calculateMakespam() << endl;
@@ -621,7 +599,7 @@ int main(int argc, char **argv) {
 
     double elapseSecs = double(end - begin) / CLOCKS_PER_SEC;
     // cout << bestSol->ponderation << "," << bestSol->calculateMakespam() * 2 << "," << bestSol->calculateCost() * 2 << "," << bestSol->calculateMakespam() << "," << bestSol->calculateCost() << "," << bestSol->calculateFO() << endl;
-    cout << bestSol->calculateFO() << " " << bestSol->calculateMakespam() << " " << bestSol->calculateCost() << " " << elapseSecs << endl;
+    cout << bestSol->calculateFO() << " " << bestSol->calculateMakespam() + 1 << " " << bestSol->calculateCost() << " " << elapseSecs << endl;
 
     // p->print();
 

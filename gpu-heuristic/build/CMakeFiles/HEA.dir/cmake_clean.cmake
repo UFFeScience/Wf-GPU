@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/HEA.dir/source/hea.cpp.o"
-  "HEA.pdb"
-  "HEA"
+  "======HEA.pdb"
+  "======HEA"
 )
 
 # Per-language clean rules from dependency scanning.
