@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/murilostockinger/Mestrado/Wf-GPU/gpu-heuristic/include/Chromosome.h
+/mnt/d/mestrado/Wf-GPU/gpu-heuristic/include/Chromosome.h
 iostream
 -
 vector
@@ -20,9 +20,9 @@ algorithm
 random
 -
 Data.h
-/home/murilostockinger/Mestrado/Wf-GPU/gpu-heuristic/include/Data.h
+/mnt/d/mestrado/Wf-GPU/gpu-heuristic/include/Data.h
 
-/home/murilostockinger/Mestrado/Wf-GPU/gpu-heuristic/include/Data.h
+/mnt/d/mestrado/Wf-GPU/gpu-heuristic/include/Data.h
 iostream
 -
 vector
@@ -46,7 +46,7 @@ boost/algorithm/string.hpp
 map
 -
 
-/home/murilostockinger/Mestrado/Wf-GPU/gpu-heuristic/include/Grasp.h
+/mnt/d/mestrado/Wf-GPU/gpu-heuristic/include/Grasp.h
 string
 -
 iostream
@@ -54,11 +54,11 @@ iostream
 algorithm
 -
 Problem.h
-/home/murilostockinger/Mestrado/Wf-GPU/gpu-heuristic/include/Problem.h
+/mnt/d/mestrado/Wf-GPU/gpu-heuristic/include/Problem.h
 LocalSearch.h
-/home/murilostockinger/Mestrado/Wf-GPU/gpu-heuristic/include/LocalSearch.h
+/mnt/d/mestrado/Wf-GPU/gpu-heuristic/include/LocalSearch.h
 
-/home/murilostockinger/Mestrado/Wf-GPU/gpu-heuristic/include/HEFT.h
+/mnt/d/mestrado/Wf-GPU/gpu-heuristic/include/HEFT.h
 string
 -
 iostream
@@ -68,9 +68,9 @@ algorithm
 tclap/CmdLine.h
 -
 Data.h
-/home/murilostockinger/Mestrado/Wf-GPU/gpu-heuristic/include/Data.h
+/mnt/d/mestrado/Wf-GPU/gpu-heuristic/include/Data.h
 Chromosome.h
-/home/murilostockinger/Mestrado/Wf-GPU/gpu-heuristic/include/Chromosome.h
+/mnt/d/mestrado/Wf-GPU/gpu-heuristic/include/Chromosome.h
 boost/bimap.hpp
 -
 boost/range/algorithm/copy.hpp
@@ -80,7 +80,7 @@ boost/range/adaptors.hpp
 boost/range/join.hpp
 -
 
-/home/murilostockinger/Mestrado/Wf-GPU/gpu-heuristic/include/LocalSearch.h
+/mnt/d/mestrado/Wf-GPU/gpu-heuristic/include/LocalSearch.h
 string
 -
 iostream
@@ -88,21 +88,9 @@ iostream
 algorithm
 -
 Problem.h
-/home/murilostockinger/Mestrado/Wf-GPU/gpu-heuristic/include/Problem.h
+/mnt/d/mestrado/Wf-GPU/gpu-heuristic/include/Problem.h
 
-/home/murilostockinger/Mestrado/Wf-GPU/gpu-heuristic/include/MILS.h
-string
--
-iostream
--
-algorithm
--
-Problem.h
-/home/murilostockinger/Mestrado/Wf-GPU/gpu-heuristic/include/Problem.h
-LocalSearch.h
-/home/murilostockinger/Mestrado/Wf-GPU/gpu-heuristic/include/LocalSearch.h
-
-/home/murilostockinger/Mestrado/Wf-GPU/gpu-heuristic/include/MinMin.h
+/mnt/d/mestrado/Wf-GPU/gpu-heuristic/include/MinMin.h
 string
 -
 iostream
@@ -112,11 +100,11 @@ algorithm
 tclap/CmdLine.h
 -
 Data.h
-/home/murilostockinger/Mestrado/Wf-GPU/gpu-heuristic/include/Data.h
+/mnt/d/mestrado/Wf-GPU/gpu-heuristic/include/Data.h
 Chromosome.h
-/home/murilostockinger/Mestrado/Wf-GPU/gpu-heuristic/include/Chromosome.h
+/mnt/d/mestrado/Wf-GPU/gpu-heuristic/include/Chromosome.h
 Grasp.h
-/home/murilostockinger/Mestrado/Wf-GPU/gpu-heuristic/include/Grasp.h
+/mnt/d/mestrado/Wf-GPU/gpu-heuristic/include/Grasp.h
 boost/bimap.hpp
 -
 boost/range/algorithm/copy.hpp
@@ -126,7 +114,7 @@ boost/range/adaptors.hpp
 boost/range/join.hpp
 -
 
-/home/murilostockinger/Mestrado/Wf-GPU/gpu-heuristic/include/Problem.h
+/mnt/d/mestrado/Wf-GPU/gpu-heuristic/include/Problem.h
 iostream
 -
 vector
@@ -142,17 +130,15 @@ random
 regex
 -
 
-/home/murilostockinger/Mestrado/Wf-GPU/gpu-heuristic/source/hea.cpp
+/mnt/d/mestrado/Wf-GPU/gpu-heuristic/source/hea.cpp
 iostream
 -
 ../include/HEFT.h
-/home/murilostockinger/Mestrado/Wf-GPU/gpu-heuristic/include/HEFT.h
+/mnt/d/mestrado/Wf-GPU/gpu-heuristic/include/HEFT.h
 ../include/MinMin.h
-/home/murilostockinger/Mestrado/Wf-GPU/gpu-heuristic/include/MinMin.h
+/mnt/d/mestrado/Wf-GPU/gpu-heuristic/include/MinMin.h
 ../include/Problem.h
-/home/murilostockinger/Mestrado/Wf-GPU/gpu-heuristic/include/Problem.h
+/mnt/d/mestrado/Wf-GPU/gpu-heuristic/include/Problem.h
 ../include/Grasp.h
-/home/murilostockinger/Mestrado/Wf-GPU/gpu-heuristic/include/Grasp.h
-../include/MILS.h
-/home/murilostockinger/Mestrado/Wf-GPU/gpu-heuristic/include/MILS.h
+/mnt/d/mestrado/Wf-GPU/gpu-heuristic/include/Grasp.h
 

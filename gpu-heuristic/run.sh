@@ -21,10 +21,15 @@ dag=".dag"
 declare -a wkf=("3_toy_15_A" "3_toy_15_B" "3_toy_15_C" "5_toy_15_A" "5_toy_15_B" "5_toy_15_C" "3_toy_10_A" "3_toy_10_B" "3_toy_10_C" "5_toy_10_A" "5_toy_10_B" "5_toy_10_C" "3_toy_5_A" "3_toy_5_C" "5_toy_5_A" "5_toy_5_B" "5_toy_5_C" "gpu" "CyberShake_30_gpu" "CyberShake_50_gpu" "CyberShake_100_gpu" "Epigenomics_24_gpu" "Epigenomics_46_gpu" "Epigenomics_100_gpu" "Montage_25_gpu" "Montage_50_gpu" "Montage_100_gpu" "Inspiral_30_gpu" "Inspiral_50_gpu" "Inspiral_100_gpu" "Sipht_30_gpu" "Sipht_60_gpu" "Sipht_100_gpu")
 declare -a maxcosts=(154	54	136	88	46	56	168	198	440	268	300	450	120	80	120	108	96	34	282	1758	5353	9888	3377	197180	454	138	1792	772	2044	3008 669 4422 2256 )
 declare -a maxtimes=(36	52	54	38	44	54	46	16	42	82	22	68	10	6	10	16	14	32	2820	2332	4604	6788	21252	106878	340	816	1018	2456	3006	6140	5888	8774	15160 )
+
+declare -a maxcosts=(120 120 80 120 108 96 168 198 440 268 300 450 154 54 136 88 46 56)
+declare -a maxtimes=(10 35 6 10 16 14 46 16 42 82 22 68 36 52 54 38 44 54)
+declare -a wkf=("3_toy_5_A" "3_toy_5_B" "3_toy_5_C" "5_toy_5_A" "5_toy_5_B" "5_toy_5_C" "3_toy_10_A" "3_toy_10_B" "3_toy_10_C" "5_toy_10_A" "5_toy_10_B" "5_toy_10_C" "5_toy_15_A" "5_toy_15_B" "5_toy_15_C")
+# declare -a wkf=("5_toy_15_C")
 # declare -a wkf=("5_toy_15_A" "5_toy_15_B" "5_toy_15_C" "3_toy_10_A" "3_toy_10_B" "3_toy_10_C" "5_toy_10_A" "5_toy_10_B" "5_toy_10_C" "3_toy_5_A" "3_toy_5_C" "5_toy_5_A" "5_toy_5_B" "5_toy_5_C")
-declare -a wkf=("3_toy_5_B")
-declare -a maxcosts=(120)
-declare -a maxtimes=(35)
+# declare -a wkf=("3_toy_5_B")
+# declare -a maxcosts=(120)
+# declare -a maxtimes=(35)
 # declare -a wkf=("gpu")
 trap CTRLC SIGINT
 # echo "instance,alpha,maxtime,maxcost,makespam,cost,FO" >> ../results/second_run.csv

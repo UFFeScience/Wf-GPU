@@ -3,7 +3,7 @@
 #include "../include/MinMin.h"
 #include "../include/Problem.h"
 #include "../include/Grasp.h"
-#include "../include/MILS.h"
+// #include "../include/MILS.h"
 
 typedef vector<Chromosome> vect_chrom_type;
 
@@ -621,8 +621,8 @@ int main(int argc, char **argv) {
 
     double elapseSecs = double(end - begin) / CLOCKS_PER_SEC;
     // cout << bestSol->ponderation << "," << bestSol->calculateMakespam() * 2 << "," << bestSol->calculateCost() * 2 << "," << bestSol->calculateMakespam() << "," << bestSol->calculateCost() << "," << bestSol->calculateFO() << endl;
-    cout << bestSol->calculateFO() << " " << bestSol->calculateMakespam() << " " << bestSol->calculateCost() << " " << elapseSecs << endl;
-
+    cout << bestSol->calculateFO() << " " << bestSol->calculateMakespam() + 1 << " " << bestSol->calculateCost() << " " << elapseSecs << endl;
+    // cin.get();
     // p->print();
 
     //delete setting struct
