@@ -104,8 +104,8 @@ public:
 				continue;
 			}
 
-			// // cout << "machine" << endl;
-			// p->print();
+			// // // // cout << "machine" << endl;
+			// // // p->print();
 			moveCost = p->test_swapMachine();
 			// p->print();
 			if(moveCost > 0){
@@ -133,7 +133,7 @@ public:
 		// p->print();
 		int totalPerturbations = p->alloc.size() * perturbationPercentage;
 		for(int i = 0; i < totalPerturbations; i++){
-			int pChooser = rand() % 2;
+			int pChooser = rand() % 1;
 			// int pChooser = 2;
 			int pos = rand() % p->alloc.size();
 			if(pChooser == 0){
@@ -168,7 +168,7 @@ public:
 		bool run = true;
 		int iter = -1;
 		clock_t begin = clock();
-		for(int iter = 0; iter < maxIter; iter++){
+		for(int iter = 0; iter < 1; iter++){
 			if(double(clock() - begin) / CLOCKS_PER_SEC >= max_time && useTime){
 				cout << iter << " 0 ";
 				// cout << grasp_best << " " << ils_best << " ";
@@ -191,12 +191,12 @@ public:
 				cin.get();
 			}
 			// cout << "Starting first LS!" << endl;
-			p = startLocalSearch(p, begin);
+			// p = startLocalSearch(p, begin);
 			// cout << "Finished first LS!" << endl;
-			if (p->calculateMakespam() < bestSolValue){
+			if (p->calculateFO() < bestSolValue){
 				delete bestSolution;
 				bestSolution = new Problem(*p);
-				bestSolValue = p->calculateMakespam();
+				bestSolValue = p->calculateFO();
 				bestSolOrigin = "LocalSearch1";
 			}
 
@@ -212,7 +212,7 @@ public:
 			// cout << "Starting ILS" << endl;
 			// cin.get();
 			double lastPvalue = p->calculateMakespam();
-			for(int mov = 0; mov < 130; mov++){
+			for(int mov = 0; mov < 10; mov++){
 				break;
 				if(double(clock() - begin) / CLOCKS_PER_SEC >= max_time && useTime) {
 					cout << iter << " " << mov << " ";
@@ -259,7 +259,7 @@ public:
 			// cout << "ITERATION: " << iter << " CURRENT BEST SOL VALUE: " << bestSolValue << endl;
 			// cin.get();
 		}
-		cout << iter << " " << maxILS << " ";
+		// cout << iter << " " << maxILS << " ";
 		// exit(1);
 		// cin.get();
 		// cout << grasp_best << " " << ils_best << " ";

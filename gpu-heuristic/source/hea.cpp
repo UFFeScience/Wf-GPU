@@ -590,7 +590,7 @@ int main(int argc, char **argv) {
     Problem * bestSol = g->start();
     clock_t end = clock();
     // cout << "Cost: " << bestSol->calculateCost() << endl;
-    // cout << "Spam: " << bestSol->calculateMakespam() << endl;
+    // cout << "Spam: " << bestSol->calculateMakespam()<< endl;
     // cout << "FO: " << bestSol->calculateFO() << endl;
     // bestSol->print();
     // cin.get();
@@ -599,8 +599,8 @@ int main(int argc, char **argv) {
 
     double elapseSecs = double(end - begin) / CLOCKS_PER_SEC;
     // cout << bestSol->ponderation << "," << bestSol->calculateMakespam() * 2 << "," << bestSol->calculateCost() * 2 << "," << bestSol->calculateMakespam() << "," << bestSol->calculateCost() << "," << bestSol->calculateFO() << endl;
-    cout << bestSol->calculateFO() << " " << bestSol->calculateMakespam() + 1 << " " << bestSol->calculateCost() << " " << elapseSecs << endl;
-
+    cout << bestSol->calculateFO() << " " << bestSol->calculateMakespam() << " " << bestSol->calculateCost() << " " << elapseSecs << endl;
+    // cin.get();
     // p->print();
 
     //delete setting struct

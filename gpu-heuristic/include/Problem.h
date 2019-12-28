@@ -500,13 +500,12 @@ public:
 				newFinishTimes = vector<double>(this->jobs.size(), 0.0);
 				newStartTimes = vector<double>(this->jobs.size(), 0.0);
 
-				double newSpan = calculate_swapFileAllocation_Effect(file, testVm->id, newStartTimes, newFinishTimes) + 1;
+				double newSpan = calculate_swapFileAllocation_Effect(file, testVm->id, newStartTimes, newFinishTimes);
 				// cout << "JOBID: " << job->id << " i: " << i << " span: " << newSpan << " originalSpan: " << originalCost<< " readtime: " << readtime << " processtime: " << processtime << " writetime: " << writetime << endl;
 
 				// cout << "originalCost: " << originalCost << " newSpan: " << newSpan << " machinePos: " << i << endl;
 				// cin.get();
 				if(bestMove - newSpan > 0.00001){
-					// cout << "The new Span is: " << newSpan << " was: " << originalCost << endl;
 					// cout << "File: " << file->id << " is_Static: " << file->is_static << " Tested VM: " << testVm->id << endl;
 					// print();
 					// cin.get();
@@ -514,11 +513,20 @@ public:
 					bestId = testVm->id;
 					BestnewFinishTimes = newFinishTimes;
 					BestnewStartTimes = newStartTimes;
+					// double aux = this->execSwapFileAllocation(file, bestId, BestnewStartTimes, BestnewFinishTimes);
+					// cout << "Actual Cost: " << aux << endl;
+					// return aux;
 				}
 			}
 			if(bestId >= 0){
 				// cin.get();
-				return this->execSwapFileAllocation(file, bestId, BestnewStartTimes, BestnewFinishTimes);
+				// cout << "The new Span is: " << bestMove << " was: " << originalCost << endl;
+				double aux = this->execSwapFileAllocation(file, bestId, BestnewStartTimes, BestnewFinishTimes);
+				// cout << "Actual Cost: " << aux << endl;
+				// this->print();
+				// cin.get();
+				return aux;
+				// return this->execSwapFileAllocation(file, bestId, BestnewStartTimes, BestnewFinishTimes);
 			}
 		}
 		// cout << "Nao achou melhora!" << endl;
@@ -650,27 +658,29 @@ public:
 		// 	// if(jobs[i]->alocated_vm_id == job->alocated_vm_id)
 		// 		cout << "Id: " << i << " Start: " << newStartTimes[i] << " Finish: " << newFinishTimes[i] << endl;
 		// }
-		// cin.get();
+		// // cin.get();
 
 		double biggestSpan = 0.0;
 		for(int i = 0; i < newFinishTimes.size(); i++){
-			if(newFinishTimes[i] > biggestSpan)
+			if(newFinishTimes[i]  > biggestSpan)
 				biggestSpan = newFinishTimes[i];
 		}
+
+		biggestSpan += 1;
 
 		// cout << "Biggest span: " << biggestSpan << endl;
 
 		double cost = 0.0;
-		for(int i = 0; i < vms.size(); i++){
-			for(int j = 0; j < vms[i]->timelineJobs.size(); j++){
-				// if(hasGpu) {
-					// this->cost += ceil((timelineJobs[i]->base_time_gpu * this->gpu_slowdown)) * usage_cost;
-					// cout << "Size: " << timelineFinishTime.size() << endl;
-					cost += (newFinishTimes[j] - newStartTimes[j] + 1) * vms[i]->usage_cost;
-			}
+		for(int i = 0; i < jobs.size(); i++){
+			int j = jobs[i]->id;
+			int timeUsed = newFinishTimes[j] - newStartTimes[j] + 1;
+			int machineId = jobs[i]->alocated_vm_id;
+			cost += timeUsed * vms[machineId]->usage_cost;
 		}
+		// cout << "PREDICTED COST: " << cost << endl;
 		// cout << "FO of move: " << this->ponderation*(biggestSpan / this->maxTime) + (1.0 - this->ponderation)*(cost / this->maxCost) << endl;
 		return this->ponderation*(biggestSpan / this->maxTime) + (1.0 - this->ponderation)*(cost / this->maxCost);
+
 	}
 
 	double execSwapFileAllocation(Item * file, int writeTo, vector<double>& newStartTimes, vector<double>& newFinishTimes){
@@ -691,6 +701,13 @@ public:
 		for(int vm = 0; vm < vms.size(); vm++){
 			this->fixMachineTimelineOrder(vm);
 		}
+
+		// cout << "times after recalculation" << endl;
+		// for(int i = 0; i < newStartTimes.size(); i++){
+		// 	// if(jobs[i]->alocated_vm_id == job->alocated_vm_id)
+		// 		cout << "Id: " << i << " Start: " << newStartTimes[i] << " Finish: " << newFinishTimes[i] << endl;
+		// }
+		// cin.get();
 
 		return this->calculateFO();
 	}
@@ -774,7 +791,7 @@ public:
 				newStartTimes = vector<double>(this->jobs.size(), 0.0);
 				double newSpan = calculate_swapMachinePair_effect(pos, pos2, job, job2, newTime, newTime2, newStartTimes, newFinishTimes);
 				// cout << "JOBID: " << job->id << " i: " << i << " span: " << newSpan << " originalSpan: " << originalCost<< " readtime: " << readtime << " processtime: " << processtime << " writetime: " << writetime << endl;
-// 123
+
 				// cout << "originalCost: " << originalCost << " newSpan: " << newSpan << endl;
 				
 				// cin.get();
@@ -1081,9 +1098,11 @@ public:
 
 		double biggestSpan = 0.0;
 		for(int i = 0; i < newFinishTimes.size(); i++){
-			if(newFinishTimes[i] + 1 > biggestSpan)
-				biggestSpan = newFinishTimes[i] + 1;
+			if(newFinishTimes[i]  > biggestSpan)
+				biggestSpan = newFinishTimes[i];
 		}
+
+		biggestSpan += 1;
 
 		// cout << "Biggest span: " << biggestSpan << endl;
 
@@ -1178,9 +1197,11 @@ public:
 
 		double biggestSpan = 0.0;
 		for(int i = 0; i < newFinishTimes.size(); i++){
-			if(newFinishTimes[i] + 1 > biggestSpan)
-				biggestSpan = newFinishTimes[i] + 1;
+			if(newFinishTimes[i]  > biggestSpan)
+				biggestSpan = newFinishTimes[i];
 		}
+
+		biggestSpan += 1;
 
 		// cout << "Biggest span: " << biggestSpan << endl;
 
@@ -1329,207 +1350,6 @@ public:
 	}
 
 
-	// double calculate_swapMachineWrite_effect(int allocPos, Job* job, double newTime, vector<int>& output, int vmId, vector<double> &newStartTimes, vector<double> &newFinishTimes){
-	// 	// print();
-	// 	// cout << "newTime: " << newTime  << " vmId: " << vmId << endl;
-		
-	// 	for(int a = 0; a < alloc.size(); a++){ // preenchendo inicio e fim original
-	// 		int jobId = alloc[a]->job->id;
-	// 		Machine * vm = alloc[a]->vms;
-	// 		int posOnVm = vm->jobPosOnTimeline(jobId);
-	// 		newStartTimes[jobId] = vm->timelineStartTime[posOnVm];
-	// 		newFinishTimes[jobId] = vm->timelineFinishTime[posOnVm];
-	// 	}
-
-	// 	// for(int i = 0; i < newStartTimes.size(); i++){
-	// 	// 	if(jobs[i]->alocated_vm_id == job->alocated_vm_id)
-	// 	// 		cout << "Id: " << i << " Start: " << newStartTimes[i] << " Finish: " << newFinishTimes[i] << endl;
-	// 	// }
-	// 	// cin.get();
-
-	// 	newFinishTimes[alloc[allocPos]->job->id] = newStartTimes[alloc[allocPos]->job->id] + newTime; // tempo de fim
-
-	// 	double latestJobConflictFinish = 0.0;
-	// 	double latestJobVmFinish = 0.0;
-
-	// 	for(int a = allocPos + 1; a < alloc.size(); a++){ // recalculando start e finish seguindo a ordem de allocation
-	// 		latestJobConflictFinish = 0.0;
-	// 		latestJobVmFinish = 0.0;
-	// 		int aPosOnVm = alloc[a]->vms->jobPosOnTimeline(alloc[a]->job->id);
-
-	// 		double execTime = alloc[a]->vms->timelineFinishTime[aPosOnVm] - alloc[a]->vms->timelineStartTime[aPosOnVm] - calculateReadtime(alloc[a]->job, alloc[a]->vms->id);
-	// 		// double writeTime = calculateWritetime(alloc[a]->job, alloc[a]->vms->id, alloc[a]->writeTo);
-	// 		// double processTime = ceil(alloc[a]->job->base_time * alloc[a]->vms->slowdown);
-			
-	// 		double readTime = 0.0;
-
-	// 		for(int f = 0; f < alloc[a]->job->input.size(); f++){
-	// 			int minBandwidthVm = alloc[a]->vms->id;
-	// 			if(alloc[a]->job->input[f]->is_static){
-	// 				bool transferNeed = true;
-	// 				double maxBandwidth = 0.0;
-	// 				int id;
-	// 				for(int j = 0; j < alloc[a]->job->input[f]->static_vms.size(); j++){
-	// 					if(alloc[a]->vms->id == alloc[a]->job->input[f]->static_vms[j]){
-	// 						transferNeed = false;
-	// 						break;
-	// 					}
-	// 					if(alloc[a]->job->input[f]->VMsBandwidth[alloc[a]->job->input[f]->static_vms[j]] > maxBandwidth){
-	// 						maxBandwidth = alloc[a]->job->input[f]->VMsBandwidth[alloc[a]->job->input[f]->static_vms[j]];
-	// 						id = alloc[a]->job->input[f]->static_vms[j];
-	// 					}
-	// 				}
-
-	// 				if(maxBandwidth < alloc[a]->job->input[f]->VMsBandwidth[alloc[a]->vms->id])
-	// 					minBandwidthVm = id;
-	// 				if(transferNeed) readTime += alloc[a]->job->input[f]->IOTimeCost[minBandwidthVm];
-	// 			} else{
-	// 				// cout << "Not Static!" << endl;
-	// 				Item * file = alloc[a]->job->input[f];
-	// 				int origin =  file->alocated_vm_id;
-	// 				for(int i = 0; i < output.size(); i++){
-	// 					if(file->id == output[i]){
-	// 						// cout << "Changed VM!" << endl;
-	// 						origin = vmId;						
-	// 						break;			
-	// 					}
-	// 				}				
-	// 				if(origin == alloc[a]->vms->id) continue;
-
-	// 				if(alloc[a]->job->input[f]->VMsBandwidth[origin] < alloc[a]->job->input[f]->VMsBandwidth[minBandwidthVm])
-	// 					minBandwidthVm = origin;
-	// 				// cout << "ReadTime += " <<  alloc[a]->job->input[f]->IOTimeCost[minBandwidthVm] << endl;
-	// 				readTime += alloc[a]->job->input[f]->IOTimeCost[minBandwidthVm];
-	// 			}
-	// 		}
-	// 		// cout << "execTime: " << execTime + calculateReadtime(alloc[a]->job, alloc[a]->vms->id) << " oldRead: " << calculateReadtime(alloc[a]->job, alloc[a]->vms->id);			
-
-	// 		execTime += readTime;
-
-	// 		// cout << " newRead: " << readTime << " newExec: " << execTime << endl;
-
-	// 		for(int b = 0; b < a; b++){
-	// 			int bPosOnVm = alloc[b]->vms->jobPosOnTimeline(alloc[b]->job->id);
-	// 			int bVmId = alloc[b]->vms->id;
-	// 			if(conflicts[alloc[a]->job->id][alloc[b]->job->id] == 0){ // nao tem conflito
-	// 				if(alloc[a]->vms->id == bVmId){ // esta na mesma maquina
-	// 					if(newFinishTimes[alloc[b]->job->id] > latestJobVmFinish) // terminou mais tarde do que o ultimo da mesma vm
-	// 						latestJobVmFinish = newFinishTimes[alloc[b]->job->id];
-	// 				}
-	// 			} else { // tem conflito
-	// 				if(newFinishTimes[alloc[b]->job->id] > latestJobConflictFinish) // terminou mais tarde do que o ultimo que tenha conflito
-	// 					latestJobConflictFinish = newFinishTimes[alloc[b]->job->id];
-	// 			}
-	// 		}
-	// 		newStartTimes[alloc[a]->job->id] = max(latestJobVmFinish, latestJobConflictFinish); // tempo de comeco
-	// 		newFinishTimes[alloc[a]->job->id] = newStartTimes[alloc[a]->job->id] + execTime; // tempo de fim
-	// 	}
-
-
-
-	// 	// for(int i = 0; i < newStartTimes.size(); i++){
-	// 	// 	// if(jobs[i]->alocated_vm_id == job->alocated_vm_id)
-	// 	// 		cout << "Id: " << i << " Start: " << newStartTimes[i] << " Finish: " << newFinishTimes[i] << endl;
-	// 	// }
-	// 	// cin.get();
-
-	// 	double biggestSpan = 0.0;
-	// 	for(int i = 0; i < newFinishTimes[i]; i++){
-	// 		if(newFinishTimes[i] > biggestSpan)
-	// 			biggestSpan = newFinishTimes[i];
-	// 	}
-
-	// 	return biggestSpan;
-
-	// }
-
-	// double test_swapMachineWrite(){
-	// 	vector<double> newFinishTimes;
-	// 	vector<double> newStartTimes;
-	// 	for(int pos = 0; pos < this->alloc.size(); pos++){
-
-	// 		Allocation * swap = this->alloc[pos];
-	// 		Job * job = swap->job;
-	// 		Machine * originalAllocationMachine = swap->vms;
-	// 		double originalCost = this->calculateMakespam();
-
-	// 		// cout << "JobID: " << job->name << endl;
-
-	// 		int posOnTimeline = originalAllocationMachine->jobPosOnTimeline(job->id);
-	// 		double oldExecTime = originalAllocationMachine->timelineFinishTime[posOnTimeline] - originalAllocationMachine->timelineStartTime[posOnTimeline];
-	// 		// cout << "WRITE_TO: " << write_vm_id << endl;
-
-	// 		vector<int> outputs;
-	// 		for(int i = 0; i < job->output.size(); i++){
-	// 			outputs.push_back(job->output[i]->id);
-	// 		}
-
-	// 		for(unsigned int i = 0; i < this->vms.size(); i++){
-	// 			Machine * testVm = this->vms[i];
-	// 			if(testVm->id == swap->writeTo) continue;
-	// 			double readtime = calculateReadtime(job, originalAllocationMachine->id);
-
-	// 			double writetime = calculateWritetime(job, originalAllocationMachine->id, testVm->id);
-
-	// 			double processtime = ceil(job->base_time * originalAllocationMachine->slowdown);
-
-	// 			double newTime = readtime + processtime + writetime;
-
-				
-				
-	// 			// cout << "Calculating cascade effect" << endl;
-	// 			newFinishTimes = vector<double>(this->jobs.size(), 0.0);
-	// 			newStartTimes = vector<double>(this->jobs.size(), 0.0);
-	// 			double newSpan = calculate_swapMachineWrite_effect(pos, job, newTime, outputs, testVm->id, newStartTimes, newFinishTimes);
-	// 			// cout << "JOBID: " << job->id << " i: " << i << " span: " << newSpan << " originalSpan: " << originalCost<< " readtime: " << readtime << " processtime: " << processtime << " writetime: " << writetime << endl;
-
-	// 			// cout << "originalCost: " << originalCost << " newSpan: " << newSpan << " oldExecTime: " << oldExecTime << " newTime: " << newTime << " machinePos: " << i << endl;
-	// 			// cin.get();
-	// 			if(newSpan < originalCost){
-	// 				// cout << "The new Span is: " << newSpan << endl;
-					
-	// 				// cin.get();
-	// 				 return this->execSwapMachineWrite(pos, i, newStartTimes, newFinishTimes);
-	// 			}
-	// 		}
-	// 	}
-	// 	return -1.0;
-	// }
-
-	// double execSwapMachineWrite(int pos, int vmId, vector<double>& newStartTimes, vector<double>& newFinishTimes){
-	// 	Job * changedJob = this->alloc[pos]->job;
-	// 	Machine * changedVm = this->vms[vmId];
-
-	// 	for(int a = 0; a < this->alloc.size(); a++){
-	// 		Job * job = this->alloc[a]->job;
-	// 		Machine * vm = this->alloc[a]->vms;
-	// 		int posOnTimeline = vm->jobPosOnTimeline(job->id);
-
-	// 		if(job->id == changedJob->id){
-	// 			// cout << "Is Changed Job!" << endl;
-	// 			for(int f = 0; f < job->output.size(); f++){
-	// 				job->output[f]->alocated_vm_id = vmId;
-	// 			}
-	// 		} 
-	// 		vm->timelineFinishTime[posOnTimeline] = newFinishTimes[job->id];
-	// 		vm->timelineStartTime[posOnTimeline] = newStartTimes[job->id];			
-	// 	}
-
-	// 	this->alloc[pos]->writeTo = vmId;
-
-	// 	for(int vm = 0; vm < vms.size(); vm++){
-	// 		this->fixMachineTimelineOrder(vm);
-	// 	}
-	// 	// this->calculateMakespam();
-	// 	// this->print();
-
-	// 	// this->checkFeasible();
-	// 	// cin.get();
-
-	// 	return this->calculateMakespam();
-	// }
-
-
 	bool test_reallocate_valid(int pos, int newPos){
 		Job * job = alloc[pos]->job;
 
@@ -1557,33 +1377,33 @@ public:
 		return true;
 	}
 
-	// double exec_reallocate(int pos1, int pos2, vector<double> newStartTimes, vector<double> newFinishTimes){
-	// 	for(int a = 0; a < this->alloc.size(); a++){
-	// 		Job * job = this->alloc[a]->job;
-	// 		Machine * vm = this->alloc[a]->vms;
-	// 		int posOnTimeline = vm->jobPosOnTimeline(job->id);
-	// 		vm->timelineFinishTime[posOnTimeline] = newFinishTimes[job->id];
-	// 		vm->timelineStartTime[posOnTimeline] = newStartTimes[job->id];			
-	// 	}
-	// 	Allocation * aux = alloc[pos1];
-	// 	alloc[pos1] = alloc[pos2];
-	// 	alloc[pos2] = aux;
+	double exec_reallocate(int pos1, int pos2, vector<double> newStartTimes, vector<double> newFinishTimes){
+		for(int a = 0; a < this->alloc.size(); a++){
+			Job * job = this->alloc[a]->job;
+			Machine * vm = this->alloc[a]->vms;
+			int posOnTimeline = vm->jobPosOnTimeline(job->id);
+			vm->timelineFinishTime[posOnTimeline] = newFinishTimes[job->id];
+			vm->timelineStartTime[posOnTimeline] = newStartTimes[job->id];			
+		}
+		Allocation * aux = alloc[pos1];
+		alloc[pos1] = alloc[pos2];
+		alloc[pos2] = aux;
 
-	// 	this->calculateMakespam();
-	// 	// this->print();
-	// 	// this->printAlloc();
-	// 	// cin.get();
+		this->calculateMakespam();
+		// this->print();
+		// this->printAlloc();
+		// cin.get();
 
-	// 	for(int vm = 0; vm < vms.size(); vm++){
-	// 		this->fixMachineTimelineOrder(vm);
-	// 	}
+		for(int vm = 0; vm < vms.size(); vm++){
+			this->fixMachineTimelineOrder(vm);
+		}
 		
 
-	// 	// this->checkFeasible();
-	// 	// cin.get();
+		// this->checkFeasible();
+		// cin.get();
 
-	// 	return this->calculateMakespam();
-	// }
+		return this->calculateFO();
+	}
 
 	double test_reallocate(){
 		// this->print();
@@ -1606,7 +1426,7 @@ public:
 				newStartTimes = vector<double>(this->jobs.size(), 0.0);
 
 				double newSpan = calculate_reallocate_effect(pos1, pos2, newStartTimes, newFinishTimes);
-				if(newSpan < originalCost){
+				if(originalCost - newSpan > 0.00001){
 					// cout << "newSpan: " << newSpan << " oldSpam: " << originalCost << endl;
 					// cin.get();
 					// cout << "Pos1: " << pos1 << " pos2: " << pos2 <<  endl;
@@ -1678,12 +1498,25 @@ public:
 		// cin.get();
 
 		double biggestSpan = 0.0;
-		for(int i = 0; i < newFinishTimes[i]; i++){
-			if(newFinishTimes[i] > biggestSpan)
+		for(int i = 0; i < newFinishTimes.size(); i++){
+			if(newFinishTimes[i]  > biggestSpan)
 				biggestSpan = newFinishTimes[i];
 		}
 
-		return biggestSpan;
+		biggestSpan += 1;
+
+		// cout << "Biggest span: " << biggestSpan << endl;
+
+		double cost = 0.0;
+		for(int i = 0; i < jobs.size(); i++){
+			int j = jobs[i]->id;
+			int timeUsed = newFinishTimes[j] - newStartTimes[j] + 1;
+			int machineId = jobs[i]->alocated_vm_id;
+			cost += timeUsed * vms[machineId]->usage_cost;
+		}
+		// cout << "Move cost: " << cost << endl;
+		// cout << "FO of move: " << this->ponderation*(biggestSpan / this->maxTime) + (1.0 - this->ponderation)*(cost / this->maxCost) << endl;
+		return this->ponderation*(biggestSpan / this->maxTime) + (1.0 - this->ponderation)*(cost / this->maxCost);
 
 	}
 
@@ -1978,23 +1811,30 @@ public:
 
 	bool perturbateMachine(int pos){
 
-		// int newVM = rand() % vms.size();
+		int newVM = rand() % vms.size();
 
-		// Job* job = alloc[pos]->job;
+		Job* job = alloc[pos]->job;
 
-		// Machine * testVm = this->vms[newVM];
+		Machine * testVm = this->vms[newVM];
 
-		// double readtime = calculateReadtime(job, testVm->id);
-		// double writetime = calculateWritetime(job, testVm->id, alloc[pos]->writeTo);
-		// double processtime = ceil(job->base_time * testVm->slowdown);
+		double readtime = testVm->calculateReadtime(job);
+		double writetime = testVm->calculateWritetime(job, alloc[pos]->writeTo);
+		double processtime;
+		if(testVm->hasGpu && job->gpu){
+			processtime = ceil(job->base_time_gpu * testVm->gpu_slowdown);
+			job->on_gpu = true;
+		} else if(!testVm->hasGpu || !job->gpu){
+			processtime = ceil(job->base_time_cpu * testVm->cpu_slowdown);
+			job->on_gpu = false;
+		}
 
-		// double newTime = readtime + processtime + writetime;
+		double newTime = readtime + processtime + writetime;
 
-		// vector<double> newFinishTimes = vector<double>(this->jobs.size(), 0.0);
-		// vector<double> newStartTimes = vector<double>(this->jobs.size(), 0.0);
-		// double newSpan = calculate_swapMachine_effect(pos, job, newTime, testVm->id, newStartTimes, newFinishTimes);
+		vector<double> newFinishTimes = vector<double>(this->jobs.size(), 0.0);
+		vector<double> newStartTimes = vector<double>(this->jobs.size(), 0.0);
+		double newSpan = calculate_swapMachine_effect(pos, job, newTime, testVm->id, newStartTimes, newFinishTimes);
 
-		// this->execSwapMachine(pos, testVm->id, newStartTimes, newFinishTimes);
+		this->execSwapMachine(pos, testVm->id, newStartTimes, newFinishTimes);
 
 		return true;
 	}
@@ -2029,7 +1869,7 @@ public:
 			for(unsigned int j = 0; j < vms[i]->timelineJobs.size(); j++){
 				gpu = "False";
 				if(vms[i]->timelineJobs[j]->on_gpu) gpu = "True";
-				cout << vms[i]->timelineJobs[j]->name  << " onGPU: " << gpu << " ( " << vms[i]->timelineStartTime[j] << "," << vms[i]->timelineFinishTime[j] << " )" << " ";
+				cout << vms[i]->timelineJobs[j]->id  << " onGPU: " << gpu << " ( " << vms[i]->timelineStartTime[j] << "," << vms[i]->timelineFinishTime[j] << " )" << " ";
 			}
 			cout << endl;
 		}
