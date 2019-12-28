@@ -90,6 +90,18 @@ algorithm
 Problem.h
 /mnt/d/mestrado/Wf-GPU/gpu-heuristic/include/Problem.h
 
+/mnt/d/mestrado/Wf-GPU/gpu-heuristic/include/MILS.h
+string
+-
+iostream
+-
+algorithm
+-
+Problem.h
+/mnt/d/mestrado/Wf-GPU/gpu-heuristic/include/Problem.h
+LocalSearch.h
+/mnt/d/mestrado/Wf-GPU/gpu-heuristic/include/LocalSearch.h
+
 /mnt/d/mestrado/Wf-GPU/gpu-heuristic/include/MinMin.h
 string
 -
@@ -141,4 +153,6 @@ iostream
 /mnt/d/mestrado/Wf-GPU/gpu-heuristic/include/Problem.h
 ../include/Grasp.h
 /mnt/d/mestrado/Wf-GPU/gpu-heuristic/include/Grasp.h
+../include/MILS.h
+/mnt/d/mestrado/Wf-GPU/gpu-heuristic/include/MILS.h
 

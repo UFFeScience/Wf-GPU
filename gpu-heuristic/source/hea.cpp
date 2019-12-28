@@ -3,7 +3,7 @@
 #include "../include/MinMin.h"
 #include "../include/Problem.h"
 #include "../include/Grasp.h"
-// #include "../include/MILS.h"
+#include "../include/MILS.h"
 
 typedef vector<Chromosome> vect_chrom_type;
 
@@ -580,36 +580,41 @@ int main(int argc, char **argv) {
 
 
     double bestValue = INFINITY;
-    // Problem * bestProblem;
-    Problem * bestSol = new Problem(name_workflow, setting->maxTime, setting->maxCost);
+    Problem * bestSol;
+    Problem * empty = new Problem(name_workflow, setting->maxTime, setting->maxCost);
+
+    Mils * g = new Mils(empty, setting->alpha, setting->mutation_probability);
+    bestSol = g->start(begin, name_workflow, setting->maxTime, setting->maxCost);
     double totalTime = 0.0;
     clock_t start = clock();
-    for(int i = 0; i < 100; i++){
-        Problem * p = new Problem(name_workflow, setting->maxTime, setting->maxCost);
-        double cost = p->createSolution(setting->alpha);
+    // for(int i = 0; i < 100; i++){
+        // Problem * p = new Problem(name_workflow, setting->maxTime, setting->maxCost);
+        // double cost = p->createSolution(setting->alpha);
         // cout << "Cost: " << p->calculateCost() << endl;
         // cout << "Spam: " << p->calculateMakespam() << endl;
         // cout << "NewCost: " << cost << endl;
-        if(cost < bestValue){
-            delete bestSol;
-            bestValue = cost;
-            bestSol = p;
-        } else{
-            delete p;
-        }
-
-        // delete p;
+        // p->print();
         // cin.get();
-        // if(cost < bestValue){
-        //     delete bestProblem;
-        //     bestProblem = p;
-        //     bestValue = cost;
-        // } else
-        // {
-        //     delete p;
-        // }
+    //     if(cost < bestValue){
+    //         delete bestSol;
+    //         bestValue = cost;
+    //         bestSol = p;
+    //     } else{
+    //         delete p;
+    //     }
+
+    //     // delete p;
+    //     // cin.get();
+    //     // if(cost < bestValue){
+    //     //     delete bestProblem;
+    //     //     bestProblem = p;
+    //     //     bestValue = cost;
+    //     // } else
+    //     // {
+    //     //     delete p;
+    //     // }
         
-    }
+    // }
     clock_t end = clock();
     // cout << "Cost: " << bestSol->calculateCost() << endl;
     // cout << "Spam: " << bestSol->calculateMakespam() << endl;
@@ -622,6 +627,7 @@ int main(int argc, char **argv) {
     double elapseSecs = double(end - begin) / CLOCKS_PER_SEC;
     // cout << bestSol->ponderation << "," << bestSol->calculateMakespam() * 2 << "," << bestSol->calculateCost() * 2 << "," << bestSol->calculateMakespam() << "," << bestSol->calculateCost() << "," << bestSol->calculateFO() << endl;
     cout << bestSol->calculateFO() << " " << bestSol->calculateMakespam() + 1 << " " << bestSol->calculateCost() << " " << elapseSecs << endl;
+    // cout << p->calculateFO() << " " << p->calculateMakespam() + 1 << " " << p->calculateCost() << " " << elapseSecs << endl;
     // cin.get();
     // p->print();
 
