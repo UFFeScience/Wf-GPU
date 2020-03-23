@@ -433,10 +433,10 @@ public:
 			double execTime;
 			if(alloc[a]->vms->hasGpu && alloc[a]->job->gpu){
 				execTime = ceil(alloc[a]->job->base_time_gpu * alloc[a]->vms->gpu_slowdown);
-				alloc[a]->job->on_gpu = true;
+				// alloc[a]->job->on_gpu = true;
 			} else if(!alloc[a]->vms->hasGpu || !alloc[a]->job->gpu){
 				execTime = ceil(alloc[a]->job->base_time_cpu * alloc[a]->vms->cpu_slowdown);
-				alloc[a]->job->on_gpu = false;
+				// alloc[a]->job->on_gpu = false;
 			}
 			// double execTime = ceil(alloc[a]->vms->slowdown * alloc[a]->job->base_time);
 			// cout << "********* calculated execTime: " << execTime << endl;
@@ -445,7 +445,7 @@ public:
 
 			double readtime = 0.0; // calculando o tempo de leitura de todos os arquivos de input necessarios caso nao estejam alocados na Maquina
 			for(unsigned int i = 0; i < alloc[a]->job->input.size(); i++){
-				if(alloc[a]->job->input[i]->alocated_vm_id == alloc[a]->vms->id){
+				if(newAlocations[alloc[a]->job->input[i]->id] == alloc[a]->vms->id){
 					readtime += 1.0;
 					continue;
 				}
@@ -467,7 +467,7 @@ public:
 				} else{
 					double readTime;
 					Item * auxFile = alloc[a]->job->input[i];
-					int origin = auxFile->alocated_vm_id;
+					int origin = newAlocations[auxFile->id];
 					
 					if(file->id == auxFile->id) origin = writeTo;
 
@@ -512,7 +512,7 @@ public:
 			// cin.get();
 
 			// cout << "execTime: " << execTime + calculateReadtime(alloc[a]->job, alloc[a]->vms->id) << " oldRead: " << calculateReadtime(alloc[a]->job, alloc[a]->vms->id);			
-
+			// cout << "JobId: " << alloc[a]->job->id << " JobName: " << alloc[a]->job->name <<  " execTime: " << execTime << " readTime: " << readtime << " writeTime: " << writetime << endl;
 			execTime += readtime + writetime;
 
 			// cout << "FileID: " << file->id << " newWriteTo: " << writeTo << " newRead: " << readtime << " newExec: " << execTime << endl;
@@ -523,16 +523,17 @@ public:
 				int bVmId = alloc[b]->vms->id;
 				if(conflicts[alloc[a]->job->id][alloc[b]->job->id] == 0){ // nao tem conflito
 					if(alloc[a]->vms->id == bVmId){ // esta na mesma maquina
-						if(newFinishTimes[alloc[b]->job->id] > latestJobVmFinish) // terminou mais tarde do que o ultimo da mesma vm
+						if(newFinishTimes[alloc[b]->job->id] + 1 > latestJobVmFinish) // terminou mais tarde do que o ultimo da mesma vm
 							latestJobVmFinish = newFinishTimes[alloc[b]->job->id] + 1;
 					}
 				} else { // tem conflito
-					if(newFinishTimes[alloc[b]->job->id] > latestJobConflictFinish) // terminou mais tarde do que o ultimo que tenha conflito
+					if(newFinishTimes[alloc[b]->job->id] + 1 > latestJobConflictFinish) // terminou mais tarde do que o ultimo que tenha conflito
 						latestJobConflictFinish = newFinishTimes[alloc[b]->job->id] + 1;
 				}
 			}
 			newStartTimes[alloc[a]->job->id] = max(latestJobVmFinish, latestJobConflictFinish); // tempo de comeco
-			newFinishTimes[alloc[a]->job->id] = newStartTimes[alloc[a]->job->id] + execTime; // tempo de fim
+			newFinishTimes[alloc[a]->job->id] = newStartTimes[alloc[a]->job->id] + execTime - 1; // tempo de fim
+			// cout << "JobId: " << alloc[a]->job->id << " JobName: " << alloc[a]->job->name << " latestJobConflictFinish: " << latestJobConflictFinish << " latestJobVmFinish: " << latestJobVmFinish << " execTime: " << execTime << " readTime: " << readtime << " writeTime: " << writetime << endl;
 		}
 
 
@@ -541,6 +542,8 @@ public:
 		// 	// if(jobs[i]->alocated_vm_id == job->alocated_vm_id)
 		// 		cout << "Id: " << i << " Start: " << newStartTimes[i] << " Finish: " << newFinishTimes[i] << endl;
 		// }
+
+		// cout << "********" << endl;
 		// // cin.get();
 
 		double biggestSpan = 0.0;
@@ -561,6 +564,12 @@ public:
 			cost += timeUsed * vms[machineId]->usage_cost;
 		}
 		// cout << "PREDICTED COST: " << cost << endl;
+		// if(cost == 92.0 && biggestSpan == 35){
+		// 	// cout << "fileId: " << file->id << " writeTo: " << writeTo << endl;
+		// 	// this->print();
+		// 	// cout << "#########################################################################################" << endl;
+		// 	cin.get();
+		// }
 		// cout << "FO of move: " << this->ponderation*(biggestSpan / this->maxTime) + (1.0 - this->ponderation)*(cost / this->maxCost) << endl;
 		return this->ponderation*(biggestSpan / this->maxTime) + (1.0 - this->ponderation)*(cost / this->maxCost);
 
@@ -699,10 +708,10 @@ public:
 				double processtime;
 				if(testVm->hasGpu && job->gpu){
 					processtime = ceil(job->base_time_gpu * testVm->gpu_slowdown);
-					job->on_gpu = true;
+					// job->on_gpu = true;
 				} else if(!testVm->hasGpu || !job->gpu){
 					processtime = ceil(job->base_time_cpu * testVm->cpu_slowdown);
-					job->on_gpu = false;
+					// job->on_gpu = false;
 				}
 				double newTime = readtime + processtime + writetime;
 
@@ -778,10 +787,10 @@ public:
 
 				if(testVm->hasGpu && job2->gpu){
 					processtime = ceil(job2->base_time_gpu * testVm->gpu_slowdown);
-					job2->on_gpu = true;
+					// job2->on_gpu = true;
 				} else if(!testVm->hasGpu || !job->gpu){
 					processtime = ceil(job2->base_time_cpu * testVm->cpu_slowdown);
-					job2->on_gpu = false;
+					// job2->on_gpu = false;
 				}
 
 				double newTime2 = readtime + processtime + writetime;
@@ -849,11 +858,11 @@ public:
 		for(int a = 0; a < allocPos; a++){
 			if(conflicts[job->id][alloc[a]->job->id] == 0){ // nao tem conflito
 				if(alloc[a]->vms->id == vmId){ // esta na mesma maquina
-					if(newFinishTimes[alloc[a]->job->id] > latestJobVmFinish) // terminou mais tarde do que o ultimo da mesma vm
+					if(newFinishTimes[alloc[a]->job->id] + 1 > latestJobVmFinish) // terminou mais tarde do que o ultimo da mesma vm
 						latestJobVmFinish = newFinishTimes[alloc[a]->job->id] + 1;
 				}
 			} else{ // tem conflito
-				if(newFinishTimes[alloc[a]->job->id] > latestJobConflictFinish) // terminou mais tarde do que o ultimo que tenha conflito
+				if(newFinishTimes[alloc[a]->job->id] + 1 > latestJobConflictFinish) // terminou mais tarde do que o ultimo que tenha conflito
 					latestJobConflictFinish = newFinishTimes[alloc[a]->job->id] + 1;
 			}
 		}
@@ -963,8 +972,19 @@ public:
 
 		Job * changedJob = this->alloc[pos]->job;
 		Machine * changedVm = this->alloc[pos2]->vms;
+		
+		if(changedVm->hasGpu && changedJob->gpu)
+			changedJob->on_gpu = true;
+		else if(!changedVm->hasGpu || !changedJob->gpu)
+			changedJob->on_gpu = false;
+
 		Job * changedJob2 = this->alloc[pos2]->job;
 		Machine * changedVm2 = this->alloc[pos]->vms;
+
+		if(changedVm2->hasGpu && changedJob2->gpu)
+			changedJob2->on_gpu = true;
+		else if(!changedVm2->hasGpu || !changedJob2->gpu)
+			changedJob2->on_gpu = false;
 
 		// cout << "JOB1VM: " << changedVm2->id << " JOB2VM: " << changedVm->id << endl;
 		for(int a = 0; a < this->alloc.size(); a++){
@@ -1096,7 +1116,7 @@ public:
 				if(testVm->id == originalAllocationMachine->id) continue;
 				double readtime = 0.0; // calculando o tempo de leitura de todos os arquivos de input necessarios caso nao estejam alocados na Maquina
 				for(unsigned int i = 0; i < job->input.size(); i++){
-					if(job->input[i]->alocated_vm_id == testVm->id){
+					if(allocations[job->input[i]->id] == testVm->id){
 						readtime += 1.0;
 						continue;
 					}
@@ -1118,7 +1138,7 @@ public:
 					} else{
 						double readTime;
 						Item * auxFile = job->input[i];
-						int origin = auxFile->alocated_vm_id;
+						int origin = allocations[auxFile->id];
 
 						if(origin == testVm->id){
 							readtime += 1;
@@ -1161,13 +1181,13 @@ public:
 				double processtime;
 				if(testVm->hasGpu && job->gpu){
 					processtime = ceil(job->base_time_gpu * testVm->gpu_slowdown);
-					job->on_gpu = true;
+					// job->on_gpu = true;
 				} else if(!testVm->hasGpu || !job->gpu){
 					processtime = ceil(job->base_time_cpu * testVm->cpu_slowdown);
-					job->on_gpu = false;
+					// job->on_gpu = false;
 				}
 
-				double newTime = readtime + processtime + writetime;
+				double newTime = readtime + processtime + writetime - 1;
 
 				
 				
@@ -1218,11 +1238,11 @@ public:
 		for(int a = 0; a < allocPos; a++){
 			if(conflicts[job->id][alloc[a]->job->id] == 0){ // nao tem conflito
 				if(alloc[a]->vms->id == vmId){ // esta na mesma maquina
-					if(newFinishTimes[alloc[a]->job->id] > latestJobVmFinish) // terminou mais tarde do que o ultimo da mesma vm
+					if(newFinishTimes[alloc[a]->job->id] + 1 > latestJobVmFinish) // terminou mais tarde do que o ultimo da mesma vm
 						latestJobVmFinish = newFinishTimes[alloc[a]->job->id] + 1;
 				}
 			} else{ // tem conflito
-				if(newFinishTimes[alloc[a]->job->id] > latestJobConflictFinish) // terminou mais tarde do que o ultimo que tenha conflito
+				if(newFinishTimes[alloc[a]->job->id] + 1 > latestJobConflictFinish) // terminou mais tarde do que o ultimo que tenha conflito
 					latestJobConflictFinish = newFinishTimes[alloc[a]->job->id] + 1;
 			}
 		}
@@ -1289,6 +1309,12 @@ public:
 	double execSwapMachine(int pos, int vmId, vector<double>& newStartTimes, vector<double>& newFinishTimes){
 		Job * changedJob = this->alloc[pos]->job;
 		Machine * changedVm = this->vms[vmId];
+
+		if(changedVm->hasGpu && changedJob->gpu){
+			changedJob->on_gpu = true;
+		} else if(!changedVm->hasGpu || !changedJob->gpu){
+			changedJob->on_gpu = false;
+		}
 
 		for(int a = 0; a < this->alloc.size(); a++){
 			Job * job = this->alloc[a]->job;
@@ -1444,11 +1470,11 @@ public:
 				
 				if(conflicts[alloc[usedPos]->job->id][alloc[usedPos2]->job->id] == 0){ // nao tem conflito
 					if(alloc[usedPos]->vms->id == bVmId){ // esta na mesma maquina
-						if(newFinishTimes[alloc[usedPos2]->job->id] > latestJobVmFinish) // terminou mais tarde do que o ultimo da mesma vm
+						if(newFinishTimes[alloc[usedPos2]->job->id] + 1 > latestJobVmFinish) // terminou mais tarde do que o ultimo da mesma vm
 							latestJobVmFinish = newFinishTimes[alloc[usedPos2]->job->id] + 1;
 					}
 				} else { // tem conflito
-					if(newFinishTimes[alloc[usedPos2]->job->id] > latestJobConflictFinish) // terminou mais tarde do que o ultimo que tenha conflito
+					if(newFinishTimes[alloc[usedPos2]->job->id] + 1 > latestJobConflictFinish) // terminou mais tarde do que o ultimo que tenha conflito
 						latestJobConflictFinish = newFinishTimes[alloc[usedPos2]->job->id] + 1;
 				}
 			}
@@ -1498,7 +1524,6 @@ public:
 		alloc[pos1] = alloc[pos2];
 		alloc[pos2] = aux;
 
-		this->calculateMakespam();
 		// this->print();
 		// this->printAlloc();
 		// cin.get();
@@ -1543,7 +1568,7 @@ public:
 					vm->timelineFinishTime.erase(vm->timelineFinishTime.begin() + j);
 					bool found = false;
 					for(int k = 0; k < vm->timelineJobs.size(); k++){
-						if(vm->timelineStartTime[k] >= finishTime){
+						if(vm->timelineStartTime[k] > finishTime){
 							found = true;
 							vm->timelineJobs.insert(vm->timelineJobs.begin() + k, job);
 							vm->timelineStartTime.insert(vm->timelineStartTime.begin() + k, startTime);
@@ -1918,14 +1943,17 @@ public:
 	}
 
 	bool doMovement(int vm, int output, Job* job, bool GPU){
-		Allocation * newAlloc = new Allocation();
-		newAlloc->job = job;
-		newAlloc->vms = vms[vm];
-		newAlloc->writeTo = output;
-		// newAlloc->GPU = GPU;
-		alloc.push_back(newAlloc);
-		// return vms[vm]->pushJob(job, output, getJobConflictMinSpam(job), GPU);
 		bool pushed = vms[vm]->pushJob(job, output, getJobConflictMinSpam(job));
+		if (pushed){
+			Allocation * newAlloc = new Allocation();
+			newAlloc->job = job;
+			newAlloc->vms = vms[vm];
+			newAlloc->writeTo = output;
+			// newAlloc->GPU = GPU;
+			alloc.push_back(newAlloc);
+		}
+		// return vms[vm]->pushJob(job, output, getJobConflictMinSpam(job), GPU);
+		
 		// cin.get();
 		return pushed;
 	}

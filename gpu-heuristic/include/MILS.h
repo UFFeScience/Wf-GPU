@@ -29,14 +29,16 @@ class Mils{
             this->perturbationPercentage = perturbationPercentage;
         }
 
-        Problem * startLocalSearch(Problem * p){
+        Problem * startLocalSearch(Problem * p, clock_t begin){
 		// cout << "Started Local Search" << endl;
 
             bool improvement = true;
             while(improvement){
-                // cout << "LOOP START Cost: " << p->calculateMakespam() << " Elapsed Time: " << double(clock() - begin) / CLOCKS_PER_SEC << endl;
-                // p->print();
-                // cin.get();
+                if(double(clock() - begin) / CLOCKS_PER_SEC >= 1800){
+                    // cout << iter << " " << ils << " ";
+                    // cout << grasp_best << " " << ils_best << " ";
+                    return p;
+                }
                 improvement = false;
                 bool lsImprovement = false;
                 double moveCost = 0.0;
@@ -80,21 +82,21 @@ class Mils{
             
                 // cout << "machinePair" << endl;
                 // p->print();
-                moveCost = p->test_swapMachinePair();
-                // p->print();
-                if(moveCost >= 0){
-                    lsImprovement = true;
-                }
-                if(!p->checkFeasible()){
-                    cout << "booom Swap Machine Pair" << endl;
-                    p->print();
-                    p->printAlloc();
-                    cin.get();
-                }
-                if(lsImprovement){
-                    improvement = true;
-                    continue;
-                }
+                // moveCost = p->test_swapMachinePair();
+                // // p->print();
+                // if(moveCost >= 0){
+                //     lsImprovement = true;
+                // }
+                // if(!p->checkFeasible()){
+                //     cout << "booom Swap Machine Pair" << endl;
+                //     p->print();
+                //     p->printAlloc();
+                //     cin.get();
+                // }
+                // if(lsImprovement){
+                //     improvement = true;
+                //     continue;
+                // }
 
                 // // // // cout << "machine" << endl;
                 // // // p->print();
@@ -167,21 +169,25 @@ class Mils{
             bool run = true;
             for(int iter = 0; iter < 100; iter++){
                 // if(iter % 10 == 0){
-                //     cout << "Iter: " << iter << endl;
+                    // cout << "Iter: " << iter << endl;
                 // }
+                
                 p = new Problem(*this->blankProblem);
                 double cost = p->createSolution(this->alpha);
                 // cout << "Cost: " << p->calculateCost() << endl;
                 // cout << "Spam: " << p->calculateMakespam() << endl;
                 // cout << "NewCost: " << cost << endl;
                 // p->print();
+                // cout << p->calculateFO() << " " << p->calculateMakespam() + 1 << " " << p->calculateCost() << endl;
                 // break;
                 // p->printAlloc();
                 if(!p->checkFeasible()){
                     cout << "booom create Sol" << endl;
                     cin.get();
                 }
-                p = startLocalSearch(p);
+                // cout << "Start LS" << endl;
+                p = startLocalSearch(p, begin);
+                // cout << "End LS" << endl;
                 if (p->calculateFO() < bestSolValue){
                     delete bestSolution;
                     bestSolution = new Problem(*p);
@@ -191,30 +197,51 @@ class Mils{
                 // cout << "Starting ILS" << endl;
                 // cin.get();
                 double lastPvalue = p->calculateFO();
-                for(int mov = 0; mov < 100; mov++){
+                if(double(clock() - begin) / CLOCKS_PER_SEC >= 1800){
+                    // cout << iter << " " << ils << " ";
+                    // cout << grasp_best << " " << ils_best << " ";
+                    return bestSolution;
+                }
+                for(int mov = 0; mov < 130; mov++){
+                    // break;
                     // if(mov % 10 == 0){
-                    //     cout << "Mov: " << mov << endl;
+                        // cout << "Mov: " << mov << endl;
                     // }
                     Problem * backupP = new Problem(*p);
+                    // cout << "Start P" << endl;
                     p = startPerturbation(p, this->perturbationPercentage, &machine, &write);    
-                    p = startLocalSearch(p);
-                    if(p->calculateFO() < lastPvalue){
+                    // cout << "End P" << endl;
+                    // cout << "Start LS" << endl;
+                    p = startLocalSearch(p, begin);
+                    // cout << "End LS" << endl;
+                    double newFO = p->calculateFO();
+                    // cout << "newFO: " << newFO  << " lastPvalue: " << lastPvalue << endl;
+                    if(newFO < lastPvalue){
                         lastPvalue = p->calculateFO();
                         delete backupP;
                         backupP = new Problem(*p);
-                        if (p->calculateFO() < bestSolValue){
+                        if (newFO < bestSolValue){
                             grasp_best = iter;
                             ils_best = mov;
                             // cout << "BestSol value after localsearch: " << p->calculateMakespam() << endl;
                             delete bestSolution;
                             bestSolution = new Problem(*p);
-                            bestSolValue = p->calculateFO();
+                            bestSolValue = newFO;
                             bestSolOrigin = "perturbation";
                         }
                     } else{
+                        // cout << "deleting bad solution" << endl;
                         delete p;
+                        // cout << "deleted" << endl;
                         p = backupP;
                     }
+                    
+                    if(double(clock() - begin) / CLOCKS_PER_SEC >= 1800){
+                        // cout << iter << " " << ils << " ";
+                        // cout << grasp_best << " " << ils_best << " ";
+                        return bestSolution;
+                    }
+                    
                 }
                 if(!p->checkFeasible()){
                     cout << "booom create ILS" << endl;
