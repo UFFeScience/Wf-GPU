@@ -174,7 +174,7 @@ public:
 
 		double startTime; // calculando tempo de inicio.
 		if (timelineJobs.size() == 0)
-			startTime = 0.0;
+			startTime = 1.0;
 		else
 			startTime = (timelineFinishTime[timelineFinishTime.size() - 1]) + 1;
 
@@ -424,8 +424,8 @@ public:
 		double latestJobVmFinish = 0.0;
 
 		for(int a = 0; a < alloc.size(); a++){ // recalculando start e finish seguindo a ordem de allocation
-			latestJobConflictFinish = 0.0;
-			latestJobVmFinish = 0.0;
+			latestJobConflictFinish = 1.0;
+			latestJobVmFinish = 1.0;
 			int aPosOnVm = alloc[a]->vms->jobPosOnTimeline(alloc[a]->job->id);
 			// double oldWriteTime = calculateWritetimeWithChanges(alloc[a]->job, alloc[a]->vms->id, oldAlocations);
 			// double oldReadTime = calculateReadtime(alloc[a]->job, alloc[a]->vms->id);
@@ -1450,8 +1450,8 @@ public:
 
 		for(int a = pos1; a < alloc.size(); a++){ // recalculando start e finish seguindo a ordem de allocation
 		
-			double latestJobConflictFinish = 0.0;
-			double latestJobVmFinish = 0.0;
+			double latestJobConflictFinish = 1.0;
+			double latestJobVmFinish = 1.0;
 			int usedPos = a;
 			if(a == pos1) usedPos = pos2;
 			if(a == pos2) usedPos = pos1;
@@ -1967,17 +1967,26 @@ public:
 		for(unsigned int i = 0; i < vms.size(); i++){
 			string gpu = "False";
 			if(vms[i]->hasGpu) gpu = "True";
-			cout << "ID: " << vms[i]->id << " Name:" << vms[i]->name << " hasGpu: " << gpu << ": " ;
+			cout << "ID: " << vms[i]->id + 1 << " Name:" << vms[i]->name << " hasGpu: " << gpu << ": " ;
 			for(unsigned int j = 0; j < vms[i]->timelineJobs.size(); j++){
 				gpu = "False";
 				if(vms[i]->timelineJobs[j]->on_gpu) gpu = "True";
-				cout << vms[i]->timelineJobs[j]->name  << " onGPU: " << gpu << " ( " << vms[i]->timelineStartTime[j] << "," << vms[i]->timelineFinishTime[j] << " )" << " ";
+				cout << vms[i]->timelineJobs[j]->id + 1  << " onGPU: " << gpu << " ( " << vms[i]->timelineStartTime[j] << "," << vms[i]->timelineFinishTime[j] << " )" << " ";
 			}
 			cout << endl;
 		}
 
 		for(unsigned int i = 0; i < files.size(); i++){
-			cout << "file: " << files[i]->id << " VM: " << files[i]->alocated_vm_id << endl;
+			if(files[i]->is_static){
+				cout << "file: " << files[i]->id + 1<< " VM: ";
+				for(unsigned int j = 0; j < files[i]->static_vms.size(); j++){
+					cout << files[i]->static_vms[j] + 1 << " ";
+				}
+				cout << endl;
+			}else{
+				cout << "file: " << files[i]->id + 1<< " VM: " << files[i]->alocated_vm_id + 1<< endl;
+			}
+			
 		}
 	}
 

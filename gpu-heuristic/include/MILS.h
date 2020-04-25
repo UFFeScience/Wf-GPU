@@ -47,7 +47,7 @@ class Mils{
                 // cout << "ExitFileAlloc" << endl;
                 if(moveCost >= 0){
                     lsImprovement = true;
-                    // cout << "MEELHOROU COM A NOVA BL!: " << moveCost << endl;
+                    // cout << "MEELHOROU COM A FILEALLOC BL!: " << moveCost << endl;
                     // p->print();
                     // cin.get();
                 }
@@ -63,10 +63,11 @@ class Mils{
                 // cout << "Realloc" << endl;
                 // p->print();
                 moveCost = p->test_reallocate();
+                // cout << "ExitRealloc" << endl;
                 // p->print();
                 if(moveCost >= 0){
                     lsImprovement = true;
-                    // cout << "MEELHOROU COM A NOVA BL!: " << moveCost << endl;
+                    // cout << "MEELHOROU COM A REALLOC BL!: " << moveCost << endl;
                     // p->print();
                     // cin.get();
                 }
@@ -100,22 +101,22 @@ class Mils{
 
                 // // // // cout << "machine" << endl;
                 // // // p->print();
-                moveCost = p->test_swapMachine();
-                // p->print();
-                if(moveCost > 0){
-                    lsImprovement = true;
-                }
+                // moveCost = p->test_swapMachine();
+                // // p->print();
+                // if(moveCost > 0){
+                //     lsImprovement = true;
+                // }
 
-                if(!p->checkFeasible()){
-                    cout << "booom Swap MAchine" << endl;
-                    p->print();
-                    cin.get();
-                }
+                // if(!p->checkFeasible()){
+                //     cout << "booom Swap MAchine" << endl;
+                //     p->print();
+                //     cin.get();
+                // }
 
-                if(lsImprovement){
-                    improvement = true;
-                    continue;
-                }
+                // if(lsImprovement){
+                //     improvement = true;
+                //     continue;
+                // }
             }
             // cout << "LOOP FINISHED" << endl;
             // cin.get();
@@ -174,10 +175,11 @@ class Mils{
                 
                 p = new Problem(*this->blankProblem);
                 double cost = p->createSolution(this->alpha);
-                // cout << "Cost: " << p->calculateCost() << endl;
-                // cout << "Spam: " << p->calculateMakespam() << endl;
+                cout << "Cost: " << p->calculateCost() << endl;
+                cout << "Spam: " << p->calculateMakespam() << endl;
                 // cout << "NewCost: " << cost << endl;
-                // p->print();
+                p->print();
+                cin.get();
                 // cout << p->calculateFO() << " " << p->calculateMakespam() + 1 << " " << p->calculateCost() << endl;
                 // break;
                 // p->printAlloc();
